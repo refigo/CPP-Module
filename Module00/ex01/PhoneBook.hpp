@@ -3,8 +3,8 @@
 class PhoneBook
 {
 private:
-	Contact arr[8];
-	int count;
+	Contact contacts_[8];
+	int count_;
 
 public:
 	int add_and_save();

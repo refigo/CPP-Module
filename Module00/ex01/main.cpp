@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 void get_and_save_contact()
 {
@@ -8,17 +10,6 @@ void get_and_save_contact()
 
 int main(void)
 {
-	std::string input;
-	int i;
-
-	i = 5;
-	while (--i)
-	{
-		std::cin >> input;
-		if (input == "ADD" || input == "add")
-			get_and_save_contact();
-		if (std::cin.eof())
-			std::cout << "eof\n";
-	}
+	std::cout << "hello mgo!\n";
 	return (0);
 }

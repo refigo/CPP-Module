@@ -6,11 +6,12 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:09:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/05/25 13:06:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/05/26 21:24:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cctype>
 
 static char *set_to_uppers(char *str)
 {
