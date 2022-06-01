@@ -10,4 +10,5 @@ private:
 	std::string darkest_secret_;
 
 public:
+	const std::string &get_first_name() const;
 };
