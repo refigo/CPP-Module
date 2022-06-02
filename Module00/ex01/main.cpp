@@ -9,16 +9,19 @@ void get_and_save_contact()
 int main(void)
 {
 	PhoneBook phonebook;
-	// constructor
 
-	std::cout << "panel: hello mgo!\n";
 	while (1)
 	{
 		// print panel(prompt)
-		std::cout << "Please input cmd: ";
-		// get input
-		phonebook.get_input();
+		std::cout << "Please input cmd: "; // todo: replace to use method
+		// get cmd
+		phonebook.get_cmd();
 		// run
+		if (phonebook.is_cmd_exit())
+			break;
+		else if (phonebook.is_cmd_add())
+			phonebook.add_contact();
+		//phonebook.is_cmd_search();
 	}
 
 	return (0);
