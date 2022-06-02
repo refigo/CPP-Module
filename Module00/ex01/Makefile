@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 15:19:30 by mgo               #+#    #+#              #
-#    Updated: 2022/06/02 13:11:43 by mgo              ###   ########.fr        #
+#    Updated: 2022/06/02 18:09:45 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ CXX			=	c++
 rm			=	rm -f
 
 SRC			=	main.cpp \
+				PhoneBook.cpp \
+				Contact.cpp \
 				utils.cpp
 OBJ			=	$(SRC:.cpp=.o)
 

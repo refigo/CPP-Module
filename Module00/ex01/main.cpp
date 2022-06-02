@@ -20,8 +20,11 @@ int main(void)
 		if (phonebook.is_cmd_exit())
 			break;
 		else if (phonebook.is_cmd_add())
-			phonebook.add_contact();
-		//phonebook.is_cmd_search();
+			phonebook.save_contact();
+		else if (phonebook.is_cmd_search())
+			phonebook.display_contacts();
+		else
+			std::cout << "invalid cmd..\n";
 	}
 	//system("leaks test");
 	return (0);
