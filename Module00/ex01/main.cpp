@@ -23,6 +23,6 @@ int main(void)
 			phonebook.add_contact();
 		//phonebook.is_cmd_search();
 	}
-
+	//system("leaks test");
 	return (0);
 }

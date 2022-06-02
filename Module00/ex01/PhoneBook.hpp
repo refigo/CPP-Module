@@ -1,6 +1,10 @@
 // mgo's
-#ifndef PHONE_BOOK_HPP
-#define PHONE_BOOK_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
+
+#include "Contact.hpp"
+#include "utils.hpp"
+
 #include <iostream>
 #include <string>
 
@@ -10,19 +14,6 @@ enum e_bool
 {
 	FALSE,
 	TRUE
-};
-
-class Contact
-{
-private:
-	std::string first_name_;
-	std::string last_name_;
-	std::string nickname_;
-	std::string phone_number_;
-	std::string darkest_secret_;
-
-public:
-	int set_first_name();
 };
 
 class PhoneBook
@@ -40,6 +31,7 @@ public:
 	e_bool is_cmd_exit(void);
 
 	void add_contact(void);
+	void show_contacts(void);
 	// show_contacts
 	// show contact
 
@@ -64,8 +56,8 @@ void PhoneBook::get_cmd(void)
 {
 	std::string input;
 
-	std::cin >> input;
-	std::cout << "input: [" << input << "]\n";
+	input = get_input_with_trimming_ws();
+	std::cout << "input: [" << input << "]\n"; // todo: remove
 	cmd_ = input;
 }
 
@@ -99,6 +91,8 @@ e_bool PhoneBook::is_cmd_exit(void)
 		return (TRUE);
 	else if (cmd_ == "e")
 		return (TRUE);
+	else if (cmd_ == "")
+		return (TRUE);
 	return (FALSE);
 }
 
@@ -106,11 +100,12 @@ void PhoneBook::add_contact(void)
 {
 	Contact contact;
 
+	contact.get_informs();
 	contacts_[current_contact_count_] = contact;
 	// todo: refactor
 	if (current_contact_count_ != CONTACTS_MAX)
 		current_contact_count_++;
-	if (current_contact_position_ == CONTACTS_MAX)
+	if (current_contact_position_ == CONTACTS_MAX - 1)
 		current_contact_position_ = 0;
 	else
 		current_contact_position_++;
