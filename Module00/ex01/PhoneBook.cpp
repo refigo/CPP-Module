@@ -1,17 +1,5 @@
 #include "PhoneBook.hpp"
 
-void PhoneBook::print_contact_shortly_index_(int i)
-{
-	std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
-	std::cout << '|';
-	cout_str_with_width(contacts_[i].get_first_name(), 10);
-	std::cout << '|';
-	cout_str_with_width(contacts_[i].get_last_name(), 10);
-	std::cout << '|';
-	cout_str_with_width(contacts_[i].get_nickname(), 10);
-	std::cout << '|' << '\n';
-}
-
 void PhoneBook::set_cmd(void)
 {
 	std::string input;
@@ -71,14 +59,9 @@ void PhoneBook::save_contact(void)
 	std::cout << "Successfully saved!\n";
 }
 
-void PhoneBook::display_contacts(void)
+
+void PhoneBook::print_contacts_header_(void)
 {
-	if (current_contact_count_ == 0)
-	{
-		std::cout << "None of contacts...\n";
-		return;
-	}
-	std::cout << std::setfill('=') << std::setw(46) << '\n';
 	std::cout << B_WHITE;
 	std::cout << '|';
 	cout_str_with_width("index", 10);
@@ -90,13 +73,38 @@ void PhoneBook::display_contacts(void)
 	cout_str_with_width("nickname", 10);
 	std::cout << '|' << '\n';
 	std::cout << END_OF_COLOR;
+}
+
+void PhoneBook::print_contact_names_index_(int i)
+{
+	std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
+	std::cout << '|';
+	cout_str_with_width(contacts_[i].get_first_name(), 10);
+	std::cout << '|';
+	cout_str_with_width(contacts_[i].get_last_name(), 10);
+	std::cout << '|';
+	cout_str_with_width(contacts_[i].get_nickname(), 10);
+	std::cout << '|' << '\n';
+}
+
+void PhoneBook::display_contacts(void)
+{
+	int index;
+
+	if (current_contact_count_ == 0)
+	{
+		std::cout << "None of contacts...\n";
+		return;
+	}
+	std::cout << std::setfill('=') << std::setw(46) << '\n';
+	print_contacts_header_();
 	for (int i = 0; i < current_contact_count_; ++i)
-		print_contact_shortly_index_(i);
+		print_contact_names_index_(i);
 	std::cout << std::setfill('=') << std::setw(46) << '\n';
 
 	// get index and display contact information
-	int index;
 	std::cout << "Input index: ";
+	// todo: debug when not number
 	std::cin >> index;
 	if (index < current_contact_count_)
 		contacts_[index].display_infos();

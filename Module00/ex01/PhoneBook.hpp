@@ -19,11 +19,11 @@ private:
 	int current_contact_position_;
 	std::string cmd_;
 
-	void print_contact_shortly_index_(int i);
+	void print_contacts_header_(void);
+	void print_contact_names_index_(int i);
 
 public:
-	void
-	set_cmd(void);
+	void set_cmd(void);
 	e_bool is_cmd_add(void);
 	e_bool is_cmd_search(void);
 	e_bool is_cmd_exit(void);
