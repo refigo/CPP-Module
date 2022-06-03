@@ -1,23 +1,10 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void)
-{
-	current_contact_count_ = 0;
-	current_contact_position_ = 0;
-	std::cout << "Opened my awesome phone book!\n";
-}
-
-PhoneBook::~PhoneBook(void)
-{
-	std::cout << "Closed my awesome phone book..\n";
-}
-
-// get input, get command
-void PhoneBook::get_cmd(void)
+void PhoneBook::set_cmd(void)
 {
 	std::string input;
 
-	input = get_input_with_trimming_ws();
+	input = get_input_trimmed_ws();
 	std::cout << "input: [" << input << "]\n"; // todo: remove
 	cmd_ = input;
 }
@@ -61,8 +48,8 @@ void PhoneBook::save_contact(void)
 {
 	Contact contact;
 
-	contact.get_informs();
-	contacts_[current_contact_count_] = contact;
+	contact.set_infos();
+	contacts_[current_contact_position_] = contact;
 	// todo: refactor
 	if (current_contact_count_ != CONTACTS_MAX)
 		current_contact_count_++;
@@ -87,7 +74,7 @@ void PhoneBook::display_contacts(void)
 {
 	if (current_contact_count_ == 0)
 	{
-		std::cout << "None of contacts..\n";
+		std::cout << "None of contacts...\n";
 		return;
 	}
 
@@ -109,14 +96,26 @@ void PhoneBook::display_contacts(void)
 	{
 		std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
 		std::cout << '|';
-		cout_str_with_width(contacts_[i].put_first_name(), 10);
+		cout_str_with_width(contacts_[i].get_first_name(), 10);
 		std::cout << '|';
-		cout_str_with_width(contacts_[i].put_last_name(), 10);
+		cout_str_with_width(contacts_[i].get_last_name(), 10);
 		std::cout << '|';
-		cout_str_with_width(contacts_[i].put_nickname(), 10);
+		cout_str_with_width(contacts_[i].get_nickname(), 10);
 		std::cout << '|' << '\n';
 	}
 
 	std::cout << std::setfill('=') << std::setw(46) << '\n';
 	// get index and display contact information
+}
+
+PhoneBook::PhoneBook(void)
+{
+	current_contact_count_ = 0;
+	current_contact_position_ = 0;
+	std::cout << "Opened my awesome phone book!\n";
+}
+
+PhoneBook::~PhoneBook(void)
+{
+	std::cout << "Closed my awesome phone book...\n";
 }

@@ -7,12 +7,6 @@
 #include <iostream>
 #include <string>
 
-enum e_result
-{
-	FAIL,
-	SUCCESS
-};
-
 class Contact
 {
 private:
@@ -23,18 +17,18 @@ private:
 	std::string darkest_secret_;
 
 public:
-	e_result get_informs(void);
-	e_result get_first_name(void);
-	e_result get_last_name(void);
-	e_result get_nickname(void);
-	e_result get_phone_number(void);
-	e_result get_darkest_secret(void);
-	//const std::string &get_first_name() const;
-	std::string put_first_name(void);
-	std::string put_last_name(void);
-	std::string put_nickname(void);
-	std::string put_phone_number(void);
-	std::string put_darkest_secret(void);
+	e_result set_infos(void);
+	e_result set_first_name(void);
+	e_result set_last_name(void);
+	e_result set_nickname(void);
+	e_result set_phone_number(void);
+	e_result set_darkest_secret(void);
+
+	std::string get_first_name(void);
+	std::string get_last_name(void);
+	std::string get_nickname(void);
+	std::string get_phone_number(void);
+	std::string get_darkest_secret(void);
 };
 
 #endif

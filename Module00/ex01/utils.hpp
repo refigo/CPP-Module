@@ -5,6 +5,18 @@
 #include <iostream>
 #include <string>
 
-std::string get_input_with_trimming_ws(void);
+enum e_bool
+{
+	FALSE,
+	TRUE
+};
+
+enum e_result
+{
+	FAIL,
+	SUCCESS
+};
+
+std::string get_input_trimmed_ws(void);
 
 #endif
