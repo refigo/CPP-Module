@@ -93,7 +93,15 @@ void PhoneBook::display_contacts(void)
 	for (int i = 0; i < current_contact_count_; ++i)
 		print_contact_shortly_index_(i);
 	std::cout << std::setfill('=') << std::setw(46) << '\n';
+
 	// get index and display contact information
+	int index;
+	std::cout << "Input index: ";
+	std::cin >> index;
+	if (index < current_contact_count_)
+		contacts_[index].display_infos();
+	else
+		std::cout << "Invalid index...\n";
 }
 
 PhoneBook::PhoneBook(void)

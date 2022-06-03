@@ -66,3 +66,12 @@ std::string Contact::get_darkest_secret(void)
 {
 	return (darkest_secret_);
 }
+
+void Contact::display_infos(void)
+{
+	std::cout << "\tFirst name: " << first_name_ << '\n';
+	std::cout << "\tLast name: " << last_name_ << '\n';
+	std::cout << "\tNickname: " << nickname_ << '\n';
+	std::cout << "\tPhone number: " << phone_number_ << '\n';
+	std::cout << "\tDarkest secret: " << darkest_secret_ << '\n';
+}

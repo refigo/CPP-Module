@@ -31,7 +31,7 @@ public:
 	std::string get_phone_number(void);
 	std::string get_darkest_secret(void);
 
-	void print_infos(void); // todo: implement
+	void display_infos(void); // todo: implement
 };
 
 #endif
