@@ -2,43 +2,43 @@
 
 e_result Contact::set_infos()
 {
-	set_first_name();
-	set_last_name();
-	set_nickname();
-	set_phone_number();
-	set_darkest_secret();
+	set_first_name_();
+	set_last_name_();
+	set_nickname_();
+	set_phone_number_();
+	set_darkest_secret_();
 	return (SUCCESS);
 }
 
-e_result Contact::set_first_name()
+e_result Contact::set_first_name_()
 {
 	std::cout << "Input first name: ";
 	first_name_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_last_name()
+e_result Contact::set_last_name_()
 {
 	std::cout << "Input last name: ";
 	last_name_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_nickname()
+e_result Contact::set_nickname_()
 {
 	std::cout << "Input nickname: ";
 	nickname_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_phone_number()
+e_result Contact::set_phone_number_()
 {
 	std::cout << "Input phone number: ";
 	phone_number_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_darkest_secret()
+e_result Contact::set_darkest_secret_()
 {
 	std::cout << "Input darkest secret: ";
 	darkest_secret_ = get_input_trimmed_ws();

@@ -1,11 +1,23 @@
 #include "PhoneBook.hpp"
 
+void PhoneBook::print_contact_shortly_index_(int i)
+{
+	std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
+	std::cout << '|';
+	cout_str_with_width(contacts_[i].get_first_name(), 10);
+	std::cout << '|';
+	cout_str_with_width(contacts_[i].get_last_name(), 10);
+	std::cout << '|';
+	cout_str_with_width(contacts_[i].get_nickname(), 10);
+	std::cout << '|' << '\n';
+}
+
 void PhoneBook::set_cmd(void)
 {
 	std::string input;
 
 	input = get_input_trimmed_ws();
-	std::cout << "input: [" << input << "]\n"; // todo: remove
+	//std::cout << "input: [" << input << "]\n"; // todo: remove
 	cmd_ = input;
 }
 
@@ -50,7 +62,6 @@ void PhoneBook::save_contact(void)
 
 	contact.set_infos();
 	contacts_[current_contact_position_] = contact;
-	// todo: refactor
 	if (current_contact_count_ != CONTACTS_MAX)
 		current_contact_count_++;
 	if (current_contact_position_ == CONTACTS_MAX - 1)
@@ -60,16 +71,6 @@ void PhoneBook::save_contact(void)
 	std::cout << "Successfully saved!\n";
 }
 
-void cout_str_with_width(std::string str, int width)
-{
-	if (width == 0)
-		return;
-	else if (str.length() > width)
-		std::cout << str.substr(0, width - 1) << ".";
-	else
-		std::cout << std::setfill(' ') << std::setw(width) << str;
-}
-
 void PhoneBook::display_contacts(void)
 {
 	if (current_contact_count_ == 0)
@@ -77,10 +78,8 @@ void PhoneBook::display_contacts(void)
 		std::cout << "None of contacts...\n";
 		return;
 	}
-
-	// index, first name, last name and nickname
 	std::cout << std::setfill('=') << std::setw(46) << '\n';
-	std::cout << "\033[1;37m"; // B_WHITE(bold white)
+	std::cout << B_WHITE;
 	std::cout << '|';
 	cout_str_with_width("index", 10);
 	std::cout << '|';
@@ -90,20 +89,9 @@ void PhoneBook::display_contacts(void)
 	std::cout << '|';
 	cout_str_with_width("nickname", 10);
 	std::cout << '|' << '\n';
-	std::cout << "\033[0;0m"; // EOC(end of color)
-
+	std::cout << END_OF_COLOR;
 	for (int i = 0; i < current_contact_count_; ++i)
-	{
-		std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
-		std::cout << '|';
-		cout_str_with_width(contacts_[i].get_first_name(), 10);
-		std::cout << '|';
-		cout_str_with_width(contacts_[i].get_last_name(), 10);
-		std::cout << '|';
-		cout_str_with_width(contacts_[i].get_nickname(), 10);
-		std::cout << '|' << '\n';
-	}
-
+		print_contact_shortly_index_(i);
 	std::cout << std::setfill('=') << std::setw(46) << '\n';
 	// get index and display contact information
 }
