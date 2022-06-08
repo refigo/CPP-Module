@@ -56,18 +56,13 @@ void Account::displayAccountsInfos(void)
 	[19920104_091532] index:7;amount:16576;created
 */
 Account::Account(int initial_deposit)
-{
-	_accountIndex = Account::_nbAccounts;
-	_amount = initial_deposit;
-	_nbDeposits = 0;
-	_nbWithdrawals = 0;
-	
+ : _accountIndex((Account::_nbAccounts)++), _amount(initial_deposit),
+	_nbDeposits(0), _nbWithdrawals(0)
+{	
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";amount:" << _amount;
 	std::cout << ";created\n";
-
-	++(Account::_nbAccounts);
 	Account::_totalAmount += _amount;
 }
 
@@ -136,6 +131,7 @@ bool Account::makeWithdrawal(int withdrawal)
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";p_amount:" << _amount;
 
+	// todo: refactor
 	if (withdrawal > _amount)
 	{
 		std::cout << ";withdrawal:" << "refused\n";
