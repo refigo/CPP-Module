@@ -86,7 +86,7 @@ Account::~Account(void)
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";amount:" << _amount;
-	std::cout << ";deleted\n";
+	std::cout << ";closed\n";
 
 	--(Account::_nbAccounts);
 	Account::_totalAmount -= _amount;
@@ -154,6 +154,12 @@ bool Account::makeWithdrawal(int withdrawal)
 	return (true);
 }
 
+// ?
+int		Account::checkAmount(void) const
+{
+	return (_amount);
+}
+
 /*
 	[19920104_091532] index:0;amount:42;deposits:0;withdrawals:0
 	[19920104_091532] index:1;amount:54;deposits:0;withdrawals:0
@@ -184,9 +190,14 @@ bool Account::makeWithdrawal(int withdrawal)
 	[19920104_091532] index:6;amount:106;deposits:1;withdrawals:1
 	[19920104_091532] index:7;amount:8942;deposits:1;withdrawals:1
 */
-void Account::displayStatus( void ) const
+void Account::displayStatus(void) const
 {
-
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";deposits:" << _nbDeposits;
+	std::cout << ";withdrawals:" << _nbWithdrawals;
+	std::cout << '\n';
 }
 
 //	[19920104_091532]
