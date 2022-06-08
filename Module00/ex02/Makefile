@@ -5,10 +5,8 @@ CXX			=	c++
 
 rm			=	rm -f
 
-SRC			=	main.cpp \
-				PhoneBook.cpp \
-				Contact.cpp \
-				utils.cpp
+SRC			=	mgo.cpp \
+				Account.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp

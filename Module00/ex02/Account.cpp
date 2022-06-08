@@ -1,4 +1,28 @@
 #include "Account.hpp"
+#include <ctime>
+#include <iostream>
+#include <iomanip>
+
+int Account::_nbAccounts = 0;
+int Account::_totalAmount = 0;
+int Account::_totalNbDeposits = 0;
+int Account::_totalNbWithdrawals = 0;
+
+int Account::getNbAccounts(void) {
+	return Account::_nbAccounts;
+}
+
+int Account::getTotalAmount(void) {
+	return Account::_totalAmount;
+}
+
+int Account::getNbDeposits(void) {
+	return Account::_totalNbDeposits;
+}
+
+int Account::getNbWithdrawals(void) {
+	return Account::_totalNbWithdrawals;
+}
 
 /*
 	[19920104_091532] accounts:8;total:20049;deposits:0;withdrawals:0
@@ -7,10 +31,11 @@
 
 	[19920104_091532] accounts:8;total:12442;deposits:8;withdrawals:6
 */
-static void	Account::displayAccountsInfos( void )
+void Account::displayAccountsInfos(void)
 {
-
+	Account::_displayTimestamp();
 }
+
 
 /*
 	[19920104_091532] index:0;amount:42;created
@@ -52,7 +77,7 @@ Account::~Account( void )
 	[19920104_091532] index:6;p_amount:754;deposit:9;amount:763;nb_deposits:1
 	[19920104_091532] index:7;p_amount:16576;deposit:20;amount:16596;nb_deposits:1
 */
-void	Account::makeDeposit( int deposit )
+void Account::makeDeposit( int deposit )
 {
 
 }
@@ -67,9 +92,9 @@ void	Account::makeDeposit( int deposit )
 	[19920104_091532] index:6;p_amount:763;withdrawal:657;amount:106;nb_withdrawals:1
 	[19920104_091532] index:7;p_amount:16596;withdrawal:7654;amount:8942;nb_withdrawals:1
 */
-bool	Account::makeWithdrawal( int withdrawal )
+bool Account::makeWithdrawal( int withdrawal )
 {
-
+	return (true);
 }
 
 /*
@@ -102,7 +127,43 @@ bool	Account::makeWithdrawal( int withdrawal )
 	[19920104_091532] index:6;amount:106;deposits:1;withdrawals:1
 	[19920104_091532] index:7;amount:8942;deposits:1;withdrawals:1
 */
-void	Account::displayStatus( void ) const
+void Account::displayStatus( void ) const
 {
 
+}
+
+void Account::_displayTimestamp(void)
+{
+	std::time_t		rawtime;
+	struct std::tm *timeinfo;
+
+	time(&rawtime);
+	timeinfo = localtime(&rawtime);
+	
+	std::cout << "tm_sec: [" << timeinfo->tm_sec << "]\n";
+	std::cout << "tm_min: [" << timeinfo->tm_min << "]\n";
+	std::cout << "tm_hour: [" << timeinfo->tm_hour << "]\n";
+	std::cout << "tm_mday: [" << timeinfo->tm_mday << "]\n";
+	std::cout << "tm_mon: [" << timeinfo->tm_mon << "]\n";
+	std::cout << "tm_year: [" << timeinfo->tm_year << "]\n";
+	std::cout << "this year: [" << (1900 + timeinfo->tm_year) << "]\n";
+	
+	std::cout << '\n';
+
+	//char prev;
+	//prev = std::cout.fill('0');
+	std::cout << std::setfill('0');
+	std::cout << '[';
+	std::cout << std::setw(4) << (1900 + timeinfo->tm_year);
+	std::cout << std::setw(2) << (timeinfo->tm_mon);
+	std::cout << std::setw(2) << (timeinfo->tm_mday);
+	std::cout << '_';
+	std::cout << std::setw(2) << (timeinfo->tm_hour);
+	std::cout << std::setw(2) << (timeinfo->tm_min);
+	std::cout << std::setw(2) << (timeinfo->tm_sec);
+	std::cout << "] ";
+	std::cout << std::setfill(' ');
+	//std::cout.fill(prev);
+
+	std::cout << '\n';
 }
