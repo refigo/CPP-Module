@@ -10,22 +10,22 @@ int Account::_totalNbWithdrawals = 0;
 
 int Account::getNbAccounts(void)
 {
-	return Account::_nbAccounts;
+	return (Account::_nbAccounts);
 }
 
 int Account::getTotalAmount(void)
 {
-	return Account::_totalAmount;
+	return (Account::_totalAmount);
 }
 
 int Account::getNbDeposits(void)
 {
-	return Account::_totalNbDeposits;
+	return (Account::_totalNbDeposits);
 }
 
 int Account::getNbWithdrawals(void)
 {
-	return Account::_totalNbWithdrawals;
+	return (Account::_totalNbWithdrawals);
 }
 
 /*
@@ -58,14 +58,17 @@ void Account::displayAccountsInfos(void)
 Account::Account(int initial_deposit)
 {
 	_accountIndex = Account::_nbAccounts;
-	++(Account::_nbAccounts);
 	_amount = initial_deposit;
-	Account::_totalAmount += _amount;
-
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";amount:" << _amount;
 	std::cout << ";created\n";
+
+	++(Account::_nbAccounts);
+	Account::_totalAmount += _amount;
 }
 
 /*
@@ -80,13 +83,13 @@ Account::Account(int initial_deposit)
 */
 Account::~Account(void)
 {
-	--(Account::_nbAccounts);
-	Account::_totalAmount -= _amount;
-
 	Account::_displayTimestamp();
 	std::cout << "index:" << _accountIndex;
 	std::cout << ";amount:" << _amount;
 	std::cout << ";deleted\n";
+
+	--(Account::_nbAccounts);
+	Account::_totalAmount -= _amount;
 }
 
 /*
@@ -99,9 +102,22 @@ Account::~Account(void)
 	[19920104_091532] index:6;p_amount:754;deposit:9;amount:763;nb_deposits:1
 	[19920104_091532] index:7;p_amount:16576;deposit:20;amount:16596;nb_deposits:1
 */
-void Account::makeDeposit( int deposit )
+void Account::makeDeposit(int deposit)
 {
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";p_amount:" << _amount;
 
+	_amount += deposit;
+	++(_nbDeposits);
+	
+	std::cout << ";deposit:" << deposit;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";nb_deposits:" << _nbDeposits;
+	std::cout << '\n';
+
+	Account::_totalAmount += deposit;
+	Account::_totalNbDeposits += 1;
 }
 
 /*
