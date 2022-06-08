@@ -132,6 +132,7 @@ void Account::displayStatus( void ) const
 
 }
 
+//	[19920104_091532]
 void Account::_displayTimestamp(void)
 {
 	std::time_t		rawtime;
@@ -139,22 +140,9 @@ void Account::_displayTimestamp(void)
 
 	time(&rawtime);
 	timeinfo = localtime(&rawtime);
-	
-	std::cout << "tm_sec: [" << timeinfo->tm_sec << "]\n";
-	std::cout << "tm_min: [" << timeinfo->tm_min << "]\n";
-	std::cout << "tm_hour: [" << timeinfo->tm_hour << "]\n";
-	std::cout << "tm_mday: [" << timeinfo->tm_mday << "]\n";
-	std::cout << "tm_mon: [" << timeinfo->tm_mon << "]\n";
-	std::cout << "tm_year: [" << timeinfo->tm_year << "]\n";
-	std::cout << "this year: [" << (1900 + timeinfo->tm_year) << "]\n";
-	
-	std::cout << '\n';
-
-	//char prev;
-	//prev = std::cout.fill('0');
 	std::cout << std::setfill('0');
 	std::cout << '[';
-	std::cout << std::setw(4) << (1900 + timeinfo->tm_year);
+	std::cout << (1900 + timeinfo->tm_year);
 	std::cout << std::setw(2) << (timeinfo->tm_mon);
 	std::cout << std::setw(2) << (timeinfo->tm_mday);
 	std::cout << '_';
@@ -163,7 +151,4 @@ void Account::_displayTimestamp(void)
 	std::cout << std::setw(2) << (timeinfo->tm_sec);
 	std::cout << "] ";
 	std::cout << std::setfill(' ');
-	//std::cout.fill(prev);
-
-	std::cout << '\n';
 }
