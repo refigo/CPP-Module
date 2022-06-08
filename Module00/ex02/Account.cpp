@@ -8,19 +8,23 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-int Account::getNbAccounts(void) {
+int Account::getNbAccounts(void)
+{
 	return Account::_nbAccounts;
 }
 
-int Account::getTotalAmount(void) {
+int Account::getTotalAmount(void)
+{
 	return Account::_totalAmount;
 }
 
-int Account::getNbDeposits(void) {
+int Account::getNbDeposits(void)
+{
 	return Account::_totalNbDeposits;
 }
 
-int Account::getNbWithdrawals(void) {
+int Account::getNbWithdrawals(void)
+{
 	return Account::_totalNbWithdrawals;
 }
 
@@ -34,6 +38,11 @@ int Account::getNbWithdrawals(void) {
 void Account::displayAccountsInfos(void)
 {
 	Account::_displayTimestamp();
+	std::cout << "accounts:" << Account::_nbAccounts;
+	std::cout << ";total:" << Account::_totalAmount;
+	std::cout << ";deposits:" << Account::_totalNbDeposits;
+	std::cout << ";withdrawals:" << Account::_totalNbWithdrawals;
+	std::cout << std::endl;
 }
 
 
