@@ -5,7 +5,7 @@ CXX			=	c++
 
 rm			=	rm -f
 
-SRC			=	mgo.cpp \
+SRC			=	tests.cpp \
 				Account.cpp
 OBJ			=	$(SRC:.cpp=.o)
 

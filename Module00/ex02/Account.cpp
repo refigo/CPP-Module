@@ -45,7 +45,6 @@ void Account::displayAccountsInfos(void)
 	std::cout << std::endl;
 }
 
-
 /*
 	[19920104_091532] index:0;amount:42;created
 	[19920104_091532] index:1;amount:54;created
@@ -56,9 +55,17 @@ void Account::displayAccountsInfos(void)
 	[19920104_091532] index:6;amount:754;created
 	[19920104_091532] index:7;amount:16576;created
 */
-Account::Account( int initial_deposit )
+Account::Account(int initial_deposit)
 {
+	_accountIndex = Account::_nbAccounts;
+	++(Account::_nbAccounts);
+	_amount = initial_deposit;
+	Account::_totalAmount += _amount;
 
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";created\n";
 }
 
 /*
@@ -71,9 +78,15 @@ Account::Account( int initial_deposit )
 	[19920104_091532] index:6;amount:106;closed
 	[19920104_091532] index:7;amount:8942;closed
 */
-Account::~Account( void )
+Account::~Account(void)
 {
+	--(Account::_nbAccounts);
+	Account::_totalAmount -= _amount;
 
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";deleted\n";
 }
 
 /*
