@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 10:27:23 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/09 20:19:55 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ private:
 	std::string phone_number_;
 	std::string darkest_secret_;
 
-	e_result set_first_name_(void);
-	e_result set_last_name_(void);
-	e_result set_nickname_(void);
-	e_result set_phone_number_(void);
-	e_result set_darkest_secret_(void);
+	e_result set_input_first_name_(void);
+	e_result set_input_last_name_(void);
+	e_result set_input_nickname_(void);
+	e_result set_input_phone_number_(void);
+	e_result set_input_darkest_secret_(void);
 
 public:
-	e_result set_infos(void);
+	e_result set_inputs_infos(void);
 
 	std::string get_first_name(void);
 	std::string get_last_name(void);

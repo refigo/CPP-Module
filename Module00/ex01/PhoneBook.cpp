@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 11:08:41 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/09 20:18:59 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void PhoneBook::save_contact(void)
 {
 	Contact contact;
 
-	contact.set_infos();
+	contact.set_inputs_infos();
 	contacts_[current_contact_position_] = contact;
 	if (current_contact_count_ != CONTACTS_MAX)
 		current_contact_count_++;

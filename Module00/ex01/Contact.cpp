@@ -6,51 +6,51 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 10:26:20 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/09 20:20:15 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-e_result Contact::set_infos(void)
+e_result Contact::set_inputs_infos(void)
 {
-	set_first_name_();
-	set_last_name_();
-	set_nickname_();
-	set_phone_number_();
-	set_darkest_secret_();
+	set_input_first_name_();
+	set_input_last_name_();
+	set_input_nickname_();
+	set_input_phone_number_();
+	set_input_darkest_secret_();
 	return (SUCCESS);
 }
 
-e_result Contact::set_first_name_(void)
+e_result Contact::set_input_first_name_(void)
 {
 	std::cout << "Input first name: ";
 	first_name_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_last_name_(void)
+e_result Contact::set_input_last_name_(void)
 {
 	std::cout << "Input last name: ";
 	last_name_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_nickname_(void)
+e_result Contact::set_input_nickname_(void)
 {
 	std::cout << "Input nickname: ";
 	nickname_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_phone_number_(void)
+e_result Contact::set_input_phone_number_(void)
 {
 	std::cout << "Input phone number: ";
 	phone_number_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_darkest_secret_(void)
+e_result Contact::set_input_darkest_secret_(void)
 {
 	std::cout << "Input darkest secret: ";
 	darkest_secret_ = get_input_trimmed_ws();
