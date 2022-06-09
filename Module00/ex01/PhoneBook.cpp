@@ -6,18 +6,18 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 10:24:13 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/09 11:08:41 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void PhoneBook::set_cmd(void)
+void PhoneBook::set_input_cmd(void)
 {
 	std::string input;
 
+	std::cout << "Please input cmd: ";
 	input = get_input_trimmed_ws();
-	//std::cout << "input: [" << input << "]\n"; // todo: remove
 	cmd_ = input;
 }
 
@@ -71,32 +71,50 @@ void PhoneBook::save_contact(void)
 	std::cout << "Successfully saved!\n";
 }
 
+// considering to move...
+static void	print_str_with_width(std::string str, int width)
+{
+	if (width == 0)
+		return;
+	else if (str.length() > width)
+		std::cout << str.substr(0, width - 1) << ".";
+	else
+		std::cout << std::setw(width) << str;
+}
 
 void PhoneBook::print_contacts_header_(void)
 {
 	std::cout << B_WHITE;
 	std::cout << '|';
-	cout_str_with_width("index", 10);
+	print_str_with_width("index", 10);
 	std::cout << '|';
-	cout_str_with_width("first name", 10);
+	print_str_with_width("first name", 10);
 	std::cout << '|';
-	cout_str_with_width("last name", 10);
+	print_str_with_width("last name", 10);
 	std::cout << '|';
-	cout_str_with_width("nickname", 10);
+	print_str_with_width("nickname", 10);
 	std::cout << '|' << '\n';
 	std::cout << END_OF_COLOR;
 }
 
-void PhoneBook::print_contact_names_index_(int i)
+void PhoneBook::print_contact_index_names_(int i)
 {
 	std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
 	std::cout << '|';
-	cout_str_with_width(contacts_[i].get_first_name(), 10);
+	print_str_with_width(contacts_[i].get_first_name(), 10);
 	std::cout << '|';
-	cout_str_with_width(contacts_[i].get_last_name(), 10);
+	print_str_with_width(contacts_[i].get_last_name(), 10);
 	std::cout << '|';
-	cout_str_with_width(contacts_[i].get_nickname(), 10);
+	print_str_with_width(contacts_[i].get_nickname(), 10);
 	std::cout << '|' << '\n';
+}
+
+// considering to move...
+static void	print_border_line(void)
+{
+	std::cout << std::setfill('=');
+	std::cout << std::setw(46) << '\n';
+	std::cout << std::setfill(' ');
 }
 
 void PhoneBook::display_contacts(void)
@@ -106,13 +124,13 @@ void PhoneBook::display_contacts(void)
 	if (current_contact_count_ == 0)
 	{
 		std::cout << "None of contacts...\n";
-		return;
+		return ;
 	}
-	std::cout << std::setfill('=') << std::setw(46) << '\n';
+	print_border_line();
 	print_contacts_header_();
 	for (int i = 0; i < current_contact_count_; ++i)
-		print_contact_names_index_(i);
-	std::cout << std::setfill('=') << std::setw(46) << '\n';
+		print_contact_index_names_(i);
+	print_border_line();
 
 	// get index and display contact information
 	std::cout << "Input index: ";

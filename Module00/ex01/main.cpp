@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 10:50:22 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/09 10:52:22 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int main(void)
 
 	while (TRUE)
 	{
-		std::cout << "Please input cmd: "; // todo: replace to use method or set in set_input_cmd()
-		phonebook.set_cmd(); // todo: rename to set_input_cmd()
+		phonebook.set_input_cmd();
 		if (phonebook.is_cmd_add())
 			phonebook.save_contact();
 		else if (phonebook.is_cmd_search())

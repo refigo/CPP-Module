@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:21 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 10:24:37 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/09 11:08:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ private:
 	std::string cmd_;
 
 	void print_contacts_header_(void);
-	void print_contact_names_index_(int i);
+	void print_contact_index_names_(int i);
 
 public:
-	void set_cmd(void);
+	void set_input_cmd(void);
 	e_bool is_cmd_add(void);
 	e_bool is_cmd_search(void);
 	e_bool is_cmd_exit(void);
