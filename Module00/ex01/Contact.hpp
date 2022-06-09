@@ -1,11 +1,21 @@
-// mgo's
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 10:24:02 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/09 10:27:23 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
-#define CONTACT_HPP
+# define CONTACT_HPP
 
-#include "utils.hpp"
-
-#include <iostream>
-#include <string>
+# include "utils.hpp"
+# include <iostream>
+# include <string>
 
 class Contact
 {
@@ -31,7 +41,7 @@ public:
 	std::string get_phone_number(void);
 	std::string get_darkest_secret(void);
 
-	void display_infos(void); // todo: implement
+	void display_infos(void);
 };
 
 #endif

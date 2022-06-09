@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/09 10:26:20 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
-e_result Contact::set_infos()
+e_result Contact::set_infos(void)
 {
 	set_first_name_();
 	set_last_name_();
@@ -10,35 +22,35 @@ e_result Contact::set_infos()
 	return (SUCCESS);
 }
 
-e_result Contact::set_first_name_()
+e_result Contact::set_first_name_(void)
 {
 	std::cout << "Input first name: ";
 	first_name_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_last_name_()
+e_result Contact::set_last_name_(void)
 {
 	std::cout << "Input last name: ";
 	last_name_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_nickname_()
+e_result Contact::set_nickname_(void)
 {
 	std::cout << "Input nickname: ";
 	nickname_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_phone_number_()
+e_result Contact::set_phone_number_(void)
 {
 	std::cout << "Input phone number: ";
 	phone_number_ = get_input_trimmed_ws();
 	return (SUCCESS);
 }
 
-e_result Contact::set_darkest_secret_()
+e_result Contact::set_darkest_secret_(void)
 {
 	std::cout << "Input darkest secret: ";
 	darkest_secret_ = get_input_trimmed_ws();

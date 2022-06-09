@@ -1,15 +1,25 @@
-// mgo's
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/09 10:24:21 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/09 10:24:37 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-#include "Contact.hpp"
-#include "utils.hpp"
+# include "Contact.hpp"
+# include "utils.hpp"
+# include <iostream>
+# include <iomanip>
+# include <string>
 
-#include <iostream>
-#include <iomanip>
-#include <string>
-
-#define CONTACTS_MAX 8
+# define CONTACTS_MAX 8
 
 class PhoneBook
 {
