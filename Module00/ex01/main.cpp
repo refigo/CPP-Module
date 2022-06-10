@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 16:53:58 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 20:23:35 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,11 @@ int main(void)
 		else if (phonebook.is_cmd_exit())
 			break;
 		else
+			std::cout << "\nInvalid cmd..\n";
+		if (std::cin.eof() || std::cin.bad())
 		{
 			std::cout << '\n';
-			if (std::cin.eof() || std::cin.bad())
-				return (1);
-			else
-				std::cout << "\tinvalid cmd..\n\n";
+			return (1);
 		}
 	}
 	//system("leaks test");

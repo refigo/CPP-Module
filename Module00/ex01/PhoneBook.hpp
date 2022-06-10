@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:21 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 11:11:36 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 20:18:05 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ private:
 	void print_contacts_header_(void);
 	void print_contact_index_names_(int i);
 	
-	
+	void get_input_index_and_display_contact_infos(void);
 
 public:
 	void set_input_cmd(void);
@@ -43,7 +43,6 @@ public:
 	void save_contact(void);
 	void display_contacts(void);
 
-	void get_input_index_and_display_contact_infos(void);
 
 	PhoneBook(void);
 	~PhoneBook(void);

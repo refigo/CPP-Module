@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 16:48:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 20:24:07 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void PhoneBook::set_input_cmd(void)
 {
 	std::string input;
 
-	std::cout << "Please input cmd: ";
+	std::cout << "Please input command: ";
 	input = get_input_trimmed_ws();
 	cmd_ = input;
 }
@@ -173,7 +173,7 @@ PhoneBook::PhoneBook(void)
 {
 	current_contact_count_ = 0;
 	current_contact_position_ = 0;
-	std::cout << "Opened my awesome phone book!\n";
+	std::cout << "Opened my awesome phone book!\n\n";
 }
 
 PhoneBook::~PhoneBook(void)
