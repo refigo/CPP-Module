@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 11:17:12 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 16:53:58 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int main(void)
 {
 	PhoneBook phonebook;
 
-	phonebook.get_input_index_and_display_contact_infos();
-	exit(0);
-	while (TRUE)
+	while (true)
 	{
 		phonebook.set_input_cmd();
 		if (phonebook.is_cmd_add())
@@ -28,7 +26,13 @@ int main(void)
 		else if (phonebook.is_cmd_exit())
 			break;
 		else
-			std::cout << "invalid cmd..\n";
+		{
+			std::cout << '\n';
+			if (std::cin.eof() || std::cin.bad())
+				return (1);
+			else
+				std::cout << "\tinvalid cmd..\n\n";
+		}
 	}
 	//system("leaks test");
 	return (0);

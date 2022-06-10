@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 12:08:18 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 16:48:48 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,10 @@ e_bool PhoneBook::is_cmd_exit(void)
 		return (TRUE);
 	else if (cmd_ == "e")
 		return (TRUE);
+	/*
 	else if (cmd_ == "")
 		return (TRUE);
+	*/
 	return (FALSE);
 }
 
@@ -84,17 +86,23 @@ static void	print_str_with_width(std::string str, int width)
 
 void PhoneBook::print_contacts_header_(void)
 {
+	std::cout << '|';
 	std::cout << B_WHITE;
-	std::cout << '|';
 	print_str_with_width("index", 10);
-	std::cout << '|';
-	print_str_with_width("first name", 10);
-	std::cout << '|';
-	print_str_with_width("last name", 10);
-	std::cout << '|';
-	print_str_with_width("nickname", 10);
-	std::cout << '|' << '\n';
 	std::cout << END_OF_COLOR;
+	std::cout << '|';
+	std::cout << B_WHITE;
+	print_str_with_width("first name", 10);
+	std::cout << END_OF_COLOR;
+	std::cout << '|';
+	std::cout << B_WHITE;
+	print_str_with_width("last name", 10);
+	std::cout << END_OF_COLOR;
+	std::cout << '|';
+	std::cout << B_WHITE;
+	print_str_with_width("nickname", 10);
+	std::cout << END_OF_COLOR;
+	std::cout << '|' << '\n';
 }
 
 void PhoneBook::print_contact_index_names_(int i)
@@ -110,9 +118,9 @@ void PhoneBook::print_contact_index_names_(int i)
 }
 
 // considering to move...
-static void	print_border_line(void)
+static void	print_border_line(char c)
 {
-	std::cout << std::setfill('=');
+	std::cout << std::setfill(c);
 	std::cout << std::setw(46) << '\n';
 	std::cout << std::setfill(' ');
 }
@@ -121,62 +129,25 @@ void	PhoneBook::get_input_index_and_display_contact_infos(void)
 {
 	int	index;
 
-	char	test_char;
-
-	std::cout << "Welcome to test get_input_index world\n";
-
 	while (true)
 	{
-		// get index and display contact information
-		std::cout << "Input index: ";
-
-		// todo: debug when not number
+		std::cout << B_WHITE << "\nInput index" << END_OF_COLOR\
+			 <<" (input not integer to go back)\n\t-> ";
 		std::cin >> index;
-
-		if (std::cin.good() == false || index < 0) // todo: add (|| index < current_contact_count_)
+		if (std::cin.good() == false)
 		{
-			/*
-			if (std::cin.eof() || std::cin.bad())
+			if (std::cin.fail() == true)
 			{
 				std::cin.clear();
-				return ;
-			}
-			*/
-			if (std::cin.eof() || std::cin.fail())
-			{
-				std::cout << "failbit on. so clearing..\n";
-				std::cin.clear();
-				
-				std::cin >> test_char;
-				std::cout << "test_char: [" << test_char << "]\n";
 				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			}
-			std::cout << "invalid index!\n";
-			std::cout << "index: [" << index << "]\n\n";
-			continue ;
+			std::cout << std::endl;
+			return ;
 		}
-
-		// for debugging
-		/*
-		if (!std::cin.good())
-			std::cout << "cin is not good...\n";
-		std::cout << "cin state: [" << std::cin.rdstate() << "]\n";
-		if (std::cin.fail() == true)
-			std::cout << "failbit on\n";
-		else if (std::cin.bad() == true)
-			std::cout << "badbit on\n";
-		*/
-
-		//if (index < current_contact_count_)
-		if (index >= 0)
-		{
-			//contacts_[index].display_infos();
-			std::cout << "Valid index!!! good ^^b\n";
-		}
+		else if ((0 <= index) && (index < current_contact_count_))
+			contacts_[index].display_infos();
 		else
-			std::cout << "Invalid index...\n";
-		std::cout << "index: [" << index << "]\n\n";
-		
+			std::cout << "\tInvalid index...\n";
 	}
 }
 
@@ -189,23 +160,13 @@ void PhoneBook::display_contacts(void)
 		std::cout << "None of contacts...\n";
 		return ;
 	}
-	print_border_line();
+	print_border_line('=');
 	print_contacts_header_();
+	print_border_line('-');
 	for (int i = 0; i < current_contact_count_; ++i)
 		print_contact_index_names_(i);
-	print_border_line();
-
+	print_border_line('=');
 	get_input_index_and_display_contact_infos();
-	/*
-	// get index and display contact information
-	std::cout << "Input index: ";
-	// todo: debug when not number
-	std::cin >> index;
-	if (index < current_contact_count_)
-		contacts_[index].display_infos();
-	else
-		std::cout << "Invalid index...\n";
-	*/
 }
 
 PhoneBook::PhoneBook(void)
