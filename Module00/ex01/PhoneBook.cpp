@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 20:18:59 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 12:08:18 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,69 @@ static void	print_border_line(void)
 	std::cout << std::setfill(' ');
 }
 
+void	PhoneBook::get_input_index_and_display_contact_infos(void)
+{
+	int	index;
+
+	char	test_char;
+
+	std::cout << "Welcome to test get_input_index world\n";
+
+	while (true)
+	{
+		// get index and display contact information
+		std::cout << "Input index: ";
+
+		// todo: debug when not number
+		std::cin >> index;
+
+		if (std::cin.good() == false || index < 0) // todo: add (|| index < current_contact_count_)
+		{
+			/*
+			if (std::cin.eof() || std::cin.bad())
+			{
+				std::cin.clear();
+				return ;
+			}
+			*/
+			if (std::cin.eof() || std::cin.fail())
+			{
+				std::cout << "failbit on. so clearing..\n";
+				std::cin.clear();
+				
+				std::cin >> test_char;
+				std::cout << "test_char: [" << test_char << "]\n";
+				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			}
+			std::cout << "invalid index!\n";
+			std::cout << "index: [" << index << "]\n\n";
+			continue ;
+		}
+
+		// for debugging
+		/*
+		if (!std::cin.good())
+			std::cout << "cin is not good...\n";
+		std::cout << "cin state: [" << std::cin.rdstate() << "]\n";
+		if (std::cin.fail() == true)
+			std::cout << "failbit on\n";
+		else if (std::cin.bad() == true)
+			std::cout << "badbit on\n";
+		*/
+
+		//if (index < current_contact_count_)
+		if (index >= 0)
+		{
+			//contacts_[index].display_infos();
+			std::cout << "Valid index!!! good ^^b\n";
+		}
+		else
+			std::cout << "Invalid index...\n";
+		std::cout << "index: [" << index << "]\n\n";
+		
+	}
+}
+
 void PhoneBook::display_contacts(void)
 {
 	int index;
@@ -132,6 +195,8 @@ void PhoneBook::display_contacts(void)
 		print_contact_index_names_(i);
 	print_border_line();
 
+	get_input_index_and_display_contact_infos();
+	/*
 	// get index and display contact information
 	std::cout << "Input index: ";
 	// todo: debug when not number
@@ -140,6 +205,7 @@ void PhoneBook::display_contacts(void)
 		contacts_[index].display_infos();
 	else
 		std::cout << "Invalid index...\n";
+	*/
 }
 
 PhoneBook::PhoneBook(void)

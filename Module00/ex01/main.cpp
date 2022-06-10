@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 10:52:22 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/10 11:17:12 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int main(void)
 {
 	PhoneBook phonebook;
 
+	phonebook.get_input_index_and_display_contact_infos();
+	exit(0);
 	while (TRUE)
 	{
 		phonebook.set_input_cmd();
