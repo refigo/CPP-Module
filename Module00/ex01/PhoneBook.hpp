@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:21 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 12:37:03 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 17:14:58 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,19 @@ private:
 	int 		current_contact_position_;
 	std::string cmd_;
 
-	void display_contacts_header_(void);
-	void display_contact_index_names_(int i);
+	void display_contacts_header_(void) const;
+	void display_contact_index_names_(int i) const;
 	
-	void get_input_index_and_display_contact_infos(void);
+	void get_input_index_and_display_contact_infos(void) const;
 
 public:
 	void set_input_cmd(void);
-	bool is_cmd_add(void);
-	bool is_cmd_search(void);
-	bool is_cmd_exit(void);
+	bool is_cmd_add(void) const;
+	bool is_cmd_search(void) const;
+	bool is_cmd_exit(void) const;
 
 	void save_contact(void);
-	void display_contacts(void);
+	void display_and_search_contacts(void) const;
 
 	PhoneBook(void);
 	~PhoneBook(void);

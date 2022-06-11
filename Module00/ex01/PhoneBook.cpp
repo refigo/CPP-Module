@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 13:53:12 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 17:47:43 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void PhoneBook::set_input_cmd(void)
 	cmd_ = input;
 }
 
-bool PhoneBook::is_cmd_add(void)
+bool PhoneBook::is_cmd_add(void) const
 {
 	if (cmd_ == "ADD")
 		return (true);
@@ -34,7 +34,7 @@ bool PhoneBook::is_cmd_add(void)
 	return (false);
 }
 
-bool PhoneBook::is_cmd_search(void)
+bool PhoneBook::is_cmd_search(void) const
 {
 	if (cmd_ == "SEARCH")
 		return (true);
@@ -45,7 +45,7 @@ bool PhoneBook::is_cmd_search(void)
 	return (false);
 }
 
-bool PhoneBook::is_cmd_exit(void)
+bool PhoneBook::is_cmd_exit(void) const
 {
 	if (cmd_ == "EXIT")
 		return (true);
@@ -60,12 +60,17 @@ void PhoneBook::save_contact(void)
 {
 	Contact contact;
 
+	if (current_contact_count_ == CONTACTS_MAX)
+	{
+		std::cout << "\nPhone book is full.. \nso override to index [" \
+			<< current_contact_position_ << "]";
+
+	}
 	if (contact.set_inputs_infos() == false)
 		return ;
 	contacts_[current_contact_position_] = contact;
 	if (current_contact_count_ != CONTACTS_MAX)
 		current_contact_count_++;
-	// todo: when max, display to override msg
 	if (current_contact_position_ == CONTACTS_MAX - 1)
 		current_contact_position_ = 0;
 	else
@@ -73,7 +78,7 @@ void PhoneBook::save_contact(void)
 	std::cout << "\nSuccessfully saved!\n";
 }
 
-void PhoneBook::display_contacts_header_(void)
+void PhoneBook::display_contacts_header_(void) const
 {
 	std::cout << '|';
 	std::cout << B_WHITE;
@@ -94,7 +99,7 @@ void PhoneBook::display_contacts_header_(void)
 	std::cout << '|' << '\n';
 }
 
-void PhoneBook::display_contact_index_names_(int i)
+void PhoneBook::display_contact_index_names_(int i) const
 {
 	std::cout << '|' << std::setfill(' ') << std::setw(10) << i;
 	std::cout << '|';
@@ -106,7 +111,7 @@ void PhoneBook::display_contact_index_names_(int i)
 	std::cout << '|' << '\n';
 }
 
-void	PhoneBook::get_input_index_and_display_contact_infos(void)
+void	PhoneBook::get_input_index_and_display_contact_infos(void) const
 {
 	int	index;
 
@@ -133,7 +138,7 @@ void	PhoneBook::get_input_index_and_display_contact_infos(void)
 	}
 }
 
-void PhoneBook::display_contacts(void)
+void PhoneBook::display_and_search_contacts(void) const
 {
 	if (current_contact_count_ == 0)
 	{

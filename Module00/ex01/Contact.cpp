@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 13:58:59 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 17:15:23 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,32 +73,32 @@ bool Contact::set_input_darkest_secret_(void)
 	return (true);
 }
 
-std::string Contact::get_first_name(void)
+std::string Contact::get_first_name(void) const
 {
 	return (first_name_);
 }
 
-std::string Contact::get_last_name(void)
+std::string Contact::get_last_name(void) const
 {
 	return (last_name_);
 }
 
-std::string Contact::get_nickname(void)
+std::string Contact::get_nickname(void) const
 {
 	return (nickname_);
 }
 
-std::string Contact::get_phone_number(void)
+std::string Contact::get_phone_number(void) const
 {
 	return (phone_number_);
 }
 
-std::string Contact::get_darkest_secret(void)
+std::string Contact::get_darkest_secret(void) const
 {
 	return (darkest_secret_);
 }
 
-void Contact::display_infos(void)
+void Contact::display_infos(void) const
 {
 	std::cout << "\tFirst name: " << first_name_ << '\n';
 	std::cout << "\tLast name: " << last_name_ << '\n';

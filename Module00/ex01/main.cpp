@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 13:32:53 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 17:17:09 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(void)
 		if (phonebook.is_cmd_add())
 			phonebook.save_contact();
 		else if (phonebook.is_cmd_search())
-			phonebook.display_contacts();
+			phonebook.display_and_search_contacts();
 		else if (phonebook.is_cmd_exit())
 			break;
 		else
