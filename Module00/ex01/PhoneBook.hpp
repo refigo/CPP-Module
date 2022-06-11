@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:21 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 12:24:20 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 12:37:03 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 class PhoneBook
 {
 private:
-	Contact contacts_[CONTACTS_MAX];
-	int current_contact_count_;
-	int current_contact_position_;
+	Contact 	contacts_[CONTACTS_MAX];
+	int 		current_contact_count_;
+	int 		current_contact_position_;
 	std::string cmd_;
 
-	void print_contacts_header_(void);
-	void print_contact_index_names_(int i);
+	void display_contacts_header_(void);
+	void display_contact_index_names_(int i);
 	
 	void get_input_index_and_display_contact_infos(void);
 

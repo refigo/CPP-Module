@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 12:23:45 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 13:32:53 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int main(void)
 		else if (phonebook.is_cmd_exit())
 			break;
 		else
-			std::cout << "\nInvalid command...\n";
-		if (std::cin.eof() || std::cin.bad())
+			std::cout << "\nInvalid command...\n\n";
+		if (is_not_cin_stream_good())
 		{
 			std::cout << '\n';
 			return (1);

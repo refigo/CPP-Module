@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 12:20:40 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 13:58:59 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 bool Contact::set_inputs_infos(void)
 {
+	std::cout << B_WHITE \
+		<< "\nInput new contact informations\n" \
+		<< END_OF_COLOR \
+		<< "\t->\n";
 	if (set_input_first_name_() == false \
 	|| set_input_last_name_() == false \
 	|| set_input_nickname_() == false \
@@ -25,7 +29,7 @@ bool Contact::set_inputs_infos(void)
 
 bool Contact::set_input_first_name_(void)
 {
-	std::cout << "Input first name: ";
+	std::cout << "\tInput first name: ";
 	first_name_ = get_input_trimmed_ws();
 	if (std::cin.eof())
 		return (false);
@@ -34,29 +38,38 @@ bool Contact::set_input_first_name_(void)
 
 bool Contact::set_input_last_name_(void)
 {
-	std::cout << "Input last name: ";
+	std::cout << "\tInput last name: ";
 	last_name_ = get_input_trimmed_ws();
+	if (is_not_cin_stream_good())
+		return (false);
 	return (true);
 }
 
 bool Contact::set_input_nickname_(void)
 {
-	std::cout << "Input nickname: ";
+	std::cout << "\tInput nickname: ";
 	nickname_ = get_input_trimmed_ws();
+	if (is_not_cin_stream_good())
+		return (false);
 	return (true);
 }
 
 bool Contact::set_input_phone_number_(void)
 {
-	std::cout << "Input phone number: ";
+	std::cout << "\tInput phone number: ";
 	phone_number_ = get_input_trimmed_ws();
+	if (is_not_cin_stream_good())
+		return (false);
+	// todo: check only nums
 	return (true);
 }
 
 bool Contact::set_input_darkest_secret_(void)
 {
-	std::cout << "Input darkest secret: ";
+	std::cout << "\tInput darkest secret: ";
 	darkest_secret_ = get_input_trimmed_ws();
+	if (is_not_cin_stream_good())
+		return (false);
 	return (true);
 }
 
@@ -69,14 +82,17 @@ std::string Contact::get_last_name(void)
 {
 	return (last_name_);
 }
+
 std::string Contact::get_nickname(void)
 {
 	return (nickname_);
 }
+
 std::string Contact::get_phone_number(void)
 {
 	return (phone_number_);
 }
+
 std::string Contact::get_darkest_secret(void)
 {
 	return (darkest_secret_);
