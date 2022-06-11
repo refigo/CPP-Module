@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 20:24:07 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 12:21:42 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,48 +21,49 @@ void PhoneBook::set_input_cmd(void)
 	cmd_ = input;
 }
 
-e_bool PhoneBook::is_cmd_add(void)
+bool PhoneBook::is_cmd_add(void)
 {
 	if (cmd_ == "ADD")
-		return (TRUE);
+		return (true);
 	else if (cmd_ == "add")
-		return (TRUE);
+		return (true);
 	else if (cmd_ == "a")
-		return (TRUE);
-	return (FALSE);
+		return (true);
+	return (false);
 }
 
-e_bool PhoneBook::is_cmd_search(void)
+bool PhoneBook::is_cmd_search(void)
 {
 	if (cmd_ == "SEARCH")
-		return (TRUE);
+		return (true);
 	else if (cmd_ == "search")
-		return (TRUE);
+		return (true);
 	else if (cmd_ == "s")
-		return (TRUE);
-	return (FALSE);
+		return (true);
+	return (false);
 }
 
-e_bool PhoneBook::is_cmd_exit(void)
+bool PhoneBook::is_cmd_exit(void)
 {
 	if (cmd_ == "EXIT")
-		return (TRUE);
+		return (true);
 	else if (cmd_ == "exit")
-		return (TRUE);
+		return (true);
 	else if (cmd_ == "e")
-		return (TRUE);
+		return (true);
 	/*
 	else if (cmd_ == "")
-		return (TRUE);
+		return (true);
 	*/
-	return (FALSE);
+	return (false);
 }
 
 void PhoneBook::save_contact(void)
 {
 	Contact contact;
 
-	contact.set_inputs_infos();
+	if (contact.set_inputs_infos() == false)
+		return ;
 	contacts_[current_contact_position_] = contact;
 	if (current_contact_count_ != CONTACTS_MAX)
 		current_contact_count_++;
@@ -74,7 +75,7 @@ void PhoneBook::save_contact(void)
 }
 
 // considering to move...
-static void	print_str_with_width(std::string str, int width)
+static void	print_str_with_width(std::string str, size_t width)
 {
 	if (width == 0)
 		return;
@@ -153,8 +154,6 @@ void	PhoneBook::get_input_index_and_display_contact_infos(void)
 
 void PhoneBook::display_contacts(void)
 {
-	int index;
-
 	if (current_contact_count_ == 0)
 	{
 		std::cout << "None of contacts...\n";

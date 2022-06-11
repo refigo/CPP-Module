@@ -6,55 +6,58 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/09 20:20:15 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 12:20:40 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-e_result Contact::set_inputs_infos(void)
+bool Contact::set_inputs_infos(void)
 {
-	set_input_first_name_();
-	set_input_last_name_();
-	set_input_nickname_();
-	set_input_phone_number_();
-	set_input_darkest_secret_();
-	return (SUCCESS);
+	if (set_input_first_name_() == false \
+	|| set_input_last_name_() == false \
+	|| set_input_nickname_() == false \
+	|| set_input_phone_number_() == false \
+	|| set_input_darkest_secret_() == false)
+		return (false);
+	return (true);
 }
 
-e_result Contact::set_input_first_name_(void)
+bool Contact::set_input_first_name_(void)
 {
 	std::cout << "Input first name: ";
 	first_name_ = get_input_trimmed_ws();
-	return (SUCCESS);
+	if (std::cin.eof())
+		return (false);
+	return (true);
 }
 
-e_result Contact::set_input_last_name_(void)
+bool Contact::set_input_last_name_(void)
 {
 	std::cout << "Input last name: ";
 	last_name_ = get_input_trimmed_ws();
-	return (SUCCESS);
+	return (true);
 }
 
-e_result Contact::set_input_nickname_(void)
+bool Contact::set_input_nickname_(void)
 {
 	std::cout << "Input nickname: ";
 	nickname_ = get_input_trimmed_ws();
-	return (SUCCESS);
+	return (true);
 }
 
-e_result Contact::set_input_phone_number_(void)
+bool Contact::set_input_phone_number_(void)
 {
 	std::cout << "Input phone number: ";
 	phone_number_ = get_input_trimmed_ws();
-	return (SUCCESS);
+	return (true);
 }
 
-e_result Contact::set_input_darkest_secret_(void)
+bool Contact::set_input_darkest_secret_(void)
 {
 	std::cout << "Input darkest secret: ";
 	darkest_secret_ = get_input_trimmed_ws();
-	return (SUCCESS);
+	return (true);
 }
 
 std::string Contact::get_first_name(void)

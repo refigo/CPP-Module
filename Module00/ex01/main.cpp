@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:33:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/10 20:23:35 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 12:23:45 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(void)
 {
 	PhoneBook phonebook;
 
+	// When EOF inputed, must exit.
 	while (true)
 	{
 		phonebook.set_input_cmd();
@@ -26,7 +27,7 @@ int main(void)
 		else if (phonebook.is_cmd_exit())
 			break;
 		else
-			std::cout << "\nInvalid cmd..\n";
+			std::cout << "\nInvalid command...\n";
 		if (std::cin.eof() || std::cin.bad())
 		{
 			std::cout << '\n';
