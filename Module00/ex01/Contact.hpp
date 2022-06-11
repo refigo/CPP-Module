@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 17:14:27 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 19:08:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ private:
 	bool set_input_darkest_secret_(void);
 
 public:
-	bool set_inputs_infos(void);
+	bool set_inputs_infos(int index);
 
 	std::string get_first_name(void) const;
 	std::string get_last_name(void) const;

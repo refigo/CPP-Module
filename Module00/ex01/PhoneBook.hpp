@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:21 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 17:14:58 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 19:15:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ private:
 
 public:
 	void set_input_cmd(void);
+
 	bool is_cmd_add(void) const;
 	bool is_cmd_search(void) const;
 	bool is_cmd_exit(void) const;

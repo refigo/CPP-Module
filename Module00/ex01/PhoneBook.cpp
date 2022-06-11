@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 17:47:43 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 19:17:55 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void PhoneBook::set_input_cmd(void)
 	std::string input;
 
 	std::cout << B_WHITE;
-	std::cout << "Please input command [ADD, SEARCH or EXIT]: ";
+	std::cout << "\nPlease input command [ADD, SEARCH or EXIT]: ";
 	std::cout << END_OF_COLOR;
 	input = get_input_trimmed_ws();
 	cmd_ = input;
@@ -62,11 +62,10 @@ void PhoneBook::save_contact(void)
 
 	if (current_contact_count_ == CONTACTS_MAX)
 	{
-		std::cout << "\nPhone book is full.. \nso override to index [" \
-			<< current_contact_position_ << "]";
-
+		std::cout << B_BLUE << "\nPhone book is full.. \nso override to index [" \
+			<< current_contact_position_ << "]" << END_OF_COLOR;
 	}
-	if (contact.set_inputs_infos() == false)
+	if (contact.set_inputs_infos(current_contact_position_) == false)
 		return ;
 	contacts_[current_contact_position_] = contact;
 	if (current_contact_count_ != CONTACTS_MAX)
@@ -75,7 +74,7 @@ void PhoneBook::save_contact(void)
 		current_contact_position_ = 0;
 	else
 		current_contact_position_++;
-	std::cout << "\nSuccessfully saved!\n";
+	std::cout << B_GREEN << "\nSuccessfully saved!\n" << END_OF_COLOR;
 }
 
 void PhoneBook::display_contacts_header_(void) const
@@ -123,18 +122,14 @@ void	PhoneBook::get_input_index_and_display_contact_infos(void) const
 		if (std::cin.good() == false)
 		{
 			if (std::cin.fail())
-			{
 				std::cin.clear();
-				std::cin.ignore(\
-					std::numeric_limits<std::streamsize>::max(), '\n');
-			}
-			std::cout << std::endl;
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 			return ;
 		}
 		else if ((0 <= index) && (index < current_contact_count_))
 			contacts_[index].display_infos();
 		else
-			std::cout << "\tInvalid index...\n";
+			std::cout << B_YELLOW << "\n\tInvalid index...\n" << END_OF_COLOR;
 	}
 }
 
@@ -142,9 +137,10 @@ void PhoneBook::display_and_search_contacts(void) const
 {
 	if (current_contact_count_ == 0)
 	{
-		std::cout << "None of contacts...\n";
+		std::cout << B_YELLOW << "\nNone of contacts...\n" << END_OF_COLOR;
 		return ;
 	}
+	std::cout << '\n';
 	display_border_line('=');
 	display_contacts_header_();
 	display_border_line('-');
@@ -158,10 +154,15 @@ PhoneBook::PhoneBook(void)
 {
 	current_contact_count_ = 0;
 	current_contact_position_ = 0;
-	std::cout << "Opened my awesome phone book!\n\n";
+	std::cout << B_RED << "\nOpened " \
+		<< B_YELLOW << "my " \
+		<< B_GREEN << "awesome " \
+		<< B_BLUE << "phone " \
+		<< B_PURPLE << "book!\n" \
+		<< END_OF_COLOR;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "Closed my awesome phone book...(contacts are lost forever)\n";
+	std::cout << "\nClosed my awesome phone book...(contacts are lost forever)\n";
 }

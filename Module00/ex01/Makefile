@@ -6,11 +6,11 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 15:19:30 by mgo               #+#    #+#              #
-#    Updated: 2022/06/11 12:13:58 by mgo              ###   ########.fr        #
+#    Updated: 2022/06/11 19:16:12 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	test
+NAME		=	phonebook
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98

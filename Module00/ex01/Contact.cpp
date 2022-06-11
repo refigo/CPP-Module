@@ -6,16 +6,16 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 17:15:23 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/11 19:10:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
 
-bool Contact::set_inputs_infos(void)
+bool Contact::set_inputs_infos(int index)
 {
 	std::cout << B_WHITE \
-		<< "\nInput new contact informations\n" \
+		<< "\nInput informations in the new contact of index [" << index << "]\n" \
 		<< END_OF_COLOR \
 		<< "\t->\n";
 	if (set_input_first_name_() == false \
@@ -60,7 +60,14 @@ bool Contact::set_input_phone_number_(void)
 	phone_number_ = get_input_trimmed_ws();
 	if (is_not_cin_stream_good())
 		return (false);
-	// todo: check only nums
+	for (std::string::iterator it = phone_number_.begin(); it != phone_number_.end(); ++it)
+		if (*it != '-' && (*it < '0' || '9' < *it))
+		{
+			std::cout << B_RED << "\nFailed to save! " << \
+				"-> phone number should only have numbers and bars(-).\n" \
+				<< END_OF_COLOR;
+			return (false);
+		}
 	return (true);
 }
 
@@ -100,6 +107,7 @@ std::string Contact::get_darkest_secret(void) const
 
 void Contact::display_infos(void) const
 {
+	std::cout << B_PURPLE << "\n\t[Contact informations]\n" << END_OF_COLOR;
 	std::cout << "\tFirst name: " << first_name_ << '\n';
 	std::cout << "\tLast name: " << last_name_ << '\n';
 	std::cout << "\tNickname: " << nickname_ << '\n';
