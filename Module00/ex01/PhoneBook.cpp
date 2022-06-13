@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 19:17:55 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/13 21:28:46 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,9 +151,8 @@ void PhoneBook::display_and_search_contacts(void) const
 }
 
 PhoneBook::PhoneBook(void)
+	: current_contact_count_(0), current_contact_position_(0)
 {
-	current_contact_count_ = 0;
-	current_contact_position_ = 0;
 	std::cout << B_RED << "\nOpened " \
 		<< B_YELLOW << "my " \
 		<< B_GREEN << "awesome " \
