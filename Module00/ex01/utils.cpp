@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:34:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 13:15:25 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 09:21:44 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ void	display_border_line(char c)
 	std::cout << std::setfill(c);
 	std::cout << std::setw(46) << '\n';
 	std::cout << std::setfill(' ');
+}
+
+bool	is_not_cin_stream_good(void)
+{
+	return (!(std::cin.good()));
 }
