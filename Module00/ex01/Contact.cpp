@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 19:10:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 10:38:51 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 bool Contact::set_inputs_infos(int index)
 {
 	std::cout << B_WHITE \
-		<< "\nInput informations in the new contact of index [" << index << "]\n" \
+		<< "\nInput informations in the new contact of index [" \
+		<< index << "]\n" \
 		<< END_OF_COLOR \
 		<< "\t->\n";
 	if (set_input_first_name_() == false \
@@ -31,7 +32,7 @@ bool Contact::set_input_first_name_(void)
 {
 	std::cout << "\tInput first name: ";
 	first_name_ = get_input_trimmed_ws();
-	if (std::cin.eof())
+	if (is_not_cin_stream_good())
 		return (false);
 	return (true);
 }
@@ -60,7 +61,8 @@ bool Contact::set_input_phone_number_(void)
 	phone_number_ = get_input_trimmed_ws();
 	if (is_not_cin_stream_good())
 		return (false);
-	for (std::string::iterator it = phone_number_.begin(); it != phone_number_.end(); ++it)
+	for (std::string::iterator it = phone_number_.begin(); \
+		it != phone_number_.end(); ++it)
 		if (*it != '-' && (*it < '0' || '9' < *it))
 		{
 			std::cout << B_RED << "\nFailed to save! " << \
@@ -114,3 +116,5 @@ void Contact::display_infos(void) const
 	std::cout << "\tPhone number: " << phone_number_ << '\n';
 	std::cout << "\tDarkest secret: " << darkest_secret_ << '\n';
 }
+
+// todo: add constructor and destructor
