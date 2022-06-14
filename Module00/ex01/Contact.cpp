@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 11:53:47 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 20:39:24 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,6 @@ void Contact::display_infos(void) const
 	std::cout << "\tPhone number: " << phone_number_ << '\n';
 	std::cout << "\tDarkest secret: " << darkest_secret_ << '\n';
 }
-
-// todo: add constructor and destructor
 
 Contact::Contact(void)
 {

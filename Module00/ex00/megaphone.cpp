@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:09:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 11:41:17 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 16:26:28 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static char *set_str_upper(char *str)
 
 	i = -1;
 	while (str[++i])
-		str[i] = static_cast<char>(std::toupper(static_cast<unsigned char>(str[i])));
+		str[i] = static_cast<char>(std::toupper(\
+			static_cast<unsigned char>(str[i])));
 	return (str);
 }
 
