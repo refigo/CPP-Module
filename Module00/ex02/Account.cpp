@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:20:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 20:13:36 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 20:43:54 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <iostream>
 #include <iomanip>
 
-int Account::_nbAccounts = 0;
-int Account::_totalAmount = 0;
-int Account::_totalNbDeposits = 0;
-int Account::_totalNbWithdrawals = 0;
+int Account::_nbAccounts(0);
+int Account::_totalAmount(0);
+int Account::_totalNbDeposits(0);
+int Account::_totalNbWithdrawals(0);
 
 int Account::getNbAccounts(void)
 {
