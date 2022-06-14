@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 10:45:11 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:40:36 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,11 @@ void PhoneBook::save_contact(void)
 		return ;
 	contacts_[current_contact_position_] = contact;
 	if (current_contact_count_ != CONTACTS_MAX)
-		current_contact_count_++;
+		++current_contact_count_;
 	if (current_contact_position_ == CONTACTS_MAX - 1)
 		current_contact_position_ = 0;
 	else
-		current_contact_position_++;
+		++current_contact_position_;
 	std::cout << B_GREEN << "\nSuccessfully saved!\n" << END_OF_COLOR;
 }
 
@@ -173,4 +173,12 @@ PhoneBook::~PhoneBook(void)
 {
 	std::cout << "\nClosed my awesome phone book..." \
 		<< " (contacts are lost forever)\n";
+}
+
+Contact::Contact(void)
+{
+}
+
+Contact::~Contact(void)
+{
 }

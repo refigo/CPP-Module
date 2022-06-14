@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/11 19:08:38 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:27:19 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ public:
 	std::string get_darkest_secret(void) const;
 
 	void display_infos(void) const;
+
+	Contact(void);
+	~Contact(void);
 };
 
 #endif

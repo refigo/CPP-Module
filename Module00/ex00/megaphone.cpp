@@ -6,14 +6,14 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:09:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/05/26 21:24:38 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:41:17 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
 
-static char *set_to_uppers(char *str)
+static char *set_str_upper(char *str)
 {
 	int i;
 
@@ -29,7 +29,7 @@ static void use_megaphone(int argc, char **argv)
 
 	i = 0;
 	while (++i < argc)
-		std::cout << set_to_uppers(argv[i]);
+		std::cout << set_str_upper(argv[i]);
 	std::cout << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 10:38:51 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:30:11 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ bool Contact::set_input_phone_number_(void)
 	if (is_not_cin_stream_good())
 		return (false);
 	for (std::string::iterator it = phone_number_.begin(); \
-		it != phone_number_.end(); ++it)
+		it != phone_number_.end(); \
+		++it)
 		if (*it != '-' && (*it < '0' || '9' < *it))
 		{
 			std::cout << B_RED << "\nFailed to save! " << \
