@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 11:40:36 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:53:49 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,13 @@ void PhoneBook::set_input_cmd(void)
 	std::cout << B_WHITE;
 	std::cout << "\nPlease input command [ADD, SEARCH or EXIT]: ";
 	std::cout << END_OF_COLOR;
-	input = get_input_trimmed_ws();
-	// todo: set string lower
+	input = set_str_lower(get_input_trimmed_ws());
 	cmd_ = input;
 }
 
 bool PhoneBook::is_cmd_add(void) const
 {
-	if (cmd_ == "ADD")
-		return (true);
-	else if (cmd_ == "add")
+	if (cmd_ == "add")
 		return (true);
 	else if (cmd_ == "a")
 		return (true);
@@ -38,9 +35,7 @@ bool PhoneBook::is_cmd_add(void) const
 
 bool PhoneBook::is_cmd_search(void) const
 {
-	if (cmd_ == "SEARCH")
-		return (true);
-	else if (cmd_ == "search")
+	if (cmd_ == "search")
 		return (true);
 	else if (cmd_ == "s")
 		return (true);
@@ -50,9 +45,7 @@ bool PhoneBook::is_cmd_search(void) const
 
 bool PhoneBook::is_cmd_exit(void) const
 {
-	if (cmd_ == "EXIT")
-		return (true);
-	else if (cmd_ == "exit")
+	if (cmd_ == "exit")
 		return (true);
 	else if (cmd_ == "e")
 		return (true);
@@ -173,12 +166,4 @@ PhoneBook::~PhoneBook(void)
 {
 	std::cout << "\nClosed my awesome phone book..." \
 		<< " (contacts are lost forever)\n";
-}
-
-Contact::Contact(void)
-{
-}
-
-Contact::~Contact(void)
-{
 }

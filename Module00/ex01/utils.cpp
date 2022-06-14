@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:34:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 09:21:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:52:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,15 @@ std::string get_input_trimmed_ws()
 	ws = " \n\r\t\f\v";
 	last_not_ws = input.find_last_not_of(ws);
 	return (input.substr(0, last_not_ws + 1));
+}
+
+std::string	set_str_lower(std::string str)
+{
+	for (std::string::iterator it = str.begin(); \
+		it != str.end(); \
+		++it)
+		*it = static_cast<char>(std::tolower(static_cast<unsigned char>(*it)));
+	return (str);
 }
 
 void	display_str_with_width(std::string str, size_t width)

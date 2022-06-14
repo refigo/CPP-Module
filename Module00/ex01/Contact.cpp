@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 11:30:11 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/14 11:53:47 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,3 +119,11 @@ void Contact::display_infos(void) const
 }
 
 // todo: add constructor and destructor
+
+Contact::Contact(void)
+{
+}
+
+Contact::~Contact(void)
+{
+}
