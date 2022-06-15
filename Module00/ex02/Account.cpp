@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:20:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 20:43:54 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/15 16:37:28 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -222,4 +222,18 @@ void Account::_displayTimestamp(void)
 	std::cout << std::setw(2) << (timeinfo->tm_sec);
 	std::cout << "] ";
 	std::cout << std::setfill(' ');
+}
+
+// todo: Account(void)
+Account::Account(void)
+{	
+	_accountIndex = (Account::_nbAccounts)++;
+	_amount = 0;
+	_nbDeposits = 0;
+	_nbWithdrawals = 0;
+	Account::_totalAmount += _amount;
+	Account::_displayTimestamp();
+	std::cout << "index:" << _accountIndex;
+	std::cout << ";amount:" << _amount;
+	std::cout << ";created\n";
 }
