@@ -6,27 +6,11 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 10:24:18 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/14 20:39:24 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/16 09:18:10 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
-
-bool Contact::set_inputs_infos(int index)
-{
-	std::cout << B_WHITE \
-		<< "\nInput informations in the new contact of index [" \
-		<< index << "]\n" \
-		<< END_OF_COLOR \
-		<< "\t->\n";
-	if (set_input_first_name_() == false \
-	|| set_input_last_name_() == false \
-	|| set_input_nickname_() == false \
-	|| set_input_phone_number_() == false \
-	|| set_input_darkest_secret_() == false)
-		return (false);
-	return (true);
-}
 
 bool Contact::set_input_first_name_(void)
 {
@@ -79,6 +63,22 @@ bool Contact::set_input_darkest_secret_(void)
 	std::cout << "\tInput darkest secret: ";
 	darkest_secret_ = get_input_trimmed_ws();
 	if (is_not_cin_stream_good())
+		return (false);
+	return (true);
+}
+
+bool Contact::set_inputs_infos(int index)
+{
+	std::cout << B_WHITE \
+		<< "\nInput informations in the new contact of index [" \
+		<< index << "]\n" \
+		<< END_OF_COLOR \
+		<< "\t->\n";
+	if (set_input_first_name_() == false \
+	|| set_input_last_name_() == false \
+	|| set_input_nickname_() == false \
+	|| set_input_phone_number_() == false \
+	|| set_input_darkest_secret_() == false)
 		return (false);
 	return (true);
 }

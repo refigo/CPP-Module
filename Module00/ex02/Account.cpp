@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 09:20:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/15 19:32:05 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/16 09:42:45 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ bool Account::makeWithdrawal(int withdrawal)
 	}
 	_amount -= withdrawal;
 	++(_nbWithdrawals);
-	std::cout << ";withdrawal:" << withdrawal;
+	std::cout << withdrawal;
 	std::cout << ";amount:" << _amount;
 	std::cout << ";nb_withdrawals:" << _nbWithdrawals;
 	std::cout << '\n';
