@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 17:55:11 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/16 18:08:42 by mgo              ###   ########.fr       */
+/*   Created: 2022/06/16 17:55:08 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/16 17:55:09 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(void)
+void	Zombie::announce(void)
 {
-	std::string	test_string("test");
-	Zombie	test(test_string);
-	test.announce();
+	std::cout << name_;
+	std::cout << ": BraiiiiiiinnnzzzZ...\n";
+}
 
-	std::string	random_string("random");
-	randomChump(random_string);
+Zombie::Zombie(std::string name): name_(name)
+{
+}
 
-	std::string	new_string("ptr");
-	Zombie	*new_zom = newZombie(new_string);
-	new_zom->announce();
-	delete new_zom;
-
-	system("leaks BraiiiiiiinnnzzzZ");
-	return (0);
+Zombie::~Zombie(void)
+{
+	std::cout << name_ << " is destroyed...\n";
 }

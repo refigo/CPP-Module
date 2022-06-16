@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/16 17:55:11 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/16 18:08:42 by mgo              ###   ########.fr       */
+/*   Created: 2022/06/16 17:55:13 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/16 18:06:49 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-int	main(void)
+# include <iostream>
+
+class Zombie
 {
-	std::string	test_string("test");
-	Zombie	test(test_string);
-	test.announce();
+private:
+	std::string	name_;
 
-	std::string	random_string("random");
-	randomChump(random_string);
+	Zombie(void);
 
-	std::string	new_string("ptr");
-	Zombie	*new_zom = newZombie(new_string);
-	new_zom->announce();
-	delete new_zom;
+public:
+	void	announce(void);
 
-	system("leaks BraiiiiiiinnnzzzZ");
-	return (0);
-}
+	Zombie(std::string name);
+	~Zombie(void);
+};
+
+Zombie	*zombieHorde(int N, std::string name);
+
+#endif
