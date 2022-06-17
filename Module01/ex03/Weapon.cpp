@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:34:36 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 13:51:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 14:03:31 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,6 @@ const std::string&	Weapon::getType(void) const
 void	Weapon::setType(const std::string& type)
 {
 	type_ = type;
-}
-
-Weapon::Weapon(void): type_("hand")
-{
 }
 
 Weapon::Weapon(const std::string& type): type_(type)

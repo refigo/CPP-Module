@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:15:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 13:58:34 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 14:48:49 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,18 @@
 # define HUMAN_B_HPP
 
 #include "Weapon.hpp"
-#include <string>
 
 class HumanB
 {
 private:
-	std::string	name_;
-	Weapon weapon_;
+	const std::string	name_;
+	const Weapon* weapon_;
 
 	HumanB(void);
 
 public:
 	void attack(void) const;
-	void setWeapon(Weapon& weapon);
+	void setWeapon(const Weapon& weapon);
 
 	HumanB(const std::string& name);
 	~HumanB(void);

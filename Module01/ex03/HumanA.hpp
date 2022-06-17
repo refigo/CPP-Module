@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:08:53 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 13:58:53 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 14:48:45 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 # define HUMAN_A_HPP
 
 #include "Weapon.hpp"
-#include <string>
 
 class HumanA
 {
 private:
-	std::string	name_;
-	Weapon& weapon_;
+	const std::string	name_;
+	const Weapon* weapon_;
 
 	HumanA(void);
 
 public:
 	void attack(void) const;
 
-	HumanA(const std::string& name, Weapon& weapon);
+	HumanA(const std::string& name, const Weapon& weapon);
 	~HumanA(void);
 };
 

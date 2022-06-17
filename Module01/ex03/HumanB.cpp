@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:48:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 13:59:18 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 14:40:37 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 
 void	HumanB::attack(void) const
 {
-	std::cout << name_ \
-		<< " attacks with their " \
-		<< weapon_.getType() \
-		<< '\n';
+	std::cout << name_ << " attacks with their ";
+	if (weapon_)
+		std::cout << weapon_->getType() << '\n';
+	else
+		std::cout << "hand" << '\n';
 }
 
-void	HumanB::setWeapon(Weapon& weapon)
+void	HumanB::setWeapon(const Weapon& weapon)
 {
 	(void)weapon;
 }
 
-HumanB::HumanB(const std::string& name): name_(name)
+HumanB::HumanB(const std::string& name): name_(name), weapon_(NULL)
 {
 }
 
