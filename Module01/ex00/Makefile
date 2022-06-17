@@ -6,11 +6,11 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/16 17:55:16 by mgo               #+#    #+#              #
-#    Updated: 2022/06/17 10:04:05 by mgo              ###   ########.fr        #
+#    Updated: 2022/06/17 11:23:56 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	BraiiiiiiinnnzzzZ
+NAME		=	zombie
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98

@@ -6,21 +6,23 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/16 18:04:18 by mgo               #+#    #+#              #
-#    Updated: 2022/06/16 18:05:43 by mgo              ###   ########.fr        #
+#    Updated: 2022/06/17 11:30:30 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	Moar
+NAME		=	horde
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
+#CXXFLAGS	+=	-fsanitize=address -g
 
 rm			=	rm -f
 
 INC			=	-I./
 
 SRC			=	main.cpp \
-				Zombie.cpp
+				Zombie.cpp \
+				zombieHorde.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp

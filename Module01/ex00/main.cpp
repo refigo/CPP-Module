@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:55:11 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 10:22:25 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 11:24:09 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	main(void)
 
 	delete zombie_heap;	
 
-	//system("leaks BraiiiiiiinnnzzzZ");
+	//system("leaks zombie");
 	return (0);
 }
