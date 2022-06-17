@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:55:11 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/16 18:08:42 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 10:22:25 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 int	main(void)
 {
-	std::string	test_string("test");
-	Zombie	test(test_string);
-	test.announce();
+	// stack
+	Zombie	zombie_main("stack_main");
+	zombie_main.announce();
 
-	std::string	random_string("random");
-	randomChump(random_string);
+	// heap
+	Zombie	*zombie_heap = newZombie("heap");
+	zombie_heap->announce();
 
-	std::string	new_string("ptr");
-	Zombie	*new_zom = newZombie(new_string);
-	new_zom->announce();
-	delete new_zom;
+	// call function stack
+	randomChump("stack_random");
 
-	system("leaks BraiiiiiiinnnzzzZ");
+	delete zombie_heap;	
+
+	//system("leaks BraiiiiiiinnnzzzZ");
 	return (0);
 }

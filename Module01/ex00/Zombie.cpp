@@ -6,19 +6,19 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:55:08 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/16 17:55:09 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/17 10:08:27 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-void	Zombie::announce(void)
+void	Zombie::announce(void) const
 {
-	std::cout << name_;
-	std::cout << ": BraiiiiiiinnnzzzZ...\n";
+	std::cout << name_ << ": BraiiiiiiinnnzzzZ...\n";
 }
 
-Zombie::Zombie(std::string name): name_(name)
+Zombie::Zombie(const std::string &name): name_(name)
 {
 }
 
