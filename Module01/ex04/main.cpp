@@ -5,34 +5,55 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 13:27:52 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 18:36:21 by mgo              ###   ########.fr       */
+/*   Created: 2022/06/17 18:43:02 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/17 21:14:44 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Replacer.hpp"
 
-int	main(void)
+#include <iostream>
+static void	test_place(void)
 {
-	{
-		Weapon	club = Weapon("crude spiked club");
+	//out file stream
+	/*
+	std::ofstream	outf("test.txt");
 
-		HumanA	bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
+	if (!outf)
 	{
-		Weapon	club = Weapon("crude spiked club");
-
-		HumanB	jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
+		std::cout << "outf failed\n";
+		return ;
 	}
-	//system("leaks violence");
+
+	outf << "test1\n";
+	outf << "test2\n";
+	*/
+
+	//in file stream
+	std::ifstream	inf("test.txt");
+
+	if (!inf)
+	{
+		std::cout << "inf failed\n";
+		return ;
+	}
+	
+	while (inf)
+	{
+		std::string	strInput;
+		//inf >> strInput;
+		std::getline(inf, strInput);
+		std::cout << strInput << '\n';
+	}
+	
+	return ;
+}
+
+int	main(int argc, char **argv)
+{
+	test_place();
+
+	(void)argc;
+	(void)argv;
 	return (0);
 }
