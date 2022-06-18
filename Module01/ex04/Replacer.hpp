@@ -13,8 +13,9 @@ private:
 	std::string	s2;
 
 public:
-
-
+	
+	Replacer();
+	~Replacer();
 
 };
 
