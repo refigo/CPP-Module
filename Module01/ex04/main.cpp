@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:43:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/19 19:25:43 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/19 19:50:31 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ int	main(int argc, char **argv)
 {
 	Replacer	replacer(argc, argv);
 	
-	if (!replacer.check_and_set_args())
+	if (replacer.check_and_set_args() == false)
 		return (1);
-	
-	//replacer.setup();	
+	if (replacer.setup_file_io() == false)
+		return (1);
+
 	//replacer.replace();
 
 	//test_place();

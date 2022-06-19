@@ -1,2 +1,7 @@
 test1
 test2
+
+test is abcd?
+test == abcd?
+test === abcd?
+test ==== abcd?
