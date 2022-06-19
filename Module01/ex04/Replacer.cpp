@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 19:17:03 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/19 20:24:47 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/19 20:26:24 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,12 @@ bool	Replacer::setup_file_io(void)
 		std::cout << "infile open failed!\n";
 		return (false);
 	}
-	else
-		std::cout << "hello open infile!\n";
 	outfile_.open(filename_ + ".replace");
 	if (outfile_.good() == false)
 	{
 		std::cout << "outfile open failed!\n";
 		return (false);
 	}
-	else
-		std::cout << "hello open outfile!\n";
 	return (true);
 }
 
