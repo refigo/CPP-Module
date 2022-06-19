@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 19:17:03 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/19 20:17:33 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/19 20:24:47 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,8 @@ void	Replacer::replace(void)
 	std::ostringstream	ss;
 	
 	ss << infile_.rdbuf();
-	std::string	contents(ss.str());
 	infile_.close();
+	std::string	contents(ss.str());
 	size_t	last(0);
 	size_t	curr(0);
 	while (true)
