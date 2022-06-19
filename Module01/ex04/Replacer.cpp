@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 19:17:03 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/19 20:03:03 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/19 20:17:33 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,21 @@ void	Replacer::replace(void)
 	ss << infile_.rdbuf();
 	std::string	contents(ss.str());
 	infile_.close();
-
+	size_t	last(0);
+	size_t	curr(0);
+	while (true)
+	{
+		curr = contents.find(str_from_, last);
+		if (curr == std::string::npos)
+		{
+			outfile_ << contents.substr(last);
+			break ;
+		}
+		outfile_ << contents.substr(last, curr - last);
+		outfile_ << str_to_;
+		last = curr + str_from_.length();
+	}
+	outfile_.close();
 }
 
 Replacer::Replacer(int argc, char **argv)

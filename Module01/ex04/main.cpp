@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 18:43:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/19 19:50:31 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/19 20:17:41 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ int	main(int argc, char **argv)
 		return (1);
 	if (replacer.setup_file_io() == false)
 		return (1);
-
-	//replacer.replace();
-
-	//test_place();
+	replacer.replace();
 	return (0);
 }
