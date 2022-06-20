@@ -1,34 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/20 13:05:12 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/20 14:38:01 by mgo              ###   ########.fr       */
+/*   Created: 2022/06/20 13:05:21 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/20 13:09:55 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int	main(void)
+# include <string>
+
+enum e_harl
 {
-	Harl	harl;
+	HARL_DEBUG,
+	HARL_INFO,
+	HARL_WARNING,
+	HARL_ERROR,
+	HARL_UNKNOWN
+};
 
-	harl.complain("DEBUG");
+class Harl
+{
+private:
+	e_harl	status_;
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 
-	std::cout << std::endl;
-	
-	harl.complain("INFO");
+	void	set_status_(const std::string& level);
 
-	std::cout << std::endl;
-	
-	harl.complain("WARNING");
+public:
+	void	complain(std::string level);
 
-	std::cout << std::endl;
+	Harl(void);
+	~Harl(void);
+};
 
-	harl.complain("ERROR");
-
-	return (0);
-}
+#endif
