@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:05:21 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/20 15:01:23 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/20 15:15:16 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define HARL_HPP
 
 # include <string>
+#include <iostream>
 
 enum e_harl
 {
@@ -28,8 +29,12 @@ class Harl
 {
 private:
 	e_harl	status_;
-
 	void	set_status_(const std::string& level);
+
+	void	debug(void);
+	void	info(void);
+	void	warning(void);
+	void	error(void);
 
 public:
 	void	complain(std::string level);
