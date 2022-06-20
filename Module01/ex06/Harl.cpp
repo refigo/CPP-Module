@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:05:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/20 14:56:53 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/20 15:01:35 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,6 @@ void	Harl::complain(std::string level)
 		default:
 			std::cout << "[ Probably complaining about insignificant problems ]\n";
 	}
-}
-
-void	Harl::debug(void)
-{
-	
-}
-
-void	Harl::info(void)
-{
-	
-}
-
-void	Harl::warning(void)
-{
-	
-}
-
-void	Harl::error(void)
-{
-	
 }
 
 Harl::Harl(void)
