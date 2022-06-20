@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 19:17:03 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/19 20:26:24 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/20 15:17:51 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	Replacer::check_and_set_args(void)
 	if (argc_ != 4)
 	{
 		std::cout << "args num failed!\n";
-		std::cout << "Usage: ./replacer <filename> <from> <to>\n";
+		std::cout << "Usage: ./replacer [filename] [from_string] [to_string]\n";
 		return (false);
 	}
 	filename_ = argv_[1];
