@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 20:29:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 16:47:06 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 17:05:19 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ private:
 	static const int	num_frac_bits_ = 8;
 
 public:
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
-	float	toFloat(void) const;
-	int		toInt(void) const;
-
 	Fixed(void);
 	Fixed(const int ival);
 	Fixed(const float fval);
 	Fixed(const Fixed& fxd);
 	Fixed&	operator=(const Fixed& fxd);
 	~Fixed(void);
+
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
+	float	toFloat(void) const;
+	int		toInt(void) const;
 };
 
 std::ostream&	operator<<(std::ostream& ostrm, const Fixed& fxd);

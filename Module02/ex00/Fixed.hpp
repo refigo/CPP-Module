@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:23:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 16:44:51 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 17:05:31 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ private:
 	static const int	num_frac_bits_ = 8;
 
 public:
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
-
 	Fixed(void);
 	Fixed(const Fixed& fxd);
 	Fixed&	operator=(const Fixed& fxd);
 	~Fixed(void);
+
+	int		getRawBits(void) const;
+	void	setRawBits(int const raw);
 };
 
 #endif

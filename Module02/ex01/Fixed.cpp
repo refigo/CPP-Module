@@ -6,32 +6,12 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:35:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 16:48:11 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 17:06:20 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
-
-int	Fixed::getRawBits(void) const
-{
-	return (raw_bits_);
-}
-
-void	Fixed::setRawBits(int const raw)
-{
-	raw_bits_ = raw;
-}
-
-float	Fixed::toFloat(void) const
-{
-	return (static_cast<float>(raw_bits_) / (1 << Fixed::num_frac_bits_));
-}
-
-int	Fixed::toInt(void) const
-{
-	return (raw_bits_ >> Fixed::num_frac_bits_);
-}
 
 Fixed::Fixed(void)
 	: raw_bits_(0)
@@ -69,6 +49,26 @@ Fixed&	Fixed::operator=(const Fixed& fxd)
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called\n";
+}
+
+int	Fixed::getRawBits(void) const
+{
+	return (raw_bits_);
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	raw_bits_ = raw;
+}
+
+float	Fixed::toFloat(void) const
+{
+	return (static_cast<float>(raw_bits_) / (1 << Fixed::num_frac_bits_));
+}
+
+int	Fixed::toInt(void) const
+{
+	return (raw_bits_ >> Fixed::num_frac_bits_);
 }
 
 std::ostream&	operator<<(std::ostream& ostrm, const Fixed& fxd)
