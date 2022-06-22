@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:23:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 14:23:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 16:44:51 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 class Fixed
 {
 private:
-	int					value_;
+	int					raw_bits_;
 	static const int	num_frac_bits_ = 8;
 
 public:
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 
-	Fixed(void);							// A default constructor that initializes the fixed-point number value to 0.
-	Fixed(const Fixed& fixed);				// A copy constructor.
-	Fixed&	operator=(const Fixed& fixed);	// A copy assignment operator overload.
-	~Fixed(void);							// A destructor.
+	Fixed(void);
+	Fixed(const Fixed& fxd);
+	Fixed&	operator=(const Fixed& fxd);
+	~Fixed(void);
 };
 
 #endif
