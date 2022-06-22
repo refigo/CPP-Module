@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 20:29:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 17:05:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 17:55:18 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ public:
 	bool	operator==(const Fixed& fxd) const;
 	bool	operator!=(const Fixed& fxd) const;
 
-	Fixed	operator+(const Fixed& fxd);
-	Fixed	operator-(const Fixed& fxd);
-	Fixed	operator*(const Fixed& fxd);
-	Fixed	operator/(const Fixed& fxd);
+	Fixed	operator+(const Fixed& fxd) const;
+	Fixed	operator-(const Fixed& fxd) const;
+	Fixed	operator*(const Fixed& fxd) const;
+	Fixed	operator/(const Fixed& fxd) const;
 
-	Fixed&	operator++(const Fixed& fxd);
-	Fixed	operator++(const Fixed& fxd);
-	Fixed&	operator--(const Fixed& fxd);
-	Fixed	operator--(const Fixed& fxd);
+	Fixed&	operator++(void);
+	Fixed	operator++(int); // int
+	Fixed&	operator--(void);
+	Fixed	operator--(int); // int
 
-	static Fixed&		min(const Fixed& fxd_a, const Fixed& fxd_b);
+	static Fixed&		min(Fixed& fxd_a, Fixed& fxd_b);
 	static const Fixed&	min(const Fixed& fxd_a, const Fixed& fxd_b);
-	static Fixed&		max(const Fixed& fxd_a, const Fixed& fxd_b);
+	static Fixed&		max(Fixed& fxd_a, Fixed& fxd_b);
 	static const Fixed&	max(const Fixed& fxd_a, const Fixed& fxd_b);
 };
 
