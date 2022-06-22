@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:35:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 15:35:57 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 15:48:58 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,11 @@ void	Fixed::setRawBits(int const raw)
 float	Fixed::toFloat(void) const
 {
 	return (static_cast<float>(value_) / (1 << Fixed::num_frac_bits_));
-
-	/*
-	return static_cast<float>(value_) / (1 << Fixed::num_frac_bits_);
-	*/
-	/*
-	return static_cast<float>(value_) / (1 << Fixed::num_frac_bits_);
-	*/
 }
 
 int	Fixed::toInt(void) const
 {
 	return (value_ >> Fixed::num_frac_bits_);
-
-	/*
-	return value_ >> Fixed::num_frac_bits_;
-	*/
-	/*
-	return value_ / (1 << Fixed::num_frac_bits_);
-	*/
 }
 
 Fixed::Fixed(void)
@@ -54,16 +40,9 @@ Fixed::Fixed(void)
 }
 
 Fixed::Fixed(const int ival)
-	: value_(ival * (1 << Fixed::num_frac_bits_))
+	: value_(ival << Fixed::num_frac_bits_)
 {
 	std::cout << "Int constructor called\n";
-
-	/*
-	value_ = ival << Fixed::num_frac_bits_;
-	*/
-	/*
-	value_ = ival * (1 << Fixed::num_frac_bits_);
-	*/
 }
 
 Fixed::Fixed(const float fval)
@@ -72,13 +51,6 @@ Fixed::Fixed(const float fval)
 			std::roundf(fval * (1 << Fixed::num_frac_bits_))))
 {
 	std::cout << "Float constructor called\n";
-
-	/*
-	value_ = static_cast<int>(std::roundf(v * (1 << Fixed::num_frac_bits_)));
-	*/
-	/*
-	value_ = std::roundf(fval * (1 << Fixed::num_frac_bits_));
-	*/
 }
 
 Fixed::Fixed(const Fixed& fixed)
@@ -102,12 +74,4 @@ Fixed::~Fixed(void)
 std::ostream&	operator<<(std::ostream& ostream, const Fixed& fixed)
 {
 	return (ostream << fixed.toFloat());
-
-	/*
-	return ostream << fixed.toFloat();
-	*/
-	/*
-	ostream << fixed.toFloat();
-	return ostream;
-	*/
 }
