@@ -6,11 +6,11 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/22 10:41:23 by mgo               #+#    #+#              #
-#    Updated: 2022/06/22 10:41:25 by mgo              ###   ########.fr        #
+#    Updated: 2022/06/22 16:48:23 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	fixed
+NAME		=	a.out
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98

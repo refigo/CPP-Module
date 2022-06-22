@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 20:29:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 14:28:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/22 16:47:06 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Fixed
 {
 private:
-	int					value_;
+	int					raw_bits_;
 	static const int	num_frac_bits_ = 8;
 
 public:
@@ -30,11 +30,11 @@ public:
 	Fixed(void);
 	Fixed(const int ival);
 	Fixed(const float fval);
-	Fixed(const Fixed& fixed);
-	Fixed&	operator=(const Fixed& fixed);
+	Fixed(const Fixed& fxd);
+	Fixed&	operator=(const Fixed& fxd);
 	~Fixed(void);
 };
 
-std::ostream&	operator<<(std::ostream& ostream, const Fixed& fixed);
+std::ostream&	operator<<(std::ostream& ostrm, const Fixed& fxd);
 
 #endif
