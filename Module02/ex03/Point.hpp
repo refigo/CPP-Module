@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:23:53 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 15:44:54 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 16:16:16 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_triangle
 	Point	c;
 }				t_triangle;
 
-Point	operator-(const Point& lpnt, const Point& rpnt);
+Point			operator-(const Point& lpnt, const Point& rpnt);
 std::ostream&	operator<<(std::ostream& ostrm, const Point& pnt);
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point);

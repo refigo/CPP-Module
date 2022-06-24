@@ -6,13 +6,11 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:24:04 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 16:05:46 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 16:15:53 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
-
-#include <iostream>
 
 static Fixed	cross_product(const Point& vec1, const Point& vec2)
 {

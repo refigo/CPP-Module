@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:24:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 16:11:23 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 16:48:26 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,24 @@ static void	displayIsPointIn(const t_triangle& tri, \
 	std::cout << "Result: " << bsp(tri.a, tri.b, tri.c, point) << "\n\n";
 }
 
+static void	test_at_edge(t_triangle &tri)
+{
+	Fixed	fxdX(0.5f);
+	Fixed	fxdY(0.5f);
+	Point	pnt(fxdX.toFloat(), fxdY.toFloat());
+
+	displayIsPointIn(tri, pnt);
+
+	--fxdX;
+	pnt = Point(fxdX.toFloat(), fxdY.toFloat());
+	displayIsPointIn(tri, pnt);
+
+	++fxdX;
+	++fxdX;
+	pnt = Point(fxdX.toFloat(), fxdY.toFloat());
+	displayIsPointIn(tri, pnt);
+}
+
 int	main(void) {
 	t_triangle	tri;
 
@@ -35,7 +53,7 @@ int	main(void) {
 	std::cout.setf(std::ios::boolalpha);
 	std::cout << '\n';
 	displayIsPointIn(tri, Point(0.25f, 0.25f));
-	displayIsPointIn(tri, Point(0.5f, 0.5f));
+	test_at_edge(tri);
 	displayIsPointIn(tri, Point(0.0f, 0.0f));
 	displayIsPointIn(tri, Point(0.3f, 0.1f));
 	return (0);
