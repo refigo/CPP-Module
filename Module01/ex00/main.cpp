@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:55:11 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 11:24:09 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 09:40:40 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(void)
 
 	// heap
 	Zombie	*zombie_heap = newZombie("heap");
+	if (zombie_heap == NULL)
+		return (1);
 	zombie_heap->announce();
 
 	// call function stack
