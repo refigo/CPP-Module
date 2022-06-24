@@ -6,15 +6,17 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:24:04 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 11:23:35 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 16:05:46 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 
-static Fixed	outer_product(const Point& vec1, const Point& vec2)
+#include <iostream>
+
+static Fixed	cross_product(const Point& vec1, const Point& vec2)
 {
-	return (vec1.getX() * vec2.getY() - vec2.getX() * vec2.getY());
+	return (vec1.getX() * vec2.getY() - vec1.getY() * vec2.getX());
 }
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point)
@@ -26,13 +28,13 @@ bool	bsp(Point const a, Point const b, Point const c, Point const point)
 	Point	vec_ca(a - c);
 	Point	vec_cp(point - c);
 
-	if ((outer_product(vec_ab, vec_ap) > 0) \
-		&& (outer_product(vec_bc, vec_bp) > 0) \
-		&& (outer_product(vec_ca, vec_cp) > 0))
+	if ((cross_product(vec_ab, vec_ap) > 0) \
+		&& (cross_product(vec_bc, vec_bp) > 0) \
+		&& (cross_product(vec_ca, vec_cp) > 0))
 		return (true);
-	else if ((outer_product(vec_ab, vec_ap) < 0) \
-		&& (outer_product(vec_bc, vec_bp) < 0) \
-		&& (outer_product(vec_ca, vec_cp) < 0))
+	else if ((cross_product(vec_ab, vec_ap) < 0) \
+		&& (cross_product(vec_bc, vec_bp) < 0) \
+		&& (cross_product(vec_ca, vec_cp) < 0))
 		return (true);
 	else
 		return (false);
