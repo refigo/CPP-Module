@@ -1,18 +1,39 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bsp.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/23 19:24:04 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/24 11:23:35 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
-/*
-	a, b, c: The vertices of our beloved triangle.
-	point: The point to check.
-	Returns: True if the point is inside the triangle.
-			False otherwise.
-			Thus, if the point is a vertex or on edge, it will return False.
-*/
-bool	bsp(Point const a, Point const b, Point const c, \
-					Point const point)
+static Fixed	outer_product(const Point& vec1, const Point& vec2)
 {
-	(void)a;
-	(void)b;
-	(void)c;
-	(void)point;
-	return (true);
+	return (vec1.getX() * vec2.getY() - vec2.getX() * vec2.getY());
+}
+
+bool	bsp(Point const a, Point const b, Point const c, Point const point)
+{
+	Point	vec_ab(b - a);
+	Point	vec_ap(point - a);
+	Point	vec_bc(c - b);
+	Point	vec_bp(point - b);
+	Point	vec_ca(a - c);
+	Point	vec_cp(point - c);
+
+	if ((outer_product(vec_ab, vec_ap) > 0) \
+		&& (outer_product(vec_bc, vec_bp) > 0) \
+		&& (outer_product(vec_ca, vec_cp) > 0))
+		return (true);
+	else if ((outer_product(vec_ab, vec_ap) < 0) \
+		&& (outer_product(vec_bc, vec_bp) < 0) \
+		&& (outer_product(vec_ca, vec_cp) < 0))
+		return (true);
+	else
+		return (false);
 }

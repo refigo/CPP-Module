@@ -1,27 +1,29 @@
-#include "Fixed.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/23 19:24:01 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/24 11:23:05 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 #include <iostream>
 
-// Implement and turn in your own tests to ensure that your class behaves as expected.
 int	main(void)
 {
-	/*
-	Fixed			a;
-	Fixed const		b( Fixed( 5.05f ) * Fixed( 2 ));
-
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-
-	std::cout << b << std::endl;
-
-	std::cout << Fixed::max( a, b ) << std::endl;
-	*/
-
-	Point	test;
-
-
+	std::cout.setf(std::ios::boolalpha);
+	std::cout << bsp(Point(0.0f, 0.0f), Point(0.0f, 1.0f), Point(1.0f, 0.0f),
+							Point(0.2f, 0.2f))
+				<< std::endl;
+	std::cout << bsp(Point(0.0f, 0.0f), Point(0.0f, 1.0f), Point(1.0f, 0.0f),
+							Point(0.0f, 0.0f))
+				<< std::endl;
+	std::cout << bsp(Point(0.0f, 0.0f), Point(0.0f, 1.0f), Point(1.0f, 0.0f),
+							Point(0.3f, 0.1f))
+				<< std::endl;
 	return (0);
 }

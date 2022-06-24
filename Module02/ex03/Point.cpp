@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/23 19:23:55 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/24 11:04:04 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Point.hpp"
 
 Point::Point(void)
@@ -24,4 +36,12 @@ const Fixed&	Point::getX(void) const {
 
 const Fixed&	Point::getY(void) const {
 	return (y_);
+}
+
+Point	operator-(const Point& lpnt, const Point& rpnt)
+{
+	Point	ret(lpnt.getX().toFloat() - rpnt.getX().toFloat(), \
+				lpnt.getY().toFloat() - rpnt.getY().toFloat());
+
+	return (ret);
 }

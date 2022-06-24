@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 20:29:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 17:55:18 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/23 19:27:28 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ public:
 	Fixed	operator/(const Fixed& fxd) const;
 
 	Fixed&	operator++(void);
-	Fixed	operator++(int); // int
+	Fixed	operator++(int);
 	Fixed&	operator--(void);
-	Fixed	operator--(int); // int
+	Fixed	operator--(int);
 
 	static Fixed&		min(Fixed& fxd_a, Fixed& fxd_b);
 	static const Fixed&	min(const Fixed& fxd_a, const Fixed& fxd_b);
