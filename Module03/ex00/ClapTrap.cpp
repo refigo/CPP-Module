@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 21:01:17 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 21:28:24 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,33 +67,53 @@ ClapTrap::~ClapTrap(void) {
 
 void	ClapTrap::attack(const std::string& target) {
 	displayHdrMsg();
-	std::cout << CLR_BBLUE;
-
-	std::cout << "attacks " << target << \
-		", causing " << attack_damage_ << " points of damage!\n";
-
-	std::cout << END_OF_CLR;
-	--(energy_point_);
+	if (energy_point_ > 0) {
+		std::cout << CLR_BBLUE;
+		std::cout << "attacks [ " << target << \
+			" ], causing " << attack_damage_ << " points of damage!";
+		std::cout << END_OF_CLR;
+		--(energy_point_);
+		std::cout << " (remained Energy: " << energy_point_ << ")\n";
+	} else {
+		std::cout << CLR_BSKYBLUE;
+		std::cout << "can't attack because of zero energy...\n";
+		std::cout << END_OF_CLR;
+	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 	displayHdrMsg();
-	std::cout << CLR_BRED;
-
-	std::cout << "takes " \
-		<< amount << " points of damage!\n";
-
-	std::cout << END_OF_CLR;
-	hit_point_ -= amount;
+	if (hit_point_ > 0)
+	{
+		std::cout << CLR_BRED;
+		std::cout << "takes " \
+			<< amount << " points of damage!";
+		std::cout << END_OF_CLR;
+		if (hit_point_ < amount)
+			hit_point_ = 0;
+		else
+			hit_point_ -= amount;
+		std::cout << " (remained Health: " << hit_point_ << ")";
+		if (hit_point_ == 0)
+		{
+			std::cout << " [ name_ ] collapsed..";
+		}
+		std::cout << "\n";
+	} else {
+		std::cout << CLR_BYELLOW;
+		std::cout << "is already collapsed, so not taking damage\n";
+		std::cout << END_OF_CLR;
+	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	displayHdrMsg();
 	std::cout << CLR_BGREEN;
 	std::cout << "is repaired " \
-		<< amount << " points of health!\n";
+		<< amount << " points of health!";
 	std::cout << END_OF_CLR;
 	hit_point_ += amount;
+	std::cout << " (remained Health: " << hit_point_ << ")\n";
 }
 
 const std::string&	ClapTrap::getName(void) const {
