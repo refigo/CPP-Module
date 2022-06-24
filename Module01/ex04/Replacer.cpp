@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 19:17:03 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/21 14:06:33 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 10:19:47 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,7 @@ void	Replacer::replace(void)
 }
 
 Replacer::Replacer(int argc, char **argv)
-	: argc_(argc), argv_(argv)
-{
-}
+	: argc_(argc), argv_(argv) {}
 
 Replacer::~Replacer(void)
 {

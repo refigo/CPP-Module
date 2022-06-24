@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/16 17:55:13 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 11:22:19 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 09:49:10 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,6 @@ public:
 	Zombie(const std::string& name);
 	~Zombie(void);
 };
-
-// considering to remove...
-Zombie*	newZombie(std::string name);
-void	randomChump(std::string name);
 
 Zombie*	zombieHorde(int N, std::string name);
 

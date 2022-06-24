@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:05:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/20 15:11:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 10:33:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,6 @@ void	Harl::error(void)
 		"I want to speak to the manager now.\n\n";
 }
 
-Harl::Harl(void)
-{
-}
+Harl::Harl(void) {}
 
-Harl::~Harl(void)
-{
-}
+Harl::~Harl(void) {}

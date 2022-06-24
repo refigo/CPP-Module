@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:05:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/21 19:11:22 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 10:33:05 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	Harl::complain(std::string level)
 {
 	const char	*levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	void	(Harl::*const fcnPtr[4])(void) = {	&Harl::debug, 
-										&Harl::info, 
-										&Harl::warning, 
-										&Harl::error };
+												&Harl::info, 
+												&Harl::warning, 
+												&Harl::error };
 	for (int i = 0; i < 4; ++i)
 	{
 		if (level == levels[i])
@@ -57,10 +57,6 @@ void	Harl::error(void)
 		"I want to speak to the manager now.\n";
 }
 
-Harl::Harl(void)
-{
-}
+Harl::Harl(void) {}
 
-Harl::~Harl(void)
-{
-}
+Harl::~Harl(void) {}

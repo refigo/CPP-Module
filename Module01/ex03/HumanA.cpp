@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 13:44:53 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/17 14:40:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 10:15:06 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	HumanA::attack(void) const
 {
-	std::cout << name_ << " attacks with their ";
+	std::cout << name_ << " attacks with his ";
 	if (weapon_)
 		std::cout << weapon_->getType() << '\n';
 	else
@@ -23,10 +23,6 @@ void	HumanA::attack(void) const
 }
 
 HumanA::HumanA(const std::string& name, const Weapon& weapon)
-	: name_(name), weapon_(&weapon)
-{
-}
+	: name_(name), weapon_(&weapon) {}
 
-HumanA::~HumanA(void)
-{
-}
+HumanA::~HumanA(void) {}
