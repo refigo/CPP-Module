@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/27 17:18:16 by mgo               #+#    #+#             */
+/*   Updated: 2022/06/27 17:40:08 by mgo              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 #include <iostream>
 
@@ -22,38 +34,40 @@ static void	display_mgo_test(void)
 	std::cout.setf(std::ios::boolalpha);
 	std::cout << "\n--- Test comparsion operators ---" << '\n';
 	{
-		std::cout << (Fixed(42) == Fixed(42)) << '\n';
-		std::cout << (Fixed(4.2f) == Fixed(4.2f)) << '\n';
-		std::cout << (Fixed(41) <= Fixed(42)) << '\n';
-		std::cout << (Fixed(42) <= Fixed(42)) << '\n';
-		std::cout << (Fixed(42) >= Fixed(41)) << '\n';
-		std::cout << (Fixed(42) >= Fixed(42)) << '\n';
-		std::cout << (Fixed(0.1f) >= Fixed(0.0f)) << '\n';
-		std::cout << (Fixed(0.1f) != Fixed(0.01f)) << '\n';
+		std::cout << "(Fixed(42) == Fixed(42)): " << (Fixed(42) == Fixed(42)) << '\n';
+		std::cout << "(Fixed(4.2f) == Fixed(4.2f)): " << (Fixed(4.2f) == Fixed(4.2f)) << '\n';
+		std::cout << "(Fixed(41) <= Fixed(42)): " << (Fixed(41) <= Fixed(42)) << '\n';
+		std::cout << "(Fixed(42) <= Fixed(42)): " << (Fixed(42) <= Fixed(42)) << '\n';
+		std::cout << "(Fixed(42) >= Fixed(41)): " << (Fixed(42) >= Fixed(41)) << '\n';
+		std::cout << "(Fixed(42) >= Fixed(42)): " << (Fixed(42) >= Fixed(42)) << '\n';
+		std::cout << "(Fixed(0.1f) >= Fixed(0.0f)): " << (Fixed(0.1f) >= Fixed(0.0f)) << '\n';
+		std::cout << "(Fixed(0.1f) != Fixed(0.01f)): " << (Fixed(0.1f) != Fixed(0.01f)) << '\n';
 	}
 	std::cout << "\n--- Test arithmetic operators ---" << '\n';
 	{
-		std::cout << Fixed(42) + Fixed(42) << '\n';
-		std::cout << Fixed(0.25f) + Fixed(0.5f) << '\n';
-		std::cout << Fixed(-0.25f) + Fixed(10.0f) << '\n';
-		std::cout << Fixed(42) - Fixed(42) << '\n';
-		std::cout << Fixed(-10) - Fixed(1.5f) << '\n';
-		std::cout << Fixed(1000) - Fixed(10) << '\n';
-		std::cout << Fixed(42) * Fixed(42) << '\n';
-		std::cout << Fixed(42) / Fixed(42) << '\n';
-		std::cout << Fixed(1) / Fixed(2) << '\n';
-		std::cout << Fixed(1) / Fixed(3) << '\n';
-		std::cout << Fixed(1) / Fixed(4) << '\n';
+		std::cout << "Fixed(42) + Fixed(42): " << Fixed(42) + Fixed(42) << '\n';
+		std::cout << "Fixed(0.25f) + Fixed(0.5f): " << Fixed(0.25f) + Fixed(0.5f) << '\n';
+		std::cout << "Fixed(-0.25f) + Fixed(10.0f): " << Fixed(-0.25f) + Fixed(10.0f) << '\n';
+		std::cout << "Fixed(42) - Fixed(42): " << Fixed(42) - Fixed(42) << '\n';
+		std::cout << "Fixed(-10) - Fixed(1.5f): " << Fixed(-10) - Fixed(1.5f) << '\n';
+		std::cout << "Fixed(1000) - Fixed(10): " << Fixed(1000) - Fixed(10) << '\n';
+		std::cout << "Fixed(42) * Fixed(42): " << Fixed(42) * Fixed(42) << '\n';
+		std::cout << "Fixed(42) / Fixed(42): " << Fixed(42) / Fixed(42) << '\n';
+		std::cout << "Fixed(1) / Fixed(2): " << Fixed(1) / Fixed(2) << '\n';
+		std::cout << "Fixed(1) / Fixed(3): " << Fixed(1) / Fixed(3) << '\n';
+		std::cout << "Fixed(1) / Fixed(4): " << Fixed(1) / Fixed(4) << '\n';
 	}
 	std::cout << "\n--- Test [pre/post]fix [in/de]crement operators ---" << '\n';
 	{
 		Fixed a, b;
-		std::cout << a++ << '\n';
-		std::cout << a << '\n';
-		std::cout << ++a << '\n';
-		std::cout << b-- << '\n';
-		std::cout << b << '\n';
-		std::cout << --b << '\n';
+		std::cout << "a: " << a << '\n';
+		std::cout << "a++: " << a++ << '\n';
+		std::cout << "a: " << a << '\n';
+		std::cout << "++a: " << ++a << '\n';
+		std::cout << "b: " << b << '\n';
+		std::cout << "b--: " << b-- << '\n';
+		std::cout << "b: " << b << '\n';
+		std::cout << "--b: " << --b << '\n';
 	}
 	std::cout << "\n--- Test min / max static function ---" << '\n';
 	{

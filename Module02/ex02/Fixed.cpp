@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:35:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 18:23:40 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/27 18:33:14 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ Fixed	Fixed::operator*(const Fixed& fxd) const {
 }
 
 Fixed	Fixed::operator/(const Fixed& fxd) const {
-	Fixed	ret(this->toFloat() / fxd.toFloat());
+	Fixed	ret(this->toFloat() / fxd.toFloat());\
 
 	return (ret);
 }

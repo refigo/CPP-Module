@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 21:28:24 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/24 21:40:44 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void	ClapTrap::setAttackDamage(unsigned int ad) {
 	attack_damage_ = ad;
 }
 
-void	ClapTrap::displayHdrMsg(void) const{
+void	ClapTrap::displayHdrMsg(void) const {
 	std::cout << "ClapTrap User ";
 	std::cout << "[ " << name_ << " ] ";
 }

@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:35:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/22 18:23:40 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/27 18:45:22 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,54 +51,6 @@ int	Fixed::toInt(void) const {
 	return (raw_bits_ >> Fixed::num_frac_bits_);
 }
 
-bool	Fixed::operator>(const Fixed& fxd) const {
-	return (raw_bits_ > fxd.getRawBits());
-}
-
-bool	Fixed::operator<(const Fixed& fxd) const {
-	return (raw_bits_ < fxd.getRawBits());
-}
-
-bool	Fixed::operator>=(const Fixed& fxd) const {
-	return (raw_bits_ >= fxd.getRawBits());
-}
-
-bool	Fixed::operator<=(const Fixed& fxd) const {
-	return (raw_bits_ <= fxd.getRawBits());
-}
-
-bool	Fixed::operator==(const Fixed& fxd) const {
-	return (raw_bits_ == fxd.getRawBits());
-}
-
-bool	Fixed::operator!=(const Fixed& fxd) const {
-	return (raw_bits_ != fxd.getRawBits());
-}
-
-Fixed	Fixed::operator+(const Fixed& fxd) const {
-	Fixed	ret(this->toFloat() + fxd.toFloat());
-
-	return (ret);
-}
-
-Fixed	Fixed::operator-(const Fixed& fxd) const {
-	Fixed	ret(this->toFloat() - fxd.toFloat());
-
-	return (ret);
-}
-
-Fixed	Fixed::operator*(const Fixed& fxd) const {
-	Fixed	ret(this->toFloat() * fxd.toFloat());
-
-	return (ret);
-}
-
-Fixed	Fixed::operator/(const Fixed& fxd) const {
-	Fixed	ret(this->toFloat() / fxd.toFloat());
-
-	return (ret);
-}
-
 Fixed&	Fixed::operator++(void) {
 	++raw_bits_;
 	return (*this);
@@ -137,6 +89,54 @@ Fixed&	Fixed::max(Fixed& fxd_a, Fixed& fxd_b) {
 
 const Fixed&	Fixed::max(const Fixed& fxd_a, const Fixed& fxd_b) {
 	return ((fxd_a > fxd_b) ? fxd_a : fxd_b);
+}
+
+bool	operator>(const Fixed& lfxd, const Fixed& rfxd) {
+	return (lfxd.getRawBits() > rfxd.getRawBits());
+}
+
+bool	operator<(const Fixed& lfxd, const Fixed& rfxd) {
+	return (lfxd.getRawBits() < rfxd.getRawBits());
+}
+
+bool	operator>=(const Fixed& lfxd, const Fixed& rfxd) {
+	return (lfxd.getRawBits() >= rfxd.getRawBits());
+}
+
+bool	operator<=(const Fixed& lfxd, const Fixed& rfxd) {
+	return (lfxd.getRawBits() <= rfxd.getRawBits());
+}
+
+bool	operator==(const Fixed& lfxd, const Fixed& rfxd) {
+	return (lfxd.getRawBits() == rfxd.getRawBits());
+}
+
+bool	operator!=(const Fixed& lfxd, const Fixed& rfxd) {
+	return (lfxd.getRawBits() != rfxd.getRawBits());
+}
+
+Fixed	operator+(const Fixed& lfxd, const Fixed& rfxd) {
+	Fixed	ret(lfxd.toFloat() + rfxd.toFloat());
+
+	return (ret);
+}
+
+Fixed	operator-(const Fixed& lfxd, const Fixed& rfxd) {
+	Fixed	ret(lfxd.toFloat() - rfxd.toFloat());
+
+	return (ret);
+}
+
+Fixed	operator*(const Fixed& lfxd, const Fixed& rfxd) {
+	Fixed	ret(lfxd.toFloat() * rfxd.toFloat());
+
+	return (ret);
+}
+
+Fixed	operator/(const Fixed& lfxd, const Fixed& rfxd) {
+	Fixed	ret(lfxd.toFloat() / rfxd.toFloat());
+
+	return (ret);
 }
 
 std::ostream&	operator<<(std::ostream& ostrm, const Fixed& fxd) {

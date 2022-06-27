@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 20:29:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/23 19:27:28 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/27 18:41:02 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,6 @@ public:
 	float	toFloat(void) const;
 	int		toInt(void) const;
 
-	bool	operator>(const Fixed& fxd) const;
-	bool	operator<(const Fixed& fxd) const;
-	bool	operator>=(const Fixed& fxd) const;
-	bool	operator<=(const Fixed& fxd) const;
-	bool	operator==(const Fixed& fxd) const;
-	bool	operator!=(const Fixed& fxd) const;
-
-	Fixed	operator+(const Fixed& fxd) const;
-	Fixed	operator-(const Fixed& fxd) const;
-	Fixed	operator*(const Fixed& fxd) const;
-	Fixed	operator/(const Fixed& fxd) const;
-
 	Fixed&	operator++(void);
 	Fixed	operator++(int);
 	Fixed&	operator--(void);
@@ -56,6 +44,18 @@ public:
 	static Fixed&		max(Fixed& fxd_a, Fixed& fxd_b);
 	static const Fixed&	max(const Fixed& fxd_a, const Fixed& fxd_b);
 };
+
+bool	operator>(const Fixed& lfxd, const Fixed& rfxd);
+bool	operator<(const Fixed& lfxd, const Fixed& rfxd);
+bool	operator>=(const Fixed& lfxd, const Fixed& rfxd);
+bool	operator<=(const Fixed& lfxd, const Fixed& rfxd);
+bool	operator==(const Fixed& lfxd, const Fixed& rfxd);
+bool	operator!=(const Fixed& lfxd, const Fixed& rfxd);
+
+Fixed	operator+(const Fixed& lfxd, const Fixed& rfxd);
+Fixed	operator-(const Fixed& lfxd, const Fixed& rfxd);
+Fixed	operator*(const Fixed& lfxd, const Fixed& rfxd);
+Fixed	operator/(const Fixed& lfxd, const Fixed& rfxd);
 
 std::ostream&	operator<<(std::ostream& ostrm, const Fixed& fxd);
 
