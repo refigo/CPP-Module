@@ -6,15 +6,14 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/27 17:18:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/27 17:40:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/28 19:37:15 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-static void	display_pdf_test(void)
-{
+static void	display_pdf_test(void) {
 	Fixed			a;
 	Fixed const		b( Fixed( 5.05f ) * Fixed( 2 ));
 
@@ -29,8 +28,7 @@ static void	display_pdf_test(void)
 	std::cout << Fixed::max( a, b ) << std::endl;
 }
 
-static void	display_mgo_test(void)
-{
+static void	display_mgo_test(void) {
 	std::cout.setf(std::ios::boolalpha);
 	std::cout << "\n--- Test comparsion operators ---" << '\n';
 	{
@@ -82,8 +80,7 @@ static void	display_mgo_test(void)
 	}
 }
 
-int	main(void)
-{
+int	main(void) {
 	display_pdf_test();
 	std::cout << std::endl;
 	display_mgo_test();

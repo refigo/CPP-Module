@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:24:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/27 18:47:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/28 19:37:32 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ static void	displayIsPointIn(const t_triangle& tri, \
 	std::cout << "Result: " << bsp(tri.a, tri.b, tri.c, point) << "\n\n";
 }
 
-static void	test_at_edge(t_triangle &tri)
-{
+static void	test_at_edge(t_triangle &tri) {
 	Fixed	fxdX(0.5f);
 	Fixed	fxdY(0.5f);
 	Point	pnt(fxdX.toFloat(), fxdY.toFloat());

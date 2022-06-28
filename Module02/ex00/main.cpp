@@ -6,15 +6,14 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 14:23:29 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/27 12:01:12 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/28 19:36:37 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-int	main(void)
-{
+int	main(void) {
 	Fixed	a;
 	Fixed	b(a);
 	Fixed	c;
