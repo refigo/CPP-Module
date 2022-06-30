@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 19:24:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/28 19:37:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 11:06:01 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static void	test_at_edge(t_triangle &tri) {
 int	main(void) {
 	t_triangle	tri;
 
-	setTriangle(tri, Point(0.0f, 0.0f), Point(0.0f, 1.0f), Point(1.0f, 0.0f));
+	setTriangle(tri, Point(0.0f, 0.0f), Point(1.0f, 0.0f), Point(0.0f, 1.0f));
 	std::cout.setf(std::ios::boolalpha);
 	std::cout << '\n';
 	displayIsPointIn(tri, Point(0.25f, 0.25f));
