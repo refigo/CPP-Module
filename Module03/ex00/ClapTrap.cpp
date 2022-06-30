@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/30 12:16:28 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 12:23:50 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,17 +66,23 @@ ClapTrap::~ClapTrap(void) {
 
 void	ClapTrap::attack(const std::string& target) {
 	displayHdrMsg();
-	if (energy_point_ > 0) {
+	if ((energy_point_ > 0) && (hit_point_ > 0)) {
 		std::cout << CLR_BBLUE;
 		std::cout << "attacks [ " << target << \
 			" ], causing " << attack_damage_ << " points of damage!";
 		std::cout << END_OF_CLR;
 		--(energy_point_);
 		std::cout << " (remained Energy: " << energy_point_ << ")\n";
-	} else {
+	} else if (hit_point_ <= 0){
+		std::cout << CLR_BYELLOW;
+		std::cout << "can't attack because the user is already collapsed...\n";
+		std::cout << END_OF_CLR;
+	} else if (energy_point_ <= 0) {
 		std::cout << CLR_BSKYBLUE;
 		std::cout << "can't attack because of zero energy...\n";
 		std::cout << END_OF_CLR;
+	} else {
+		std::cout << '\n';
 	}
 }
 
@@ -94,7 +100,9 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << " (remained Health: " << hit_point_ << ")";
 		if (hit_point_ == 0)
 		{
+			std::cout << CLR_BPURPLE;
 			std::cout << " [ " << name_ << " ] collapsed..";
+			std::cout << END_OF_CLR;
 		}
 		std::cout << "\n";
 	} else {
@@ -117,7 +125,7 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << " remained Energy: " << energy_point_ << ")\n";
 	} else if (hit_point_ <= 0) {
 		std::cout << CLR_BYELLOW;
-		std::cout << "can't repair because user is already collapsed...\n";
+		std::cout << "can't repair because the user is already collapsed...\n";
 		std::cout << END_OF_CLR;
 	} else if (energy_point_ <= 0) {
 		std::cout << CLR_BSKYBLUE;
