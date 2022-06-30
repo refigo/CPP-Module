@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/22 10:35:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/27 18:33:14 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 09:46:48 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Fixed::Fixed(void)
 	: raw_bits_(0) {}
 
 Fixed::Fixed(const int ival)
-	: raw_bits_(ival << Fixed::num_frac_bits_) {}
+	: raw_bits_(ival * (1 << Fixed::num_frac_bits_)) {}
 
 Fixed::Fixed(const float fval)
 	: raw_bits_(\
@@ -48,7 +48,7 @@ float	Fixed::toFloat(void) const {
 }
 
 int	Fixed::toInt(void) const {
-	return (raw_bits_ >> Fixed::num_frac_bits_);
+	return (raw_bits_ / (1 << Fixed::num_frac_bits_));
 }
 
 bool	Fixed::operator>(const Fixed& fxd) const {
