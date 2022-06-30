@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/30 12:06:18 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 12:40:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(void)
 	{
 		ClapTrap	test1;
 		ClapTrap	test2("test2");
+		std::cout << '\n';
 		
 		test1.attack("dummy");
 		std::cout << '\n';
@@ -30,19 +31,32 @@ int	main(void)
 		test1.attack("dummy");
 		std::cout << '\n';
 
-		ClapTrap	test3(test2);
+		ClapTrap	test3(test1);
 		test3.attack("dummy");
 		std::cout << '\n';
 	}
+	
+	std::cout << std::endl;
 
-	ClapTrap	man("Fighter");
+	{
+		ClapTrap	man("Fighter");
 
-	for (int i = 0; i < 11; ++i)
-		man.attack("Villain");
-	for (int i = 0; i < 11; ++i)
-		man.takeDamage(1);
-	for (int i = 0; i < 11; ++i)
+		for (int i = 0; i < 5; ++i)
+			man.attack("Enemy");
+		for (int i = 0; i < 5; ++i)
+			man.takeDamage(1);
+		for (int i = 0; i < 5; ++i)
+			man.beRepaired(1);
+		man.attack("Enemy");
 		man.beRepaired(1);
+
+		std::cout << '\n';
+
+		for (int i = 0; i < 4; ++i)
+			man.takeDamage(4);
+		man.attack("Enemy");
+		man.beRepaired(1);
+	}
 
 	return (0);
 }

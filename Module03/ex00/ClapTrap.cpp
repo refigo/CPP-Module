@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/30 12:23:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 12:39:05 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "\n";
 	} else {
 		std::cout << CLR_BYELLOW;
-		std::cout << "is already collapsed, so not taking damage\n";
+		std::cout << "is already collapsed, so not taking damage...\n";
 		std::cout << END_OF_CLR;
 	}
 }
