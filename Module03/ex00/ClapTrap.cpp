@@ -6,12 +6,11 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 21:40:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 12:16:28 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-#include <iostream>
 
 ClapTrap::ClapTrap(void)
 	: name_(DFLT_NM), hit_point_(10), energy_point_(10), attack_damage_(0) {
@@ -83,8 +82,7 @@ void	ClapTrap::attack(const std::string& target) {
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 	displayHdrMsg();
-	if (hit_point_ > 0)
-	{
+	if (hit_point_ > 0) {
 		std::cout << CLR_BRED;
 		std::cout << "takes " \
 			<< amount << " points of damage!";
@@ -96,7 +94,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << " (remained Health: " << hit_point_ << ")";
 		if (hit_point_ == 0)
 		{
-			std::cout << " [ name_ ] collapsed..";
+			std::cout << " [ " << name_ << " ] collapsed..";
 		}
 		std::cout << "\n";
 	} else {
@@ -108,12 +106,26 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 	displayHdrMsg();
-	std::cout << CLR_BGREEN;
-	std::cout << "is repaired " \
-		<< amount << " points of health!";
-	std::cout << END_OF_CLR;
-	hit_point_ += amount;
-	std::cout << " (remained Health: " << hit_point_ << ")\n";
+	if ((energy_point_ > 0) && (hit_point_ > 0)) {
+		std::cout << CLR_BGREEN;
+		std::cout << "is repaired " \
+			<< amount << " points of health!";
+		std::cout << END_OF_CLR;
+		hit_point_ += amount;
+		std::cout << " (remained Health: " << hit_point_ << ',';
+		--(energy_point_);
+		std::cout << " remained Energy: " << energy_point_ << ")\n";
+	} else if (hit_point_ <= 0) {
+		std::cout << CLR_BYELLOW;
+		std::cout << "can't repair because user is already collapsed...\n";
+		std::cout << END_OF_CLR;
+	} else if (energy_point_ <= 0) {
+		std::cout << CLR_BSKYBLUE;
+		std::cout << "can't repair because of zero energy...\n";
+		std::cout << END_OF_CLR;
+	} else {
+		std::cout << '\n';
+	}
 }
 
 const std::string&	ClapTrap::getName(void) const {

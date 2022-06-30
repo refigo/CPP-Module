@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/24 21:09:16 by mgo              ###   ########.fr       */
+/*   Updated: 2022/06/30 12:03:06 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CLAP_TRAP_HPP
 
 # include <string>
+# include <iostream>
 
 # define CLR_BLACK "\033[0;30m"
 # define CLR_BRED "\033[1;31m"
