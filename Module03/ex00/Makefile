@@ -6,11 +6,11 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:35:56 by mgo               #+#    #+#              #
-#    Updated: 2022/07/01 11:33:08 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/01 14:20:39 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	scavtrap
+NAME		=	claptrap
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98

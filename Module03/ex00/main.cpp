@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/30 12:40:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/01 14:25:37 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ int	main(void)
 	{
 		ClapTrap	man("Fighter");
 
-		for (int i = 0; i < 5; ++i)
+		for (int i = 0; i < 4; ++i)
 			man.attack("Enemy");
 		for (int i = 0; i < 5; ++i)
 			man.takeDamage(1);
-		for (int i = 0; i < 5; ++i)
+		for (int i = 0; i < 6; ++i)
 			man.beRepaired(1);
 		man.attack("Enemy");
 		man.beRepaired(1);
