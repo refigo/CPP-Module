@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 14:26:10 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/01 14:37:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,10 @@ ClapTrap::ClapTrap(const ClapTrap& cltr)
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 	if (this != &cltr) {
-		displayHdrMsg();
-		std::cout << "is reproduced ";
 		this->name_ = cltr.getName();
 		this->hit_point_ = cltr.getHitPoint();
 		this->energy_point_ = cltr.getEnergyPoint();
 		this->attack_damage_ = cltr.getAttackDamage();
-		std::cout << "by [ " << cltr.getName() << " ]";
-		std::cout << CLR_GRAY;
-		std::cout << " (Copy assignment operator called)\n";
-		std::cout << END_OF_CLR;
 	}
 	return (*this);
 }
