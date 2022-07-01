@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 10:14:07 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/01 11:32:03 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@
 # define CLR_GRAY "\033[0;90m"
 # define END_OF_CLR "\033[0;0m"
 
-# define DFLT_NM "default"
+# define CLTR_DFLT_NM "anonymous"
+# define CLTR_HP 10
+# define CLTR_EP 10
+# define CLTR_AD 0
 
 class ClapTrap
 {

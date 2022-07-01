@@ -6,14 +6,17 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 10:14:54 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/01 10:55:01 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(void)
-	: name_(DFLT_NM), hit_point_(10), energy_point_(10), attack_damage_(0) {
+	: name_(CLTR_DFLT_NM)
+	, hit_point_(CLTR_HP)
+	, energy_point_(CLTR_EP)
+	, attack_damage_(CLTR_AD) {
 	displayHdrMsg();
 	std::cout << "login!";
 	std::cout << CLR_GRAY;
@@ -22,7 +25,10 @@ ClapTrap::ClapTrap(void)
 }
 
 ClapTrap::ClapTrap(const std::string& name)
-	: name_(name), hit_point_(10), energy_point_(10), attack_damage_(0) {
+	: name_(name)
+	, hit_point_(CLTR_HP)
+	, energy_point_(CLTR_EP)
+	, attack_damage_(CLTR_AD) {
 	displayHdrMsg();
 	std::cout << "login!";
 	std::cout << CLR_GRAY;
@@ -31,7 +37,10 @@ ClapTrap::ClapTrap(const std::string& name)
 }
 
 ClapTrap::ClapTrap(const ClapTrap& cltr)
-	: name_(DFLT_NM), hit_point_(10), energy_point_(10), attack_damage_(0) {
+	: name_(CLTR_DFLT_NM)
+	, hit_point_(CLTR_HP)
+	, energy_point_(CLTR_EP)
+	, attack_damage_(CLTR_AD) {
 	*this = cltr;
 	displayHdrMsg();
 	std::cout << "login!";
