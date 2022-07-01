@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/30 19:33:02 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/01 10:14:07 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define CLR_BPURPLE "\033[1;35m"
 # define CLR_BSKYBLUE "\033[1;36m"
 # define CLR_BWHITE "\033[1;37m"
+# define CLR_GRAY "\033[0;90m"
 # define END_OF_CLR "\033[0;0m"
 
 # define DFLT_NM "default"

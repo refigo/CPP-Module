@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/06/30 12:39:05 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/01 10:14:54 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(void)
 	: name_(DFLT_NM), hit_point_(10), energy_point_(10), attack_damage_(0) {
 	displayHdrMsg();
 	std::cout << "login!";
-	std::cout << CLR_BLACK;
+	std::cout << CLR_GRAY;
 	std::cout << " (Default constructor Called)\n";
 	std::cout << END_OF_CLR;
 }
@@ -25,7 +25,7 @@ ClapTrap::ClapTrap(const std::string& name)
 	: name_(name), hit_point_(10), energy_point_(10), attack_damage_(0) {
 	displayHdrMsg();
 	std::cout << "login!";
-	std::cout << CLR_BLACK;
+	std::cout << CLR_GRAY;
 	std::cout << " (String name constructor Called)\n";
 	std::cout << END_OF_CLR;
 }
@@ -35,7 +35,7 @@ ClapTrap::ClapTrap(const ClapTrap& cltr)
 	*this = cltr;
 	displayHdrMsg();
 	std::cout << "login!";
-	std::cout << CLR_BLACK;
+	std::cout << CLR_GRAY;
 	std::cout << " (Copy constructor called)\n";
 	std::cout << END_OF_CLR;
 }
@@ -49,7 +49,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 		this->energy_point_ = cltr.getEnergyPoint();
 		this->attack_damage_ = cltr.getAttackDamage();
 		std::cout << "by [ " << cltr.getName() << " ]";
-		std::cout << CLR_BLACK;
+		std::cout << CLR_GRAY;
 		std::cout << " (Copy assignment operator called)\n";
 		std::cout << END_OF_CLR;
 	}
@@ -59,7 +59,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 ClapTrap::~ClapTrap(void) {
 	displayHdrMsg();
 	std::cout << "logout...";
-	std::cout << CLR_BLACK;
+	std::cout << CLR_GRAY;
 	std::cout << " (Destructor called)\n";
 	std::cout << END_OF_CLR;
 }
