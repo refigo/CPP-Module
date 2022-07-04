@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 11:04:16 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 12:31:34 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ class ClapTrap
 {
 private:
 	void	displayHdrMsg_(void) const;
-	void	displayClrdStr_(const char *clr, const char *str) const;
 
 protected:
 	std::string		name_;
@@ -46,7 +45,10 @@ protected:
 
 	const unsigned int	maxHP_;
 
-	ClapTrap(const std::string& name, int hp, int ep, int ad);
+	ClapTrap(const std::string& name, \
+				unsigned int hp, unsigned int ep, unsigned int ad);
+
+	void	displayClrdStr_(const char *clr, const char *str) const;
 
 public:
 	ClapTrap(void);

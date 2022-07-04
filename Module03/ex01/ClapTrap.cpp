@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 11:09:31 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 12:09:23 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ ClapTrap::ClapTrap(const std::string& name)
 	displayClrdStr_(CLR_GRAY, " (String name constructor Called)\n");
 }
 
-// consider...
 ClapTrap::ClapTrap(const ClapTrap& cltr)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
@@ -49,16 +48,16 @@ ClapTrap::ClapTrap(const ClapTrap& cltr)
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 	if (this != &cltr) {
-		this->name_ = cltr.getName();
-		this->hit_point_ = cltr.getHitPoint();
-		this->energy_point_ = cltr.getEnergyPoint();
-		this->attack_damage_ = cltr.getAttackDamage();
+		this->name_ = cltr.name_;
+		this->hit_point_ = cltr.hit_point_;
+		this->energy_point_ = cltr.energy_point_;
+		this->attack_damage_ = cltr.attack_damage_;
 	}
 	return (*this);
 }
 
 ClapTrap::ClapTrap(const std::string& name, \
-				int hp = CLTR_HP, int ep = CLTR_EP, int ad = CLTR_AD)
+					unsigned int hp, unsigned int ep, unsigned int ad)
 	: name_(name)
 	, hit_point_(hp)
 	, energy_point_(ep)
