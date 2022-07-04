@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:34 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 11:07:42 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 11:26:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ ScavTrap::ScavTrap(const std::string& name)
 	std::cout << END_OF_CLR;
 }
 
-// focus...
 ScavTrap::ScavTrap(const ScavTrap& sctr) {
 	*this = sctr;
 	displayHdrMsg_();
@@ -40,13 +39,12 @@ ScavTrap::ScavTrap(const ScavTrap& sctr) {
 	std::cout << END_OF_CLR;
 }
 
-// focus...
 ScavTrap&	ScavTrap::operator=(const ScavTrap& sctr) {
 	if (this != &sctr) {
-		name_ = sctr.getName();
-		hit_point_ = sctr.getHitPoint();
-		energy_point_ = sctr.getEnergyPoint();
-		attack_damage_ = sctr.getAttackDamage();
+		name_ = sctr.name_;
+		hit_point_ = sctr.hit_point_;	
+		energy_point_ = sctr.energy_point_;
+		attack_damage_ = sctr.attack_damage_;
 	}
 	return (*this);
 }
@@ -83,7 +81,7 @@ void	ScavTrap::attack(const std::string& target) {
 
 void	ScavTrap::guardGate(void) {
 	displayHdrMsg_();
-	std::cout << "guradGate\n";
+	std::cout << "guardGate\n";
 	
 }
 
