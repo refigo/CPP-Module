@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:27 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 11:45:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 11:04:17 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,15 @@
 
 # include "ClapTrap.hpp"
 
+# define SCTR_DFLT_NM "anonymousSCTR"
+# define SCTR_HP 100
+# define SCTR_EP 50
+# define SCTR_AD 20
+
 class ScavTrap : public ClapTrap
 {
 private:
-	void	displayHdrMsg(void) const;
+	void	displayHdrMsg_(void) const;
 
 public:
 	ScavTrap(void);

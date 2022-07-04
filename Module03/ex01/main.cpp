@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 14:44:14 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 11:11:50 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 int	main(void)
 {
+	// CLTR
 	{
 		ClapTrap	test1;
 		ClapTrap	test2("test2");
@@ -59,8 +60,55 @@ int	main(void)
 		man.beRepaired(1);
 	}
 
+	std::cout << std::endl;
+
+	// SCTR
+	{
+		ScavTrap	test1;
+		ScavTrap	test2("test2");
+		std::cout << '\n';
+		
+		test1.attack("dummy");
+		std::cout << '\n';
+
+		test2.attack("dummy");
+		test2.takeDamage(4);
+		test2.beRepaired(4);
+		std::cout << '\n';
+
+		test1 = test2;
+		test1.attack("dummy");
+		std::cout << '\n';
+
+		ScavTrap	test3(test1);
+		test3.attack("dummy");
+		std::cout << '\n';
+	}
+
+	std::cout << std::endl;
+	
 	{
 		ScavTrap	test;
+
+		test.attack("test_enemy");
+
+		for (int i = 0; i < 5; ++i)
+			test.attack("Enemy");
+		for (int i = 0; i < 5; ++i)
+			test.takeDamage(1);
+		for (int i = 0; i < 5; ++i)
+			test.beRepaired(1);
+		test.attack("Enemy");
+		test.beRepaired(1);
+
+		std::cout << '\n';
+
+		for (int i = 0; i < 4; ++i)
+			test.takeDamage(4);
+		test.attack("Enemy");
+		test.beRepaired(1);
+
+		test.guardGate();
 		
 	}
 
