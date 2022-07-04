@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 11:11:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 12:41:24 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 int	main(void)
 {
 	// CLTR
+	std::cout << "--------------------\n";
+	std::cout << "Start CLTR!!!\n";
+	std::cout << "--------------------\n";
 	{
 		ClapTrap	test1;
 		ClapTrap	test2("test2");
@@ -63,6 +66,9 @@ int	main(void)
 	std::cout << std::endl;
 
 	// SCTR
+	std::cout << "--------------------\n";
+	std::cout << "Start SCTR!!!\n";
+	std::cout << "--------------------\n";
 	{
 		ScavTrap	test1;
 		ScavTrap	test2("test2");

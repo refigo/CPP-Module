@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:27 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 11:04:17 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 12:22:20 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define SCAV_TRAP_HPP
 
 # include "ClapTrap.hpp"
+
+# define CLR_GREEN "\033[0;32m"
 
 # define SCTR_DFLT_NM "anonymousSCTR"
 # define SCTR_HP 100
