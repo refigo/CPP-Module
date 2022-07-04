@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 12:31:34 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 14:43:03 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ protected:
 
 	const unsigned int	maxHP_;
 
+	void	displayClrdStr_(const char *clr, const char *str) const;
+
 	ClapTrap(const std::string& name, \
 				unsigned int hp, unsigned int ep, unsigned int ad);
-
-	void	displayClrdStr_(const char *clr, const char *str) const;
 
 public:
 	ClapTrap(void);
@@ -70,7 +70,6 @@ public:
 	void	setHitPoint(unsigned int hp);
 	void	setEnergyPoint(unsigned int ep);
 	void	setAttackDamage(unsigned int ad);
-
 };
 
 #endif

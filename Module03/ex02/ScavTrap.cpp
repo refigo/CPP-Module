@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:34 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 14:48:39 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 15:04:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void	ScavTrap::attack(const std::string& target) {
 
 void	ScavTrap::guardGate(void) {
 	displayHdrMsg_();
-	displayClrdStr_(CLR_GREEN, "entered in Gate keeper mode..!\n");
+	displayClrdStr_(CLR_GREEN, "enters in Gate keeper mode..!\n");
 }

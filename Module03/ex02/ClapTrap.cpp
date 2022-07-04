@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 14:44:02 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 15:15:14 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ClapTrap::ClapTrap(const std::string& name, \
 	: name_(name)
 	, hit_point_(hp)
 	, energy_point_(ep)
-	, attack_damage_(ad) 
+	, attack_damage_(ad)
 	, maxHP_(hp) {
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -37,7 +37,7 @@ ClapTrap::ClapTrap(void)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) 
+	, attack_damage_(CLTR_AD)
 	, maxHP_(CLTR_HP) {
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -48,7 +48,7 @@ ClapTrap::ClapTrap(const std::string& name)
 	: name_(name)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) 
+	, attack_damage_(CLTR_AD)
 	, maxHP_(CLTR_HP) {
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -59,7 +59,7 @@ ClapTrap::ClapTrap(const ClapTrap& cltr)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) 
+	, attack_damage_(CLTR_AD)
 	, maxHP_(CLTR_HP) {
 	*this = cltr;
 	displayHdrMsg_();

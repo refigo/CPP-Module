@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:20:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 14:50:27 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 15:14:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ FragTrap::~FragTrap(void) {
 
 void	FragTrap::highFivesGuys(void) {
 	displayHdrMsg_();
-	displayClrdStr_(CLR_PURPLE, "high five!!!\n");
+	displayClrdStr_(CLR_PURPLE, "says that \"Hey Guys~! highFives!!!\"\n");
 }

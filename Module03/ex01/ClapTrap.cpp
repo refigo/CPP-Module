@@ -6,17 +6,38 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 12:09:23 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 15:15:14 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+void	ClapTrap::displayHdrMsg_(void) const {
+	std::cout << "ClapTrap ";
+	std::cout << "[ " << name_ << " ] ";
+}
+
+void	ClapTrap::displayClrdStr_(const char *clr, const char *str) const {
+	std::cout << clr << str << END_OF_CLR;
+}
+
+ClapTrap::ClapTrap(const std::string& name, \
+					unsigned int hp, unsigned int ep, unsigned int ad)
+	: name_(name)
+	, hit_point_(hp)
+	, energy_point_(ep)
+	, attack_damage_(ad)
+	, maxHP_(hp) {
+	displayHdrMsg_();
+	std::cout << "login!";
+	displayClrdStr_(CLR_GRAY, " (Attributes constructor called)\n");
+}
+
 ClapTrap::ClapTrap(void)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) 
+	, attack_damage_(CLTR_AD)
 	, maxHP_(CLTR_HP) {
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -27,7 +48,7 @@ ClapTrap::ClapTrap(const std::string& name)
 	: name_(name)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) 
+	, attack_damage_(CLTR_AD)
 	, maxHP_(CLTR_HP) {
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -38,7 +59,7 @@ ClapTrap::ClapTrap(const ClapTrap& cltr)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) 
+	, attack_damage_(CLTR_AD)
 	, maxHP_(CLTR_HP) {
 	*this = cltr;
 	displayHdrMsg_();
@@ -54,18 +75,6 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 		this->attack_damage_ = cltr.attack_damage_;
 	}
 	return (*this);
-}
-
-ClapTrap::ClapTrap(const std::string& name, \
-					unsigned int hp, unsigned int ep, unsigned int ad)
-	: name_(name)
-	, hit_point_(hp)
-	, energy_point_(ep)
-	, attack_damage_(ad) 
-	, maxHP_(hp) {
-	displayHdrMsg_();
-	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Attributes constructor called)\n");
 }
 
 ClapTrap::~ClapTrap(void) {
@@ -177,13 +186,4 @@ void	ClapTrap::setEnergyPoint(unsigned int ep) {
 
 void	ClapTrap::setAttackDamage(unsigned int ad) {
 	attack_damage_ = ad;
-}
-
-void	ClapTrap::displayHdrMsg_(void) const {
-	std::cout << "ClapTrap ";
-	std::cout << "[ " << name_ << " ] ";
-}
-
-void	ClapTrap::displayClrdStr_(const char *clr, const char *str) const {
-	std::cout << clr << str << END_OF_CLR;
 }

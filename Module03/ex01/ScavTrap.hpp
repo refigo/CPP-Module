@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:27 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 12:22:20 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 12:45:49 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ public:
 	void	attack(const std::string& target);
 
 	void	guardGate(void);
-
 };
 
 #endif

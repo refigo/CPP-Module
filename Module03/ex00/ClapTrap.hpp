@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 11:32:03 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/04 12:46:26 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ public:
 	void	setHitPoint(unsigned int hp);
 	void	setEnergyPoint(unsigned int ep);
 	void	setAttackDamage(unsigned int ad);
-
 };
 
 #endif
