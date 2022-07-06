@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:27 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 16:37:04 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 18:21:49 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ public:
 	ScavTrap(const std::string& name);
 	ScavTrap(const ScavTrap& sctr);
 	ScavTrap&	operator=(const ScavTrap& sctr);
-	~ScavTrap(void);
+	virtual ~ScavTrap(void);
 
-	void	attack(const std::string& target);
+	virtual void	attack(const std::string& target);
 
 	void	guardGate(void);
 };

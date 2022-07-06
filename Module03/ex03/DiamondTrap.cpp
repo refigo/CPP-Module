@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:37:26 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 14:36:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 18:13:57 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	DiamondTrap::displayHdrMsg_(void) const {
 }
 
 DiamondTrap::DiamondTrap(void)
-	: ClapTrap(DIATR_DFLT_CLTR_NM, FRTR_HP, SCTR_EP, FRTR_AD)
+	: ClapTrap(std::string(DIATR_DFLT_NM) + "_clap_name", \
+		FRTR_HP, SCTR_EP, FRTR_AD)
 	, name_(DIATR_DFLT_NM) {
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -34,7 +35,8 @@ DiamondTrap::DiamondTrap(const std::string& name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& diatr)
-	: ClapTrap(DIATR_DFLT_CLTR_NM, FRTR_HP, SCTR_EP, FRTR_AD)
+	: ClapTrap(std::string(DIATR_DFLT_NM) + "_clap_name", \
+		FRTR_HP, SCTR_EP, FRTR_AD)
 	, name_(DIATR_DFLT_NM) {
 	*this = diatr;
 	displayHdrMsg_();
@@ -61,6 +63,10 @@ DiamondTrap::~DiamondTrap(void) {
 
 const std::string&	DiamondTrap::getName(void) const {
 	return (name_);
+}
+
+void	DiamondTrap::setName(const std::string& name) {
+	name_ = name;
 }
 
 void	DiamondTrap::attack(const std::string& target) {

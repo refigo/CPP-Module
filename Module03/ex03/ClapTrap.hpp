@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 14:35:27 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 18:13:19 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,21 +55,21 @@ public:
 	ClapTrap(const std::string& name);
 	ClapTrap(const ClapTrap& cltr);
 	ClapTrap&	operator=(const ClapTrap& cltr);
-	~ClapTrap(void);
+	virtual ~ClapTrap(void);
 
-	void	attack(const std::string& target);
-	void	takeDamage(unsigned int amount);
-	void	beRepaired(unsigned int amount);
+	virtual void	attack(const std::string& target);
+	void			takeDamage(unsigned int amount);
+	void			beRepaired(unsigned int amount);
 
-	const std::string&	getName(void) const;
-	unsigned int		getHitPoint(void) const;
-	unsigned int		getEnergyPoint(void) const;
-	unsigned int		getAttackDamage(void) const;
+	virtual const std::string&	getName(void) const;
+	unsigned int				getHitPoint(void) const;
+	unsigned int				getEnergyPoint(void) const;
+	unsigned int				getAttackDamage(void) const;
 
-	void	setName(const std::string& name);
-	void	setHitPoint(unsigned int hp);
-	void	setEnergyPoint(unsigned int ep);
-	void	setAttackDamage(unsigned int ad);
+	virtual void	setName(const std::string& name);
+	void			setHitPoint(unsigned int hp);
+	void			setEnergyPoint(unsigned int ep);
+	void			setAttackDamage(unsigned int ad);
 };
 
 #endif

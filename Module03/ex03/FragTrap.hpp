@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 12:55:54 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 16:36:57 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 18:21:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
 	FragTrap(const std::string& name);
 	FragTrap(const FragTrap& frtr);
 	FragTrap&	operator=(const FragTrap& frtr);
-	~FragTrap(void);
+	virtual ~FragTrap(void);
 
 	void	highFivesGuys(void);
 };
