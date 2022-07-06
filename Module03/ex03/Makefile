@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/24 18:35:56 by mgo               #+#    #+#              #
-#    Updated: 2022/07/06 17:57:29 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/06 19:03:31 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		=	diamondtrap
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-CXXFLAGS	+=	-fsanitize=address -g
+#CXXFLAGS	+=	-fsanitize=address -g
 
 rm			=	rm -f
 
