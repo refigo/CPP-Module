@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:37:26 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 17:29:01 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 10:42:47 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ void	DiamondTrap::displayHdrMsg_(void) const {
 }
 
 DiamondTrap::DiamondTrap(void)
-	: ClapTrap(DIATR_DFLT_NM, FRTR_HP, SCTR_EP, FRTR_AD)
-	, name_(DIATR_DFLT_NM) {
-	ClapTrap::name_ += "_clap_name";
+	: ClapTrap("anonymousDIATR_clap_name", FRTR_HP, SCTR_EP, FRTR_AD)
+	, name_("anonymousDIATR") {
 	displayHdrMsg_();
 	std::cout << "login!";
 	displayClrdStr_(CLR_GRAY, " (Default constructor Called)\n");
@@ -35,8 +34,8 @@ DiamondTrap::DiamondTrap(const std::string& name)
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& diatr)
-	: ClapTrap(DIATR_DFLT_NM, FRTR_HP, SCTR_EP, FRTR_AD)
-	, name_(DIATR_DFLT_NM) {
+	: ClapTrap("anonymousDIATR_clap_name", FRTR_HP, SCTR_EP, FRTR_AD)
+	, name_("anonymousDIATR") {
 	*this = diatr;
 	displayHdrMsg_();
 	std::cout << "login!";
