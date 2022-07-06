@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 12:52:10 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 13:19:32 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int	main(void)
 {
-	// ClapTrap
+	// test ClapTrap
 	std::cout << "-----------------------\n";
 	std::cout << "Start testing ClapTrap!\n";
 	std::cout << "-----------------------\n";
@@ -52,7 +52,7 @@ int	main(void)
 	std::cout << std::endl;
 	
 
-	// ScavTrap
+	// test ScavTrap
 	std::cout << "-----------------------\n";
 	std::cout << "Start testing ScavTrap!\n";
 	std::cout << "-----------------------\n";
@@ -65,9 +65,6 @@ int	main(void)
 	std::cout << std::endl;
 	{
 		ScavTrap	user("Fighter");
-
-		user.takeDamage(0);
-		user.takeDamage(-1);
 		
 		for (int i = 0; i < 5; ++i)
 			user.takeDamage(1);
@@ -91,59 +88,44 @@ int	main(void)
 	std::cout << "------------------------\n";
 
 
-	// FragTrap
-	/*
-	std::cout << "--------------------\n";
-	std::cout << "Start FRTR!!!\n";
-	std::cout << "--------------------\n";
+	// test FragTrap
+	std::cout << "-----------------------\n";
+	std::cout << "Start testing FragTrap!\n";
+	std::cout << "-----------------------\n";
 	{
 		FragTrap	test1;
-		FragTrap	test2("test2");
-		std::cout << '\n';
-		
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		test2.attack("dummy");
-		test2.takeDamage(4);
-		test2.beRepaired(4);
-		std::cout << '\n';
-
-		test1 = test2;
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		FragTrap	test3(test1);
-		test3.attack("dummy");
-		std::cout << '\n';
+		FragTrap	test2("testingConstructors");
+		FragTrap	test3(test2);
+		test1 = test3;
 	}
 	std::cout << std::endl;
 	{
-		FragTrap	test;
-
-		test.attack("test_enemy");
-
+		FragTrap	user("Fighter");
+		
 		for (int i = 0; i < 5; ++i)
-			test.attack("Enemy");
+			user.takeDamage(1);
 		for (int i = 0; i < 5; ++i)
-			test.takeDamage(1);
+			user.attack("Enemy");
 		for (int i = 0; i < 5; ++i)
-			test.beRepaired(1);
-		test.attack("Enemy");
-		test.beRepaired(1);
-
+			user.beRepaired(1);
+		user.attack("Enemy");
+		user.beRepaired(1);
 		std::cout << '\n';
 
+		user.highFivesGuys();
 		for (int i = 0; i < 4; ++i)
-			test.takeDamage(4);
-		test.attack("Enemy");
-		test.beRepaired(1);
+			user.takeDamage(25);
+		user.attack("Enemy");
+		user.beRepaired(1);
 
-		test.highFivesGuys();
 	}
+	std::cout << "------------------------\n";
+	std::cout << "Finish testing FragTrap!\n";
+	std::cout << "------------------------\n";
 	
 
 	// DiamondTrap
+	/*
 	std::cout << "--------------------\n";
 	std::cout << "Start DIATR!!!\n";
 	std::cout << "--------------------\n";
@@ -171,6 +153,11 @@ int	main(void)
 	std::cout << std::endl;
 	{
 		DiamondTrap	test;
+
+
+
+		//user.takeDamage(0);
+		//user.takeDamage(-1);
 
 		test.attack("test_enemy");
 

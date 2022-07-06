@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:34 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 12:48:38 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 13:06:34 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ ScavTrap::ScavTrap(void)
 	: ClapTrap(SCTR_DFLT_NM, SCTR_HP, SCTR_EP, SCTR_AD) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Default constructor Called)\n");
+	displayClrdStr_(CLR_GRAY, " (Default constructor called)\n");
 }
 
 ScavTrap::ScavTrap(const std::string& name)
 	: ClapTrap(name, SCTR_HP, SCTR_EP, SCTR_AD) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (String name constructor Called)\n");
+	displayClrdStr_(CLR_GRAY, " (String name constructor called)\n");
 }
 
 ScavTrap::ScavTrap(const ScavTrap& sctr)
