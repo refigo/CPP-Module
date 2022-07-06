@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 12:46:26 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:54:48 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ private:
 	unsigned int	energy_point_;
 	unsigned int	attack_damage_;
 
-	void	displayHdrMsg(void) const;
+	const unsigned int	maxHP_;
+
+	void	displayHdrMsg_(void) const;
+	void	displayClrdMsg_(const char *clr, const char *msg) const;
 
 public:
 	ClapTrap(void);

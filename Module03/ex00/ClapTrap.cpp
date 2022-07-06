@@ -6,69 +6,73 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/01 14:37:13 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:55:25 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+void	ClapTrap::displayHdrMsg_(void) const {
+	std::cout << "ClapTrap ";
+	std::cout << "[ " << name_ << " ] ";
+}
+
+void	ClapTrap::displayClrdMsg_(const char *clr, const char *msg) const {
+	std::cout << clr << msg << END_OF_CLR;
+}
+
 ClapTrap::ClapTrap(void)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) {
-	displayHdrMsg();
+	, attack_damage_(CLTR_AD)
+	, maxHP_(CLTR_HP) {
+	displayHdrMsg_();
 	std::cout << "login!";
-	std::cout << CLR_GRAY;
-	std::cout << " (Default constructor Called)\n";
-	std::cout << END_OF_CLR;
+	displayClrdMsg_(CLR_GRAY, " (Default constructor called)\n");
 }
 
 ClapTrap::ClapTrap(const std::string& name)
 	: name_(name)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) {
-	displayHdrMsg();
+	, attack_damage_(CLTR_AD)
+	, maxHP_(CLTR_HP) {
+	displayHdrMsg_();
 	std::cout << "login!";
-	std::cout << CLR_GRAY;
-	std::cout << " (String name constructor Called)\n";
-	std::cout << END_OF_CLR;
+	displayClrdMsg_(CLR_GRAY, " (String name constructor called)\n");
 }
 
 ClapTrap::ClapTrap(const ClapTrap& cltr)
 	: name_(CLTR_DFLT_NM)
 	, hit_point_(CLTR_HP)
 	, energy_point_(CLTR_EP)
-	, attack_damage_(CLTR_AD) {
+	, attack_damage_(CLTR_AD)
+	, maxHP_(CLTR_HP) {
 	*this = cltr;
-	displayHdrMsg();
+	displayHdrMsg_();
 	std::cout << "login!";
-	std::cout << CLR_GRAY;
-	std::cout << " (Copy constructor called)\n";
-	std::cout << END_OF_CLR;
+	displayClrdMsg_(CLR_GRAY, " (Copy constructor called)\n");
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 	if (this != &cltr) {
-		this->name_ = cltr.getName();
-		this->hit_point_ = cltr.getHitPoint();
-		this->energy_point_ = cltr.getEnergyPoint();
-		this->attack_damage_ = cltr.getAttackDamage();
+		this->name_ = cltr.name_;
+		this->hit_point_ = cltr.hit_point_;
+		this->energy_point_ = cltr.energy_point_;
+		this->attack_damage_ = cltr.attack_damage_;
 	}
 	return (*this);
 }
 
 ClapTrap::~ClapTrap(void) {
-	displayHdrMsg();
+	displayHdrMsg_();
 	std::cout << "logout...";
-	std::cout << CLR_GRAY;
-	std::cout << " (Destructor called)\n";
-	std::cout << END_OF_CLR;
+	displayClrdMsg_(CLR_GRAY, " (Destructor called)\n");
 }
 
 void	ClapTrap::attack(const std::string& target) {
-	displayHdrMsg();
+	displayHdrMsg_();
 	if ((energy_point_ > 0) && (hit_point_ > 0)) {
 		std::cout << CLR_BBLUE;
 		std::cout << "attacks [ " << target << \
@@ -77,20 +81,18 @@ void	ClapTrap::attack(const std::string& target) {
 		--(energy_point_);
 		std::cout << " (remained Energy: " << energy_point_ << ")\n";
 	} else if (hit_point_ <= 0){
-		std::cout << CLR_BYELLOW;
-		std::cout << "can't attack because the user is already collapsed...\n";
-		std::cout << END_OF_CLR;
+		displayClrdMsg_(CLR_BYELLOW, \
+			"can't attack because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		std::cout << CLR_BSKYBLUE;
-		std::cout << "can't attack because of zero energy...\n";
-		std::cout << END_OF_CLR;
+		displayClrdMsg_(CLR_BSKYBLUE, \
+			"can't attack because of zero energy...\n");
 	} else {
 		std::cout << '\n';
 	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	displayHdrMsg();
+	displayHdrMsg_();
 	if (hit_point_ > 0) {
 		std::cout << CLR_BRED;
 		std::cout << "takes " \
@@ -109,38 +111,34 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		}
 		std::cout << "\n";
 	} else {
-		std::cout << CLR_BYELLOW;
-		std::cout << "is already collapsed, so not taking damage...\n";
-		std::cout << END_OF_CLR;
+		displayClrdMsg_(CLR_BYELLOW, \
+			"is already collapsed, so not taking damage...\n");
 	}
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	displayHdrMsg();
-	if ((energy_point_ > 0) && (0 < hit_point_) && (hit_point_ < CLTR_HP)) {
+	displayHdrMsg_();
+	if ((energy_point_ > 0) && (0 < hit_point_) && (hit_point_ < maxHP_)) {
 		std::cout << CLR_BGREEN;
 		std::cout << "is repaired " \
 			<< amount << " points of health!";
 		std::cout << END_OF_CLR;
-		if (amount < (CLTR_HP - hit_point_))
+		if (amount < (maxHP_ - hit_point_))
 			hit_point_ += amount;
 		else
-			hit_point_ = CLTR_HP;
+			hit_point_ = maxHP_;
 		std::cout << " (remained Health: " << hit_point_ << ',';
 		--(energy_point_);
 		std::cout << " remained Energy: " << energy_point_ << ")\n";
 	} else if (hit_point_ <= 0) {
-		std::cout << CLR_BYELLOW;
-		std::cout << "can't repair because the user is already collapsed...\n";
-		std::cout << END_OF_CLR;
+		displayClrdMsg_(CLR_BYELLOW, \
+			"can't repair because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		std::cout << CLR_BSKYBLUE;
-		std::cout << "can't repair because of zero energy...\n";
-		std::cout << END_OF_CLR;
-	} else if (hit_point_ >= CLTR_HP){
-		std::cout << CLR_BWHITE;
-		std::cout << "has max health, so don't need to be repaired!\n";
-		std::cout << END_OF_CLR;
+		displayClrdMsg_(CLR_BSKYBLUE, \
+			"can't repair because of zero energy...\n");
+	} else if (hit_point_ >= maxHP_) {
+		displayClrdMsg_(CLR_BWHITE, \
+			"has max health, so don't need to be repaired!\n");
 	} else {
 		std::cout << '\n';
 	}
@@ -176,9 +174,4 @@ void	ClapTrap::setEnergyPoint(unsigned int ep) {
 
 void	ClapTrap::setAttackDamage(unsigned int ad) {
 	attack_damage_ = ad;
-}
-
-void	ClapTrap::displayHdrMsg(void) const {
-	std::cout << "ClapTrap ";
-	std::cout << "[ " << name_ << " ] ";
 }
