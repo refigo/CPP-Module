@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:20:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 13:06:40 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:09:51 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,15 @@ FragTrap::~FragTrap(void) {
 
 void	FragTrap::highFivesGuys(void) {
 	displayHdrMsg_();
-	if (hit_point_ > 0)
+	if ((hit_point_ > 0) && (energy_point_ > 0)) {
 		displayClrdStr_(CLR_PURPLE, "says that \"Hey~! HighFives Guys!!!\"\n");
-	else
+	} else if (hit_point_ <= 0) {
 		displayClrdStr_(CLR_BYELLOW, \
 			"can't do anything because the user is already collapsed...\n");
+	} else if (energy_point_ <= 0) {
+		displayClrdStr_(CLR_BSKYBLUE, \
+			"can't do anything because the user has no energy...\n");
+	} else {
+		std::cout << '\n';
+	}
 }
