@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:20:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 14:09:51 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:36:21 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ FragTrap::FragTrap(void)
 	: ClapTrap(FRTR_DFLT_NM, FRTR_HP, FRTR_EP, FRTR_AD) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Default constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Default constructor called)\n");
 }
 
 FragTrap::FragTrap(const std::string& name)
 	: ClapTrap(name, FRTR_HP, FRTR_EP, FRTR_AD) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (String name constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (String name constructor called)\n");
 }
 
 FragTrap::FragTrap(const FragTrap& frtr)
@@ -36,7 +36,7 @@ FragTrap::FragTrap(const FragTrap& frtr)
 	*this = frtr;
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Copy constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Copy constructor called)\n");
 }
 
 FragTrap&	FragTrap::operator=(const FragTrap& frtr) {
@@ -52,18 +52,18 @@ FragTrap&	FragTrap::operator=(const FragTrap& frtr) {
 FragTrap::~FragTrap(void) {
 	displayHdrMsg_();
 	std::cout << "logout...";
-	displayClrdStr_(CLR_GRAY, " (Destructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Destructor called)\n");
 }
 
 void	FragTrap::highFivesGuys(void) {
 	displayHdrMsg_();
 	if ((hit_point_ > 0) && (energy_point_ > 0)) {
-		displayClrdStr_(CLR_PURPLE, "says that \"Hey~! HighFives Guys!!!\"\n");
+		displayClrdMsg_(CLR_PURPLE, "says that \"Hey~! HighFives Guys!!!\"\n");
 	} else if (hit_point_ <= 0) {
-		displayClrdStr_(CLR_BYELLOW, \
+		displayClrdMsg_(CLR_BYELLOW, \
 			"can't do anything because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		displayClrdStr_(CLR_BSKYBLUE, \
+		displayClrdMsg_(CLR_BSKYBLUE, \
 			"can't do anything because the user has no energy...\n");
 	} else {
 		std::cout << '\n';

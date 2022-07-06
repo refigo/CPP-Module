@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 18:29:32 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 15:15:14 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:37:34 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ClapTrap::displayHdrMsg_(void) const {
 	std::cout << "[ " << name_ << " ] ";
 }
 
-void	ClapTrap::displayClrdStr_(const char *clr, const char *str) const {
-	std::cout << clr << str << END_OF_CLR;
+void	ClapTrap::displayClrdMsg_(const char *clr, const char *msg) const {
+	std::cout << clr << msg << END_OF_CLR;
 }
 
 ClapTrap::ClapTrap(const std::string& name, \
@@ -30,7 +30,7 @@ ClapTrap::ClapTrap(const std::string& name, \
 	, maxHP_(hp) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Attributes constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Attributes constructor called)\n");
 }
 
 ClapTrap::ClapTrap(void)
@@ -41,7 +41,7 @@ ClapTrap::ClapTrap(void)
 	, maxHP_(CLTR_HP) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Default constructor Called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Default constructor called)\n");
 }
 
 ClapTrap::ClapTrap(const std::string& name)
@@ -52,7 +52,7 @@ ClapTrap::ClapTrap(const std::string& name)
 	, maxHP_(CLTR_HP) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (String name constructor Called)\n");
+	displayClrdMsg_(CLR_GRAY, " (String name constructor called)\n");
 }
 
 ClapTrap::ClapTrap(const ClapTrap& cltr)
@@ -64,7 +64,7 @@ ClapTrap::ClapTrap(const ClapTrap& cltr)
 	*this = cltr;
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Copy constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Copy constructor called)\n");
 }
 
 ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
@@ -80,7 +80,7 @@ ClapTrap&	ClapTrap::operator=(const ClapTrap& cltr) {
 ClapTrap::~ClapTrap(void) {
 	displayHdrMsg_();
 	std::cout << "logout...";
-	displayClrdStr_(CLR_GRAY, " (Destructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Destructor called)\n");
 }
 
 void	ClapTrap::attack(const std::string& target) {
@@ -93,10 +93,10 @@ void	ClapTrap::attack(const std::string& target) {
 		--(energy_point_);
 		std::cout << " (remained Energy: " << energy_point_ << ")\n";
 	} else if (hit_point_ <= 0){
-		displayClrdStr_(CLR_BYELLOW, \
+		displayClrdMsg_(CLR_BYELLOW, \
 			"can't attack because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		displayClrdStr_(CLR_BSKYBLUE, \
+		displayClrdMsg_(CLR_BSKYBLUE, \
 			"can't attack because of zero energy...\n");
 	} else {
 		std::cout << '\n';
@@ -123,7 +123,7 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 		}
 		std::cout << "\n";
 	} else {
-		displayClrdStr_(CLR_BYELLOW, \
+		displayClrdMsg_(CLR_BYELLOW, \
 			"is already collapsed, so not taking damage...\n");
 	}
 }
@@ -143,13 +143,13 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		--(energy_point_);
 		std::cout << " remained Energy: " << energy_point_ << ")\n";
 	} else if (hit_point_ <= 0) {
-		displayClrdStr_(CLR_BYELLOW, \
+		displayClrdMsg_(CLR_BYELLOW, \
 			"can't repair because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		displayClrdStr_(CLR_BSKYBLUE, \
+		displayClrdMsg_(CLR_BSKYBLUE, \
 			"can't repair because of zero energy...\n");
 	} else if (hit_point_ >= maxHP_) {
-		displayClrdStr_(CLR_BWHITE, \
+		displayClrdMsg_(CLR_BWHITE, \
 			"has max health, so don't need to be repaired!\n");
 	} else {
 		std::cout << '\n';

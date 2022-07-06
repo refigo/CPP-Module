@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:34 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 14:09:30 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:36:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ ScavTrap::ScavTrap(void)
 	: ClapTrap(SCTR_DFLT_NM, SCTR_HP, SCTR_EP, SCTR_AD) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Default constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Default constructor called)\n");
 }
 
 ScavTrap::ScavTrap(const std::string& name)
 	: ClapTrap(name, SCTR_HP, SCTR_EP, SCTR_AD) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (String name constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (String name constructor called)\n");
 }
 
 ScavTrap::ScavTrap(const ScavTrap& sctr)
@@ -36,7 +36,7 @@ ScavTrap::ScavTrap(const ScavTrap& sctr)
 	*this = sctr;
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Copy constructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Copy constructor called)\n");
 }
 
 ScavTrap&	ScavTrap::operator=(const ScavTrap& sctr) {
@@ -52,7 +52,7 @@ ScavTrap&	ScavTrap::operator=(const ScavTrap& sctr) {
 ScavTrap::~ScavTrap(void) {
 	displayHdrMsg_();
 	std::cout << "logout...";
-	displayClrdStr_(CLR_GRAY, " (Destructor called)\n");
+	displayClrdMsg_(CLR_GRAY, " (Destructor called)\n");
 }
 
 void	ScavTrap::attack(const std::string& target) {
@@ -65,10 +65,10 @@ void	ScavTrap::attack(const std::string& target) {
 		--(energy_point_);
 		std::cout << " (remained Energy: " << energy_point_ << ")\n";
 	} else if (hit_point_ <= 0){
-		displayClrdStr_(CLR_BYELLOW, \
+		displayClrdMsg_(CLR_BYELLOW, \
 			"can't attack because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		displayClrdStr_(CLR_BSKYBLUE, \
+		displayClrdMsg_(CLR_BSKYBLUE, \
 			"can't attack because of zero energy...\n");
 	} else {
 		std::cout << '\n';
@@ -78,12 +78,12 @@ void	ScavTrap::attack(const std::string& target) {
 void	ScavTrap::guardGate(void) {
 	displayHdrMsg_();
 	if ((hit_point_ > 0) && (energy_point_ > 0)) {
-		displayClrdStr_(CLR_GREEN, "enters in Gate keeper mode..!\n");
+		displayClrdMsg_(CLR_GREEN, "enters in Gate keeper mode..!\n");
 	} else if (hit_point_ <= 0) {
-		displayClrdStr_(CLR_BYELLOW, \
+		displayClrdMsg_(CLR_BYELLOW, \
 			"can't do anything because the user is already collapsed...\n");
 	} else if (energy_point_ <= 0) {
-		displayClrdStr_(CLR_BSKYBLUE, \
+		displayClrdMsg_(CLR_BSKYBLUE, \
 			"can't do anything because the user has no energy...\n");
 	} else {
 		std::cout << '\n';

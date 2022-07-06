@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 14:10:18 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:40:04 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ int	main(void)
 		std::cout << '\n';
 
 		user.guardGate();
-		for (int i = 0; i < 4; ++i)
-			user.takeDamage(25);
+		for (int i = 0; i < 5; ++i)
+			user.takeDamage(26);
 		user.attack("Enemy");
 		user.beRepaired(1);
 	}
@@ -113,8 +113,8 @@ int	main(void)
 		std::cout << '\n';
 
 		user.highFivesGuys();
-		for (int i = 0; i < 4; ++i)
-			user.takeDamage(25);
+		for (int i = 0; i < 5; ++i)
+			user.takeDamage(26);
 		user.attack("Enemy");
 		user.beRepaired(1);
 	}
@@ -151,8 +151,8 @@ int	main(void)
 		user.guardGate();
 		user.highFivesGuys();
 		user.whoAmI();
-		for (int i = 0; i < 4; ++i)
-			user.takeDamage(25);
+		for (int i = 0; i < 5; ++i)
+			user.takeDamage(26);
 		user.attack("Enemy");
 		user.beRepaired(1);
 	}
