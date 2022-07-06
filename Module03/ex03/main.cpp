@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 11:22:57 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 12:52:10 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ int	main(void)
 	}
 	std::cout << std::endl;
 	{
-		ClapTrap	man("Fighter");
+		ClapTrap	user("Fighter");
 
 		for (int i = 0; i < 5; ++i)
-			man.attack("Enemy");
+			user.takeDamage(1);
 		for (int i = 0; i < 5; ++i)
-			man.takeDamage(1);
+			user.attack("Enemy");
 		for (int i = 0; i < 5; ++i)
-			man.beRepaired(1);
-		man.attack("Enemy");
-		man.beRepaired(1);
+			user.beRepaired(1);
+		user.attack("Enemy");
+		user.beRepaired(1);
 		std::cout << '\n';
 
 		for (int i = 0; i < 4; ++i)
-			man.takeDamage(4);
-		man.attack("Enemy");
-		man.beRepaired(1);
+			user.takeDamage(4);
+		user.attack("Enemy");
+		user.beRepaired(1);
 	}
 	std::cout << "------------------------\n";
 	std::cout << "Finish testing ClapTrap!\n";
@@ -64,23 +64,26 @@ int	main(void)
 	}
 	std::cout << std::endl;
 	{
-		ScavTrap	man("Fighter");
+		ScavTrap	user("Fighter");
 
+		user.takeDamage(0);
+		user.takeDamage(-1);
+		
 		for (int i = 0; i < 5; ++i)
-			man.attack("Enemy");
+			user.takeDamage(1);
 		for (int i = 0; i < 5; ++i)
-			man.takeDamage(1);
+			user.attack("Enemy");
 		for (int i = 0; i < 5; ++i)
-			man.beRepaired(1);
-		man.attack("Enemy");
-		man.beRepaired(1);
+			user.beRepaired(1);
+		user.attack("Enemy");
+		user.beRepaired(1);
 		std::cout << '\n';
 
-		man.guardGate();
+		user.guardGate();
 		for (int i = 0; i < 4; ++i)
-			man.takeDamage(25);
-		man.attack("Enemy");
-		man.beRepaired(1);
+			user.takeDamage(25);
+		user.attack("Enemy");
+		user.beRepaired(1);
 
 	}
 	std::cout << "------------------------\n";

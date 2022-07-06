@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/01 11:45:34 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 11:12:20 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 12:48:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,9 @@ void	ScavTrap::attack(const std::string& target) {
 
 void	ScavTrap::guardGate(void) {
 	displayHdrMsg_();
-	displayClrdStr_(CLR_GREEN, "enters in Gate keeper mode..!\n");
+	if (hit_point_ > 0)
+		displayClrdStr_(CLR_GREEN, "enters in Gate keeper mode..!\n");
+	else
+		displayClrdStr_(CLR_BYELLOW, \
+			"can't do anything because the user is already collapsed...\n");
 }
