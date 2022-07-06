@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 10:31:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 11:22:57 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 		ClapTrap	test1;
 		ClapTrap	test2("testingConstructors");
 		ClapTrap	test3(test2);
-		test1 = test2;
+		test1 = test3;
 	}
 	std::cout << std::endl;
 	{
@@ -53,58 +53,43 @@ int	main(void)
 	
 
 	// ScavTrap
-	std::cout << "--------------------\n";
-	std::cout << "Start SCTR!!!\n";
-	std::cout << "--------------------\n";
+	std::cout << "-----------------------\n";
+	std::cout << "Start testing ScavTrap!\n";
+	std::cout << "-----------------------\n";
 	{
 		ScavTrap	test1;
-		ScavTrap	test2("test2");
-		std::cout << '\n';
-		
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		test2.attack("dummy");
-		test2.takeDamage(4);
-		test2.beRepaired(4);
-		std::cout << '\n';
-
-		test1 = test2;
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		ScavTrap	test3(test1);
-		test3.attack("dummy");
-		std::cout << '\n';
+		ScavTrap	test2("testingConstructors");
+		ScavTrap	test3(test2);
+		test1 = test3;
 	}
 	std::cout << std::endl;
 	{
-		ScavTrap	test;
-
-		test.attack("test_enemy");
+		ScavTrap	man("Fighter");
 
 		for (int i = 0; i < 5; ++i)
-			test.attack("Enemy");
+			man.attack("Enemy");
 		for (int i = 0; i < 5; ++i)
-			test.takeDamage(1);
+			man.takeDamage(1);
 		for (int i = 0; i < 5; ++i)
-			test.beRepaired(1);
-		test.attack("Enemy");
-		test.beRepaired(1);
-
+			man.beRepaired(1);
+		man.attack("Enemy");
+		man.beRepaired(1);
 		std::cout << '\n';
 
+		man.guardGate();
 		for (int i = 0; i < 4; ++i)
-			test.takeDamage(4);
-		test.attack("Enemy");
-		test.beRepaired(1);
+			man.takeDamage(25);
+		man.attack("Enemy");
+		man.beRepaired(1);
 
-		test.guardGate();
 	}
-	
+	std::cout << "------------------------\n";
+	std::cout << "Finish testing ScavTrap!\n";
+	std::cout << "------------------------\n";
+
 
 	// FragTrap
-	
+	/*
 	std::cout << "--------------------\n";
 	std::cout << "Start FRTR!!!\n";
 	std::cout << "--------------------\n";
@@ -207,6 +192,6 @@ int	main(void)
 
 		test.whoAmI();
 	}
-
+	*/
 	return (0);
 }
