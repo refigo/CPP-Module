@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 17:10:00 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 10:31:50 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,15 @@
 
 int	main(void)
 {
-	// CLTR
-	/*
-	std::cout << "--------------------\n";
-	std::cout << "Start CLTR!!!\n";
-	std::cout << "--------------------\n";
+	// ClapTrap
+	std::cout << "-----------------------\n";
+	std::cout << "Start testing ClapTrap!\n";
+	std::cout << "-----------------------\n";
 	{
 		ClapTrap	test1;
-		ClapTrap	test2("test2");
-		std::cout << '\n';
-		
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		test2.attack("dummy");
-		test2.takeDamage(4);
-		test2.beRepaired(4);
-		std::cout << '\n';
-
+		ClapTrap	test2("testingConstructors");
+		ClapTrap	test3(test2);
 		test1 = test2;
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		ClapTrap	test3(test1);
-		test3.attack("dummy");
-		std::cout << '\n';
 	}
 	std::cout << std::endl;
 	{
@@ -55,7 +39,6 @@ int	main(void)
 			man.beRepaired(1);
 		man.attack("Enemy");
 		man.beRepaired(1);
-
 		std::cout << '\n';
 
 		for (int i = 0; i < 4; ++i)
@@ -63,12 +46,13 @@ int	main(void)
 		man.attack("Enemy");
 		man.beRepaired(1);
 	}
-	
+	std::cout << "------------------------\n";
+	std::cout << "Finish testing ClapTrap!\n";
+	std::cout << "------------------------\n";
 	std::cout << std::endl;
-	*/
+	
 
-	// SCTR
-	/*
+	// ScavTrap
 	std::cout << "--------------------\n";
 	std::cout << "Start SCTR!!!\n";
 	std::cout << "--------------------\n";
@@ -93,9 +77,7 @@ int	main(void)
 		test3.attack("dummy");
 		std::cout << '\n';
 	}
-
 	std::cout << std::endl;
-	
 	{
 		ScavTrap	test;
 
@@ -118,12 +100,11 @@ int	main(void)
 		test.beRepaired(1);
 
 		test.guardGate();
-		
 	}
-	*/
+	
 
-	// FRTR
-	/*
+	// FragTrap
+	
 	std::cout << "--------------------\n";
 	std::cout << "Start FRTR!!!\n";
 	std::cout << "--------------------\n";
@@ -148,9 +129,7 @@ int	main(void)
 		test3.attack("dummy");
 		std::cout << '\n';
 	}
-
 	std::cout << std::endl;
-	
 	{
 		FragTrap	test;
 
@@ -173,11 +152,10 @@ int	main(void)
 		test.beRepaired(1);
 
 		test.highFivesGuys();
-		
 	}
-	*/
+	
 
-	// DIATR
+	// DiamondTrap
 	std::cout << "--------------------\n";
 	std::cout << "Start DIATR!!!\n";
 	std::cout << "--------------------\n";
@@ -202,9 +180,7 @@ int	main(void)
 		test3.attack("dummy");
 		std::cout << '\n';
 	}
-
 	std::cout << std::endl;
-	
 	{
 		DiamondTrap	test;
 
@@ -230,7 +206,6 @@ int	main(void)
 		test.highFivesGuys();
 
 		test.whoAmI();
-		
 	}
 
 	return (0);
