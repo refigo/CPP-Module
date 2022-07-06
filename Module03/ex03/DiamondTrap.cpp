@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 16:37:26 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 10:42:47 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:05:57 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	DiamondTrap::displayHdrMsg_(void) const {
 }
 
 DiamondTrap::DiamondTrap(void)
-	: ClapTrap("anonymousDIATR_clap_name", FRTR_HP, SCTR_EP, FRTR_AD)
-	, name_("anonymousDIATR") {
+	: ClapTrap(DIATR_DFLT_CLTR_NM, FRTR_HP, SCTR_EP, FRTR_AD)
+	, name_(DIATR_DFLT_NM) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Default constructor Called)\n");
+	displayClrdStr_(CLR_GRAY, " (Default constructor called)\n");
 }
 
 DiamondTrap::DiamondTrap(const std::string& name)
@@ -30,12 +30,12 @@ DiamondTrap::DiamondTrap(const std::string& name)
 	, name_(name) {
 	displayHdrMsg_();
 	std::cout << "login!";
-	displayClrdStr_(CLR_GRAY, " (Default constructor Called)\n");
+	displayClrdStr_(CLR_GRAY, " (String name constructor called)\n");
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& diatr)
-	: ClapTrap("anonymousDIATR_clap_name", FRTR_HP, SCTR_EP, FRTR_AD)
-	, name_("anonymousDIATR") {
+	: ClapTrap(DIATR_DFLT_CLTR_NM, FRTR_HP, SCTR_EP, FRTR_AD)
+	, name_(DIATR_DFLT_NM) {
 	*this = diatr;
 	displayHdrMsg_();
 	std::cout << "login!";
@@ -67,10 +67,20 @@ void	DiamondTrap::attack(const std::string& target) {
 	ScavTrap::attack(target);
 }
 
-void	DiamondTrap::whoAmI() {
+void	DiamondTrap::whoAmI(void) {
 	displayHdrMsg_();
-	std::cout << CLR_SKYBLUE;
-	std::cout << "my name is <" << name_ << \
-		"> and ClapTrap name is <" << ClapTrap::name_ << ">\n";
+	if ((hit_point_ > 0) && (energy_point_ > 0)) {
+		std::cout << CLR_SKYBLUE;
+	std::cout << "says that \"My name is [ " << name_ << \
+		" ] and ClapTrap name is [ " << ClapTrap::name_ << " ].\"\n";
 	std::cout << END_OF_CLR;
+	} else if (hit_point_ <= 0) {
+		displayClrdStr_(CLR_BYELLOW, \
+			"can't do anything because the user is already collapsed...\n");
+	} else if (energy_point_ <= 0) {
+		displayClrdStr_(CLR_BSKYBLUE, \
+			"can't do anything because the user has no energy...\n");
+	} else {
+		std::cout << '\n';
+	}
 }

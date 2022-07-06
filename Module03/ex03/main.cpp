@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:44 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/06 13:19:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:06:15 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,11 +81,11 @@ int	main(void)
 			user.takeDamage(25);
 		user.attack("Enemy");
 		user.beRepaired(1);
-
 	}
 	std::cout << "------------------------\n";
 	std::cout << "Finish testing ScavTrap!\n";
 	std::cout << "------------------------\n";
+	std::cout << std::endl;
 
 
 	// test FragTrap
@@ -117,71 +117,49 @@ int	main(void)
 			user.takeDamage(25);
 		user.attack("Enemy");
 		user.beRepaired(1);
-
 	}
 	std::cout << "------------------------\n";
 	std::cout << "Finish testing FragTrap!\n";
 	std::cout << "------------------------\n";
+	std::cout << std::endl;
 	
 
-	// DiamondTrap
-	/*
-	std::cout << "--------------------\n";
-	std::cout << "Start DIATR!!!\n";
-	std::cout << "--------------------\n";
+	// test DiamondTrap
+	std::cout << "--------------------------\n";
+	std::cout << "Start testing DiamondTrap!\n";
+	std::cout << "--------------------------\n";
 	{
 		DiamondTrap	test1;
-		DiamondTrap	test2("test2");
-		std::cout << '\n';
-		
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		test2.attack("dummy");
-		test2.takeDamage(4);
-		test2.beRepaired(4);
-		std::cout << '\n';
-
-		test1 = test2;
-		test1.attack("dummy");
-		std::cout << '\n';
-
-		DiamondTrap	test3(test1);
-		test3.attack("dummy");
-		std::cout << '\n';
+		DiamondTrap	test2("testingConstructors");
+		DiamondTrap	test3(test2);
+		test1 = test3;
 	}
 	std::cout << std::endl;
 	{
-		DiamondTrap	test;
-
-
-
-		//user.takeDamage(0);
-		//user.takeDamage(-1);
-
-		test.attack("test_enemy");
+		DiamondTrap	user("Fighter");
 
 		for (int i = 0; i < 5; ++i)
-			test.attack("Enemy");
+			user.takeDamage(1);
 		for (int i = 0; i < 5; ++i)
-			test.takeDamage(1);
+			user.attack("Enemy");
 		for (int i = 0; i < 5; ++i)
-			test.beRepaired(1);
-		test.attack("Enemy");
-		test.beRepaired(1);
-
+			user.beRepaired(1);
+		user.attack("Enemy");
+		user.beRepaired(1);
 		std::cout << '\n';
 
+		user.guardGate();
+		user.highFivesGuys();
+		user.whoAmI();
 		for (int i = 0; i < 4; ++i)
-			test.takeDamage(4);
-		test.attack("Enemy");
-		test.beRepaired(1);
-
-		test.guardGate();
-		test.highFivesGuys();
-
-		test.whoAmI();
+			user.takeDamage(25);
+		user.attack("Enemy");
+		user.beRepaired(1);
 	}
-	*/
+	std::cout << "---------------------------\n";
+	std::cout << "Finish testing DiamondTrap!\n";
+	std::cout << "---------------------------\n";
+	std::cout << std::endl;
+
 	return (0);
 }
