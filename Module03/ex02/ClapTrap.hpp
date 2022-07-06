@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/24 20:08:39 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/04 14:43:03 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/06 14:35:27 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ protected:
 
 	const unsigned int	maxHP_;
 
-	void	displayClrdStr_(const char *clr, const char *str) const;
+	void	displayClrdMsg_(const char *clr, const char *msg) const;
 
 	ClapTrap(const std::string& name, \
 				unsigned int hp, unsigned int ep, unsigned int ad);
