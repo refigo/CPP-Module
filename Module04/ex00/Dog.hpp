@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:43:29 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 09:50:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/07 13:36:47 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 # include "Animal.hpp"
 
+# define DOG_TYPE "Dog"
+
 class Dog : public Animal
 {
 public:
 	Dog(void);
 	Dog(const Dog& origin);
 	Dog&	operator=(const Dog& origin);
-	~Dog(void);
+	virtual ~Dog(void);
 
 	virtual void	makeSound(void) const;
 };

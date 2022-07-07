@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 09:23:07 by mgo               #+#    #+#              #
-#    Updated: 2022/07/07 09:23:34 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/07 13:24:04 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,9 @@ rm			=	rm -f
 INC			=	-I./
 
 SRC			=	main.cpp \
-				ClapTrap.cpp \
-				ScavTrap.cpp \
-				FragTrap.cpp \
-				DiamondTrap.cpp
+				Animal.cpp \
+				Dog.cpp \
+				Cat.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp
