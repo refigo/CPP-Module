@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:31:28 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 13:35:36 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/07 14:25:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ Cat::~Cat(void) {
 
 void	Cat::makeSound(void) const {
 	std::cout << "[Cat] ";
-	std::cout << "Miyaong..\n";
+	std::cout << "Meow~\n";
 }
 

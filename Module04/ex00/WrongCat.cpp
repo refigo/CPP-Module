@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/07 13:25:17 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 14:25:25 by mgo              ###   ########.fr       */
+/*   Created: 2022/07/07 13:59:45 by mgo               #+#    #+#             */
+/*   Updated: 2022/07/07 14:27:01 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog(void)
-	: Animal(DOG_TYPE) {
-	std::cout << "[Dog] ";
-	std::cout << "Default constructor called\n";
+WrongCat::WrongCat(void)
+	: WrongAnimal(W_CAT_TYPE) {
+	std::cout << "[WrongCat] ";
+	std::cout << "Default constructor called\n";	
 }
 
-Dog::Dog(const Dog& origin)
-	: Animal(DOG_TYPE) {
+WrongCat::WrongCat(const WrongCat& origin)
+	: WrongAnimal(W_CAT_TYPE) {
 	*this = origin;
-	std::cout << "[Dog] ";
+	std::cout << "[WrongCat] ";
 	std::cout << "Copy constructor called\n";
 }
-
-Dog&	Dog::operator=(const Dog& origin) {
+WrongCat&	WrongCat::operator=(const WrongCat& origin) {
 	if (this != &origin)
-		Animal::operator=(origin);
+		WrongAnimal::operator=(origin);
 	return (*this);
 }
 
-Dog::~Dog(void) {
-	std::cout << "[Dog] ";
+WrongCat::~WrongCat(void) {
+	std::cout << "[WrongCat] ";
 	std::cout << "Destructor called\n";
 }
 
-void	Dog::makeSound(void) const {
-	std::cout << "[Dog] ";
-	std::cout << "BowWow!!\n";
+void	WrongCat::makeSound(void) const {
+	std::cout << "[WrongCat] ";
+	std::cout << "MeowMeowMeow!!!!\n";
 }

@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 09:23:07 by mgo               #+#    #+#              #
-#    Updated: 2022/07/07 13:24:04 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/07 14:08:20 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ INC			=	-I./
 SRC			=	main.cpp \
 				Animal.cpp \
 				Dog.cpp \
-				Cat.cpp
+				Cat.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp
