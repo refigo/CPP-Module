@@ -6,22 +6,26 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:25:17 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:01:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:59:09 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
+void Dog::printDogHeader(void) const {
+  std::cout << '[' << DOG_TYPE << "] ";
+}
+
 Dog::Dog(void)
   : Animal(DOG_TYPE) {
-  dsplyTypeHdrMsg();
+  printDogHeader();
   std::cout << "Default constructor called\n";
 }
 
 Dog::Dog(const Dog& origin)
   : Animal(DOG_TYPE) {
   *this = origin;
-  dsplyTypeHdrMsg();
+  printDogHeader();
   std::cout << "Copy constructor called\n";
 }
 
@@ -32,11 +36,11 @@ Dog& Dog::operator=(const Dog& origin) {
 }
 
 Dog::~Dog(void) {
-  dsplyTypeHdrMsg();
+  printDogHeader();
   std::cout << "Destructor called\n";
 }
 
 void Dog::makeSound(void) const {
-  dsplyTypeHdrMsg();
+  printDogHeader();
   std::cout << "BowWow!!\n";
 }

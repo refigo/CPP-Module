@@ -6,22 +6,26 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:31:28 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:01:30 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:58:29 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
+void Cat::printCatHeader(void) const {
+  std::cout << '[' << CAT_TYPE << "] ";
+}
+
 Cat::Cat(void)
   : Animal(CAT_TYPE) {
-  dsplyTypeHdrMsg();
+  printCatHeader();
   std::cout << "Default constructor called\n";
 }
 
 Cat::Cat(const Cat& origin)
   : Animal(CAT_TYPE) {
   *this = origin;
-  dsplyTypeHdrMsg();
+  printCatHeader();
   std::cout << "Default constructor called\n";
 }
 
@@ -32,11 +36,11 @@ Cat& Cat::operator=(const Cat& origin) {
 }
 
 Cat::~Cat(void) {
-  dsplyTypeHdrMsg();
+  printCatHeader();
   std::cout << "Destructor called\n";
 }
 
 void Cat::makeSound(void) const {
-  dsplyTypeHdrMsg();
+  printCatHeader();
   std::cout << "Meow~\n";
 }

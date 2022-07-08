@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:30:19 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:03:54 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 14:01:33 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 #define W_ANML_TYPE "WrongAnimal"
 
 class WrongAnimal {
+ private:
+  void printWrongAnimalHeader(void) const;
+
  protected:
   std::string type_;
 
   WrongAnimal(const std::string& type);
-
-  void dsplyTypeHdrMsg(void) const;
 
  public:
   WrongAnimal(void);

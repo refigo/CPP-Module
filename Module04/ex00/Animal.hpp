@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:41:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:57:38 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:56:58 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@
 #define ANML_TYPE "Animal"
 
 class Animal {
+ private:
+  void printAnimalHeader(void) const;
+
  protected:
   std::string	type_;
 
   Animal(const std::string& type);
-
-  void dsplyTypeHdrMsg(void) const;
 
  public:
   Animal(void);
