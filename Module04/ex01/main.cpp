@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:24:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 15:09:16 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 19:37:42 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,47 @@ int	main(void) {
     std::cout << '\n';
   }
   std::cout << "<Done testing Cat having Brain>\n";
+  std::cout << std::endl << std::endl;
+
+  // test array of Animal
+  std::cout << "<Start testing array of Animal>\n";
+  {
+    Animal  *metas[4];
+    Dog     copied_dog;
+    Cat     copied_cat;
+    
+    std::cout << '\n';
+    
+    for (int i = 0; i < 4; ++i)
+    {
+      if (i < 2)
+        metas[i] = new Dog();
+      else
+        metas[i] = new Cat();
+    }
+    std::cout << '\n';
+    
+    *metas[0] = copied_dog;
+    copied_dog.setType("copiedDog");
+    *metas[1] = copied_dog;
+    
+    *metas[2] = copied_cat;
+    copied_cat.setType("copiedCat");
+    *metas[3] = copied_cat;
+    std::cout << '\n';
+    
+    for (int i = 0; i < 4; ++i)
+    {
+      std::cout << "metas[" << i << "] type: " \
+        << metas[i]->getType() << '\n';
+    }
+    std::cout << '\n';
+    for (int i = 0; i < 4; ++i)
+      delete metas[i];
+    std::cout << '\n';
+  }
+  std::cout << "<Done testing array of Animal>\n";
+  std::cout << std::endl;
 
   //system("leaks a.out");
   return 0;
