@@ -6,32 +6,32 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:18:37 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:01:01 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:57:09 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal(const std::string& type)
-  : type_(type) {
-  dsplyTypeHdrMsg();
-  std::cout << "String type constructor called\n";
+void Animal::printAnimalHeader(void) const {
+  std::cout << '[' << ANML_TYPE << "] ";
 }
 
-void Animal::dsplyTypeHdrMsg(void) const {
-  std::cout << '[' << type_ << "] ";
+Animal::Animal(const std::string& type)
+  : type_(type) {
+  printAnimalHeader();
+  std::cout << "String type constructor called\n";
 }
 
 Animal::Animal(void)
   : type_(ANML_TYPE) {
-  dsplyTypeHdrMsg();
+  printAnimalHeader();
   std::cout << "Default constructor called\n";
 }
 
 Animal::Animal(const Animal& origin)
   : type_(ANML_TYPE) {
   *this = origin;
-  dsplyTypeHdrMsg();
+  printAnimalHeader();
   std::cout << "Copy constructor called\n";
 }
 
@@ -42,12 +42,12 @@ Animal& Animal::operator=(const Animal& origin) {
 }
 
 Animal::~Animal(void) {
-  dsplyTypeHdrMsg();
+  printAnimalHeader();
   std::cout << "Destructor called\n";
 }
 
 void Animal::makeSound(void) const {
-  dsplyTypeHdrMsg();
+  printAnimalHeader();
   std::cout << "???\n";
 }
 

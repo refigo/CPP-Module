@@ -6,22 +6,26 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:59:45 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:04:18 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 14:01:59 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
+void WrongCat::printWrongCatHeader(void) const {
+  std::cout << '[' << W_CAT_TYPE << "] ";
+}
+
 WrongCat::WrongCat(void)
   : WrongAnimal(W_CAT_TYPE) {
-  dsplyTypeHdrMsg();
+  printWrongCatHeader();
   std::cout << "Default constructor called\n";	
 }
 
 WrongCat::WrongCat(const WrongCat& origin)
   : WrongAnimal(W_CAT_TYPE) {
   *this = origin;
-  dsplyTypeHdrMsg();
+  printWrongCatHeader();
   std::cout << "Copy constructor called\n";
 }
 WrongCat& WrongCat::operator=(const WrongCat& origin) {
@@ -31,11 +35,11 @@ WrongCat& WrongCat::operator=(const WrongCat& origin) {
 }
 
 WrongCat::~WrongCat(void) {
-  dsplyTypeHdrMsg();
+  printWrongCatHeader();
   std::cout << "Destructor called\n";
 }
 
 void	WrongCat::makeSound(void) const {
-  dsplyTypeHdrMsg();
+  printWrongCatHeader();
   std::cout << "MeowMeowMeow!!!!\n";
 }
