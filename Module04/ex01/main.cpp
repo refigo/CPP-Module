@@ -6,86 +6,73 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:24:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:37:11 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 15:09:16 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Animal.hpp"
-#include "WrongCat.hpp"
-#include "WrongAnimal.hpp"
 
 int	main(void) {
   std::cout << std::endl;
-  
-  // testing Animal, Dog and Cat
-  std::cout << "<Start testing Animal, Dog and Cat>\n";
+
+  // check leaks after destructor
+  std::cout << "<Check leaks after destructor>\n";
   {
-    const Animal*	meta = new Animal();
-    const Animal*	j = new Dog();
-    const Animal*	i = new Cat();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
     std::cout << '\n';
 
-    std::cout << i->getType() << " " << std::endl;
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << meta->getType() << " " << std::endl;
-
-    std::cout << '\n';
-
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-
-    std::cout << '\n';
-
+    delete j;  //should not create a leak
     delete i;
-    delete j;
-    delete meta;
+    std::cout << '\n';
+    system("leaks a.out");
   }
-  std::cout << "<Finish testing Animal, Dog and Cat>\n";
-
+  std::cout << "<Done checking leaks after destructor>\n";
   std::cout << std::endl << std::endl;
 
-  // testing WrongAnimal and wrongCat
-  std::cout << "<Start testing WrongAnimal and WrongCat>\n";
+  // test Dog having Brain
+  std::cout << "<Start testing Dog having Brain>\n";
   {
-    const WrongAnimal*	w_anml = new WrongAnimal();
-    const WrongAnimal*	w_cat = new WrongCat();
+    Dog training_dog;
 
+    training_dog.setBrainIdea(0, "food");
+    training_dog.setBrainIdea(1, "master");
+    training_dog.setBrainIdea(2, "bone");
+    training_dog.setBrainIdea(50, "toy");
+    training_dog.setBrainIdea(100, "cat");
+    for (int i = 0; i < IDEAS_MAX; ++i)
+      std::cout << "Brain ideas[" << i << "]: " \
+        << '<' << training_dog.getBrainIdea(i) << '>' << '\n';
     std::cout << '\n';
-
-    std::cout << w_anml->getType() << std::endl;
-    std::cout << w_cat->getType() << std::endl;
-
+    std::cout << "ideas[" << 100 << "]: " \
+        << '<' << training_dog.getBrainIdea(100) << '>' << '\n';
     std::cout << '\n';
-
-    w_anml->makeSound();
-    w_cat->makeSound();
-
-    std::cout << '\n';
-
-    delete w_cat;
-    delete w_anml;
   }
-  std::cout << "<Finish testing WrongAnimal and WrongCat>\n";
-  
-  std::cout << std::endl;
+  std::cout << "<Done testing Dog having Brain>\n";
+  std::cout << std::endl << std::endl;
 
-  // test Brain
+  // test Cat having Brain
+  std::cout << "<Start testing Cat having Brain>\n";
   {
-    Brain test1;
-    Brain test2(test1);
+    Cat training_cat;
 
-    std::cout << '[' << test1.getIdea(1) << ']' << '\n';
-    test1.setIdea(1, "hello");
-    std::cout << '[' << test1.getIdea(1) << ']' << '\n';
-    std::cout << '[' << test1.getIdea(100) << ']' << '\n';
-    
-    std::cout << '[' << test2.getIdea(1) << ']' << '\n';
-
+    training_cat.setBrainIdea(0, "food");
+    training_cat.setBrainIdea(-1, "master");
+    training_cat.setBrainIdea(2, "box");
+    training_cat.setBrainIdea(50, "toy");
+    for (int i = 0; i < IDEAS_MAX; ++i)
+      std::cout << "Brain ideas[" << i << "]: " \
+        << '<' << training_cat.getBrainIdea(i) << '>' << '\n';
+    std::cout << '\n';
+    std::cout << "ideas[" << 100 << "]: " \
+        << '<' << training_cat.getBrainIdea(-1) << '>' << '\n';
+    std::cout << '\n';
   }
-  
+  std::cout << "<Done testing Cat having Brain>\n";
+
+  //system("leaks a.out");
   return 0;
 }
