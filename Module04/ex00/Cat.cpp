@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:31:28 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 14:25:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 11:05:17 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Cat::Cat(void)
 	: Animal(CAT_TYPE) {
-	std::cout << "[Cat] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Default constructor called\n";
 }
 
 Cat::Cat(const Cat& origin)
 	: Animal(CAT_TYPE) {
 	*this = origin;
-	std::cout << "[Cat] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Default constructor called\n";
 }
 
@@ -32,12 +32,12 @@ Cat&	Cat::operator=(const Cat& origin) {
 }
 
 Cat::~Cat(void) {
-	std::cout << "[Cat] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Destructor called\n";
 }
 
 void	Cat::makeSound(void) const {
-	std::cout << "[Cat] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Meow~\n";
 }
 

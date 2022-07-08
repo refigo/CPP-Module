@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:41:16 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 13:36:16 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 11:05:23 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ protected:
 
 	Animal(const std::string& type_arg);
 
+	void	dsplyTypeHdrMsg(void) const;
+
 public:
 	Animal(void);
 	Animal(const Animal& origin);
@@ -34,6 +36,7 @@ public:
 	virtual void	makeSound(void) const;
 
 	const std::string&	getType(void) const;
+	void				setType(const std::string& type_arg);
 };
 
 #endif

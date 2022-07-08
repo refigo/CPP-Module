@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 11:18:37 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 13:36:34 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 11:04:51 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,24 @@
 
 Animal::Animal(const std::string& type_arg)
 	: type(type_arg) {
-	std::cout << "[Animal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "String type constructor called\n";
+}
+
+void	Animal::dsplyTypeHdrMsg(void) const {
+	std::cout << '[' << type << "] ";
 }
 
 Animal::Animal(void)
 	: type(ANML_TYPE) {
-	std::cout << "[Animal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Default constructor called\n";
 }
 
 Animal::Animal(const Animal& origin)
 	: type(ANML_TYPE) {
 	*this = origin;
-	std::cout << "[Animal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Copy constructor called\n";
 }
 
@@ -38,15 +42,19 @@ Animal&	Animal::operator=(const Animal& origin) {
 }
 
 Animal::~Animal(void) {
-	std::cout << "[Animal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Destructor called\n";
 }
 
 void	Animal::makeSound(void) const {
-	std::cout << "[Animal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "???\n";
 }
 
 const std::string&	Animal::getType(void) const {
 	return (type);
+}
+
+void	Animal::setType(const std::string &type_arg) {
+	type = type_arg;
 }
