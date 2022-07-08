@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:59:17 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/07 13:59:19 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 11:09:37 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,24 @@
 
 WrongAnimal::WrongAnimal(const std::string& type_arg)
 	: type(type_arg) {
-	std::cout << "[WrongAnimal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "String type constructor called\n";
+}
+
+void	WrongAnimal::dsplyTypeHdrMsg(void) const {
+	std::cout << '[' << type << "] ";
 }
 
 WrongAnimal::WrongAnimal(void)
 	: type(W_ANML_TYPE) {
-	std::cout << "[WrongAnimal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Default constructor called\n";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal& origin)
 	: type(W_ANML_TYPE) {
 	*this = origin;
-	std::cout << "[WrongAnimal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Copy constructor called\n";
 }
 
@@ -38,15 +42,19 @@ WrongAnimal&	WrongAnimal::operator=(const WrongAnimal& origin) {
 }
 
 WrongAnimal::~WrongAnimal(void) {
-	std::cout << "[WrongAnimal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "Destructor called\n";
 }
 
 void	WrongAnimal::makeSound(void) const {
-	std::cout << "[WrongAnimal] ";
+	dsplyTypeHdrMsg();
 	std::cout << "?????\n";
 }
 
 const std::string&	WrongAnimal::getType(void) const {
 	return (type);
+}
+
+void	WrongAnimal::setType(const std::string &type_arg) {
+	type = type_arg;
 }

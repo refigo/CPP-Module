@@ -13,6 +13,8 @@ protected:
 
 	WrongAnimal(const std::string& type_arg);
 
+	void	dsplyTypeHdrMsg(void) const;
+
 public:
 	WrongAnimal(void);
 	WrongAnimal(const WrongAnimal& origin);
@@ -22,6 +24,7 @@ public:
 	void	makeSound(void) const;
 
 	const std::string&	getType(void) const;
+	void				setType(const std::string& type_arg);
 };
 
 #endif
