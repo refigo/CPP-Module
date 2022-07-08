@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:25:17 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:29:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:01:48 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ Dog::Dog(const Dog& origin)
   std::cout << "Copy constructor called\n";
 }
 
-Dog&	Dog::operator=(const Dog& origin) {
+Dog& Dog::operator=(const Dog& origin) {
   if (this != &origin)
     Animal::operator=(origin);
-  return (*this);
+  return *this;
 }
 
 Dog::~Dog(void) {
@@ -36,7 +36,7 @@ Dog::~Dog(void) {
   std::cout << "Destructor called\n";
 }
 
-void	Dog::makeSound(void) const {
+void Dog::makeSound(void) const {
   dsplyTypeHdrMsg();
   std::cout << "BowWow!!\n";
 }

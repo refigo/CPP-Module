@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:59:45 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:32:59 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:04:18 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ WrongCat::WrongCat(const WrongCat& origin)
   dsplyTypeHdrMsg();
   std::cout << "Copy constructor called\n";
 }
-WrongCat&	WrongCat::operator=(const WrongCat& origin) {
+WrongCat& WrongCat::operator=(const WrongCat& origin) {
   if (this != &origin)
     WrongAnimal::operator=(origin);
-  return (*this);
+  return *this;
 }
 
 WrongCat::~WrongCat(void) {

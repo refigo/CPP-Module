@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:43:29 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:29:12 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 12:58:26 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 #define DOG_TYPE "Dog"
 
 class Dog : public Animal {
-  public:
-    Dog(void);
-    Dog(const Dog& origin);
-    Dog&	operator=(const Dog& origin);
-    virtual ~Dog(void);
+ public:
+  Dog(void);
+  Dog(const Dog& origin);
+  Dog& operator=(const Dog& origin);
+  virtual ~Dog(void);
 
-    virtual void	makeSound(void) const;
+  virtual void makeSound(void) const;
 };
 
 #endif

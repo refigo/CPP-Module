@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 13:31:28 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:28:39 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:01:30 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ Cat::Cat(const Cat& origin)
   std::cout << "Default constructor called\n";
 }
 
-Cat&	Cat::operator=(const Cat& origin) {
+Cat& Cat::operator=(const Cat& origin) {
   if (this != &origin)
     Animal::operator=(origin);
-  return (*this);
+  return *this;
 }
 
 Cat::~Cat(void) {
@@ -36,8 +36,7 @@ Cat::~Cat(void) {
   std::cout << "Destructor called\n";
 }
 
-void	Cat::makeSound(void) const {
+void Cat::makeSound(void) const {
   dsplyTypeHdrMsg();
   std::cout << "Meow~\n";
 }
-
