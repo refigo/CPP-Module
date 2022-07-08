@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:44:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:58:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:22:04 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #define CAT_TYPE "Cat"
 

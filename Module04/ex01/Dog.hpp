@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:43:29 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 12:58:26 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:21:56 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 #define DOG_TYPE "Dog"
 

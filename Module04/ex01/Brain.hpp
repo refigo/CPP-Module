@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 12:39:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:16:24 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:39:06 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ class Brain {
     Brain& operator=(const Brain& origin);
     ~Brain(void);
 
-    const std::string& getIdeas(const int index);
-    void setIdea(const int index, const std::string& idea);
+    const std::string getIdea(const int idx);
+    void setIdea(const int idx, const std::string& idea);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:24:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 13:01:55 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/08 13:37:11 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,20 @@ int	main(void) {
   std::cout << "<Finish testing WrongAnimal and WrongCat>\n";
   
   std::cout << std::endl;
+
+  // test Brain
+  {
+    Brain test1;
+    Brain test2(test1);
+
+    std::cout << '[' << test1.getIdea(1) << ']' << '\n';
+    test1.setIdea(1, "hello");
+    std::cout << '[' << test1.getIdea(1) << ']' << '\n';
+    std::cout << '[' << test1.getIdea(100) << ']' << '\n';
+    
+    std::cout << '[' << test2.getIdea(1) << ']' << '\n';
+
+  }
   
   return 0;
 }
