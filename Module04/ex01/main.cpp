@@ -14,27 +14,6 @@
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-void print_animal_brain_ideas(Animal* ptr_anml) {
-  std::string anml_type;
-  Dog* ptr_dog = NULL;
-  Cat* ptr_cat = NULL;
-
-  anml_type = ptr_anml->getType();
-
-  if (anml_type == DOG_TYPE) {
-    ptr_dog = dynamic_cast<Dog*>(ptr_anml);
-  } else if (anml_type == CAT_TYPE) {
-    ptr_cat = dynamic_cast<Cat*>(ptr_anml);
-  } else {
-    return ;
-  }
-  for (int i = 0; i < IDEAS_MAX + 2; ++i) {
-    std::cout << "Brain ideas[" << i << "]: " \
-      << '<' << ptr_dog->getBrainIdea(i) << '>' << '\n';
-  }
-  std::cout << '\n';
-}
-
 int	main(void) {
   std::cout << std::endl;
 
@@ -113,35 +92,35 @@ int	main(void) {
   std::cout << "<Start testing array of Animal>\n";
   {
     Animal  *metas[4];
-    Dog     copied_dog;
-    Cat     copied_cat;
-    
     std::cout << '\n';
-    
-    for (int i = 0; i < 4; ++i)
-    {
+
+    for (int i = 0; i < 4; ++i) {
       if (i < 2)
         metas[i] = new Dog();
       else
         metas[i] = new Cat();
     }
     std::cout << '\n';
-    
-    *metas[0] = copied_dog;
-    copied_dog.setType("copiedDog");
-    *metas[1] = copied_dog;
-    
-    *metas[2] = copied_cat;
-    copied_cat.setType("copiedCat");
-    *metas[3] = copied_cat;
+  
+    *(metas[1]) = *(metas[0]);
+    dynamic_cast<Dog*>(metas[0])->setBrainIdea(50, "I'm number 0 Dog");
+    dynamic_cast<Dog*>(metas[1])->setBrainIdea(50, "I'm number 1 Dog");
+    *metas[3] = *(metas[2]);
+    dynamic_cast<Cat*>(metas[2])->setBrainIdea(50, "I'm number 2 Cat");
+    dynamic_cast<Cat*>(metas[3])->setBrainIdea(50, "I'm number 3 Cat");
     std::cout << '\n';
     
-    for (int i = 0; i < 4; ++i)
-    {
-      std::cout << "metas[" << i << "] type: " \
-        << metas[i]->getType() << '\n';
+    for (int i = 0; i < 4; ++i) {
+      std::cout << "metas[" << i << "] has a idea: ";
+      if (metas[i]->getType() == DOG_TYPE)
+        std::cout << dynamic_cast<Dog*>(metas[i])->getBrainIdea(50) << '\n';
+      else if (metas[i]->getType() == CAT_TYPE)
+        std::cout << dynamic_cast<Cat*>(metas[i])->getBrainIdea(50) << '\n';
+      else
+        std::cout << '\n';
     }
     std::cout << '\n';
+
     for (int i = 0; i < 4; ++i)
       delete metas[i];
     std::cout << '\n';
