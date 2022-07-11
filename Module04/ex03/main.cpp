@@ -1,4 +1,5 @@
 
+/*
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "AMateria.hpp"
@@ -14,9 +15,9 @@ int main(void) {
   std::cout << ptr_am->getType() << '\n';
   return (0);
 }
+*/
 
 
-/*
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 #include "Ice.hpp"
@@ -41,4 +42,3 @@ int	main(void) {
   delete src;
   return 0;  
 }
-*/
