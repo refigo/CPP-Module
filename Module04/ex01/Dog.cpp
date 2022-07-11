@@ -34,7 +34,7 @@ Dog::Dog(const Dog& origin)
 Dog& Dog::operator=(const Dog& origin) {
   if (this != &origin) {
     Animal::operator=(origin);
-    brain_ = origin.brain_;
+    *brain_ = *(origin.brain_);
   }
   return *this;
 }

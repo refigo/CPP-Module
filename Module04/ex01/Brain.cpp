@@ -16,12 +16,14 @@ void Brain::dsplyBrainHdrMsg(void) {
   std::cout << "[Brain] ";
 }
 
-Brain::Brain(void) {
+Brain::Brain(void)
+  : ooi_("OutOfIdeas") {
   dsplyBrainHdrMsg();
   std::cout << "Default constructor called\n";
 }
 
-Brain::Brain(const Brain& origin) {
+Brain::Brain(const Brain& origin)
+  : ooi_("OutOfIdeas") {
   *this = origin;
   dsplyBrainHdrMsg();
   std::cout << "Copy constructor called\n";
@@ -40,9 +42,9 @@ Brain::~Brain(void) {
   std::cout << "Destructor called\n";
 }
 
-const std::string Brain::getIdea(const int idx) {
+const std::string& Brain::getIdea(const int idx) {
   if (idx < 0 || IDEAS_MAX <= idx)
-    return "OutOfIdeas";
+    return ooi_;
   return ideas_[idx];
 }
 
