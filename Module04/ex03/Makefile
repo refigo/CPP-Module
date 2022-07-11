@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 09:23:07 by mgo               #+#    #+#              #
-#    Updated: 2022/07/11 09:10:53 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/11 13:39:54 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,9 @@ rm			=	rm -f
 INC			=	-I./
 
 SRC			=	main.cpp \
-				Animal.cpp \
-				Dog.cpp \
-				Cat.cpp \
-				Brain.cpp
+				AMateria.cpp \
+				Ice.cpp \
+				Cure.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp

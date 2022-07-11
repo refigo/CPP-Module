@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:24:06 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/11 12:24:25 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/11 13:51:04 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 class ICharacter {
  private:
-  ICharacter(void); // todo: consider
   ICharacter(const ICharacter& orig);
   ICharacter& operator=(ICharacter& rhs);
 
  public:
+  ICharacter(void) {};
   virtual ~ICharacter(void) {};
 
   virtual const std::string& getName() const = 0;

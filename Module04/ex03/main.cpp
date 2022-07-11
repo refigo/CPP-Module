@@ -1,12 +1,28 @@
 
-#include "MateriaSource.hpp"
-#include "Character.hpp"
-#include "Cure.hpp"
 #include "Ice.hpp"
+#include "Cure.hpp"
 #include "AMateria.hpp"
 
-int	main(void)
-{
+int main(void) {
+  Ice test_i;
+  Cure test_c;
+  AMateria  *ptr_am;
+
+  std::cout << test_i.getType() << '\n';
+  std::cout << test_c.getType() << '\n';
+  ptr_am = test_c.clone();
+  std::cout << ptr_am->getType() << '\n';
+  return (0);
+}
+
+
+/*
+#include "MateriaSource.hpp"
+#include "Character.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+
+int	main(void) {
   IMateriaSource* src = new MateriaSource();
 
   src->learnMateria(new Ice());
@@ -25,3 +41,4 @@ int	main(void)
   delete src;
   return 0;  
 }
+*/
