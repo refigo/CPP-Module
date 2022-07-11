@@ -14,15 +14,15 @@
 
 Character::Character(const std::string& name): name_(name) {
   for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
-    inven_[i] = NULL;
+    inven_mtrl_[i] = NULL;
 }
 
 Character::Character(const Character& orig): name_(orig.name_) {
   for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i) {
     if (orig.inven_mtrl_[i]) {
-      inven_[i] = orig.inven_mater_[i].clone();
+      inven_mtrl_[i] = orig.inven_mtrl_[i]->clone();
     } else {
-      inven_[i] = NULL;
+      inven_mtrl_[i] = NULL;
     }
   }
 }
@@ -35,7 +35,7 @@ Character& Character::operator=(const Character& rhs) {
         inven_mtrl_[i] = NULL;
       }
       if (rhs.inven_mtrl_[i])
-        inven_mtrl_[i] = rhs.inven_mtrl_[i].clone();
+        inven_mtrl_[i] = rhs.inven_mtrl_[i]->clone();
     }
     name_ = rhs.name_;
   }
@@ -69,13 +69,13 @@ void Character::equip(AMateria* m) {
 void Character::unequip(int idx) {
   if ((0 <= idx) && (idx < MAX_INVEN_MTRL_SLOTS)\
    && (inven_mtrl_[idx])) {
-    inven_mtrl[idx] = NULL;
+    inven_mtrl_[idx] = NULL;
   }
 }
 
 void Character::use(int idx, ICharacter& target) {
   if ((0 <= idx) && (idx < MAX_INVEN_MTRL_SLOTS)\
    && (inven_mtrl_[idx])) {
-     inven_mtrl[idx].use(target);
+     inven_mtrl_[idx]->use(target);
    }
 }
