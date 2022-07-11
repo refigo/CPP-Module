@@ -34,7 +34,7 @@ Cat::Cat(const Cat& origin)
 Cat& Cat::operator=(const Cat& origin) {
   if (this != &origin) {
     Animal::operator=(origin);
-    brain_ = origin.brain_;
+    *brain_ = *(origin.brain_);
   }
   return *this;
 }

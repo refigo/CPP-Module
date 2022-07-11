@@ -128,6 +128,6 @@ int	main(void) {
   std::cout << "<Done testing array of Animal>\n";
   std::cout << std::endl;
 
-  //system("leaks a.out");
+  system("leaks a.out");
   return 0;
 }
