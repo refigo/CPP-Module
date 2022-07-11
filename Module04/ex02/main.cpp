@@ -33,6 +33,7 @@ static void print_animal_brain_ideas(Animal* ptr_anml) {
 }
 
 int	main(void) {
+  //Animal  init;
   std::cout << std::endl;
 
   // check leaks after destructor
