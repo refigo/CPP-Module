@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:11:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/11 10:46:55 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/11 15:15:44 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define A_MATERIA_HPP
 
 #include <string>
+#include <iostream>
 
 class ICharacter;
 
@@ -24,13 +25,13 @@ class AMateria {
   AMateria &operator=(const AMateria& rhs);
 
  protected:
-  std::string type_;
+  const std::string type_;
 
  public:
   AMateria(const std::string& type);
   virtual ~AMateria(void);
   
-  const std::string& getType() const;  // Return the materia type
+  const std::string& getType() const;
 
   virtual AMateria* clone() const = 0;
   virtual void use(ICharacter& target);
