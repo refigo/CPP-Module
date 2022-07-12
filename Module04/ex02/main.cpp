@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:24:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 10:25:36 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:31:39 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ static void print_animal_brain_ideas(Animal* ptr_anml) {
   std::cout << '\n';
 }
 
-int	main(void) {
-  //Animal  init;
-  std::cout << std::endl;
-
+static void testPlace(void) {
   // check leaks after destructor
   std::cout << "<Check leaks after destructor>\n";
   {
@@ -80,7 +77,12 @@ int	main(void) {
   }
   std::cout << "<Done testing Cat having Brain>\n";
   std::cout << std::endl;
+}
 
+int	main(void) {
+  //Animal  init;
+  std::cout << std::endl;
+  testPlace();
   //system("leaks a.out");
   return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:24:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 19:37:42 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:35:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,7 @@ static void print_animal_brain_ideas(Animal* ptr_anml) {
   std::cout << '\n';
 }
 
-int	main(void) {
-  Animal  init;
-  std::cout << std::endl;
-
+static void testPlace(void) {
   // check leaks after destructor
   std::cout << "<Check leaks after destructor>\n";
   {
@@ -47,7 +44,7 @@ int	main(void) {
     delete j;  //should not create a leak
     delete i;
     std::cout << '\n';
-    //system("leaks a.out");
+    system("leaks a.out");
   }
   std::cout << "<Done checking leaks after destructor>\n";
   std::cout << std::endl << std::endl;
@@ -68,6 +65,7 @@ int	main(void) {
     copy_dog = new Dog(*training_dog);
     delete training_dog;
     print_animal_brain_ideas(copy_dog);
+    delete copy_dog;
   }
   std::cout << "<Done testing Dog having Brain>\n";
   std::cout << std::endl << std::endl;
@@ -87,6 +85,7 @@ int	main(void) {
     copy_cat = new Cat(*training_cat);
     delete training_cat;
     print_animal_brain_ideas(copy_cat);
+    delete copy_cat;
   }
   std::cout << "<Done testing Cat having Brain>\n";
   std::cout << std::endl << std::endl;
@@ -130,7 +129,12 @@ int	main(void) {
   }
   std::cout << "<Done testing array of Animal>\n";
   std::cout << std::endl;
+}
 
+int	main(void) {
+  Animal  init;
+  std::cout << std::endl;
+  testPlace();
   //system("leaks a.out");
   return 0;
 }

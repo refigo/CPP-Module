@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 09:24:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/08 14:07:10 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:35:51 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongCat.hpp"
 #include "WrongAnimal.hpp"
 
-int	main(void) {
+static void testPlace(void) {
   std::cout << std::endl;
   
   // testing Animal, Dog and Cat
@@ -70,6 +70,10 @@ int	main(void) {
   std::cout << "<Finish testing WrongAnimal and WrongCat>\n";
   std::cout << std::endl;
 
-  //system("leaks a.out");  
+}
+
+int	main(void) {
+  testPlace();  
+  system("leaks a.out");  
   return 0;
 }
