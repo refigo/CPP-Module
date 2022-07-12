@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:49:53 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 10:43:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:04:17 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,9 @@
 #include "AMateria.hpp"
 
 class IMateriaSource {
- private:
-  IMateriaSource(IMateriaSource& orig);
-  IMateriaSource& operator=(const IMateriaSource& rhs);
-
  public:
-  IMateriaSource(void);
-  virtual ~IMateriaSource(void);
-
-  virtual void learnMateria(AMateria* mtr) = 0;
+  virtual ~IMateriaSource() {};
+  virtual void learnMateria(AMateria*) = 0;
   virtual AMateria* createMateria(const std::string& type) = 0;
 };
 
