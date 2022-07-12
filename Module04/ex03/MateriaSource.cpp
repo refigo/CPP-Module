@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:46:20 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/11 16:02:10 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:09:01 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@ MateriaSource::MateriaSource(void) {
 
 MateriaSource::MateriaSource(const MateriaSource& orig) {
   for (int i = 0; i < MAX_MEM_MTRL_SLOTS; ++i) {
-    if (orig.mem_mtrl_[i]) {
-      mem_mtrl_[i] = orig.mem_mtrl_[i]->clone();
-    } else {
-      mem_mtrl_[i] = NULL;
-    }
+    mem_mtrl_[i] = NULL;
   }
+  *this = orig;
 }
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& rhs) {
