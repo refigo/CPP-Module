@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 14:07:08 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 16:53:58 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:16:35 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,4 +79,9 @@ void Character::use(int idx, ICharacter& target) {
    && (inven_mtrl_[idx])) {
      inven_mtrl_[idx]->use(target);
    }
+}
+
+void Character::useAllItems(ICharacter& target) {
+  for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+    this->use(i, target);
 }

@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:47:36 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 16:48:36 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:16:52 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class Character : public ICharacter {
   void equip(AMateria* m);
   void unequip(int idx);
   void use(int idx, ICharacter& target);
+
+  void useAllItems(ICharacter& target);
 };
 
 #endif

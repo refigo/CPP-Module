@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 10:44:15 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 16:32:38 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 17:29:36 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-int	main(void) {
+static void testPlace(void) {
   std::cout << std::endl;
 
   // test case in pdf
@@ -53,17 +53,21 @@ int	main(void) {
     tmp = src1->createMateria("ice");
     if (tmp)
       std::cout << "src1 has a " << tmp->getType() << '\n';
+    delete tmp;
     tmp = src1->createMateria("cure");
     if (tmp)
       std::cout << "src1 has a " << tmp->getType() << '\n';
+    delete tmp;
     delete src1;
 
     tmp = src2->createMateria("ice");
     if (tmp)
       std::cout << "src2 has a " << tmp->getType() << '\n';
+    delete tmp;
     tmp = src2->createMateria("cure");
     if (tmp)
       std::cout << "src2 has a " << tmp->getType() << '\n';
+    delete tmp;
     delete src2;
   }
 
@@ -74,44 +78,53 @@ int	main(void) {
     Character* user = new Character("user");
     Character* dummy = new Character("dummy");
     MateriaSource* src = new MateriaSource();
+    AMateria* tmpIce;
+    AMateria* tmpCure;
 
     std::cout << "user name is \'" << user->getName() << "\'\n";
     
-    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
-      user->use(i, *dummy);
+    user->useAllItems(*dummy);
     std::cout << "user don't have any item...\n";
     
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
-    user->equip(src->createMateria("ice"));
-    user->equip(src->createMateria("cure"));
+    tmpIce = src->createMateria("ice");
+    user->equip(tmpIce);
+    tmpCure = src->createMateria("cure");
+    user->equip(tmpCure);
     std::cout << "user has equipped some items!!\n";
 
-    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
-      user->use(i, *dummy);
+    user->useAllItems(*dummy);
     user->unequip(0);
+    delete tmpIce;
+    tmpIce = NULL;
     std::cout << "user unequip the number 0 item(ice).\n";
-    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
-      user->use(i, *dummy);
+    user->useAllItems(*dummy);
     user->unequip(1);
+    delete tmpCure;
+    tmpCure = NULL;
     std::cout << "user unequip the number 1 item(cure).\n";
-    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
-      user->use(i, *dummy);
+    user->useAllItems(*dummy);
     std::cout << '\n';
 
-    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i) {
       dummy->equip(src->createMateria("ice"));
-    user->equip(src->createMateria("cure"));
-    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
-      dummy->use(i, *dummy);
+    }
+    tmpCure = src->createMateria("cure");
+    dummy->equip(tmpCure);
+    dummy->useAllItems(*dummy);
     
+    delete tmpCure;
     delete user;
     delete dummy;
     delete src;
   }
 
   std::cout << std::endl << std::endl;
+}
 
+int	main(void) {
+  testPlace();
   //system("leaks a.out");
   return 0;  
 }
