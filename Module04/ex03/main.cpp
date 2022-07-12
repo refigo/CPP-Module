@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 10:44:15 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 10:46:07 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 10:58:27 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "Cure.hpp"
 
 int	main(void) {
+  std::cout << std::endl;
 
   // test case in pdf
   {
@@ -37,7 +38,7 @@ int	main(void) {
     delete src;
   }
 
-  std::cout << std::endl;
+  std::cout << std::endl << std::endl;
 
   // testing MateriaSource
   {
@@ -66,7 +67,7 @@ int	main(void) {
     delete src2;
   }
 
-  std::cout << std::endl;
+  std::cout << std::endl << std::endl;
 
   // teting Character
   {
@@ -74,29 +75,42 @@ int	main(void) {
     Character* dummy = new Character("dummy");
     MateriaSource* src = new MateriaSource();
 
+    std::cout << "user name is \'" << user->getName() << "\'\n";
+    
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+      user->use(i, *dummy);
+    std::cout << "user don't have any item...\n";
+    
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
     user->equip(src->createMateria("ice"));
     user->equip(src->createMateria("cure"));
+    std::cout << "user has equipped some items!!\n";
 
-    std::cout << "user name is \'" << user->getName() << "\'\n";
-  
-    user->use(0, *dummy);
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+      user->use(i, *dummy);
     user->unequip(0);
     std::cout << "user unequip the number 0 item(ice).\n";
-    user->use(0, *dummy);
-
-    user->use(1, *user);
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+      user->use(i, *dummy);
     user->unequip(1);
     std::cout << "user unequip the number 1 item(cure).\n";
-    user->use(1, *user);
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+      user->use(i, *dummy);
+    std::cout << '\n';
+
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+      dummy->equip(src->createMateria("ice"));
+    user->equip(src->createMateria("cure"));
+    for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+      dummy->use(i, *dummy);
     
     delete user;
     delete dummy;
     delete src;
   }
 
-  std::cout << std::endl;
+  std::cout << std::endl << std::endl;
 
   //system("leaks a.out");
   return 0;  
