@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:00:36 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/11 13:29:16 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 16:56:32 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@
 #define CURE_TYPE "cure"
 
 class Cure : public AMateria {
- private:
-  Cure(const Cure& orig);
-  Cure& operator=(const Cure& rhs);
-
  public:
   Cure(void);
+  Cure(const Cure& orig);
+  Cure& operator=(const Cure& rhs);
   ~Cure(void);
 
   AMateria* clone() const;
