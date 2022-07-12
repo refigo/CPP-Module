@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 09:23:07 by mgo               #+#    #+#              #
-#    Updated: 2022/07/11 13:39:54 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/12 10:43:37 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRC			=	main.cpp \
 				AMateria.cpp \
 				Ice.cpp \
 				Cure.cpp \
+				ICharacter.cpp \
 				Character.cpp \
+				IMateriaSource.cpp \
 				MateriaSource.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
