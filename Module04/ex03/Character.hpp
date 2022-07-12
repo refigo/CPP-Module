@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 13:47:36 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/11 15:42:01 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 16:48:36 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 #include "AMateria.hpp"
 
 #define MAX_INVEN_MTRL_SLOTS 4
+#define CHARAC_DFLT_NAME "character"
 
 class Character : public ICharacter {
  private:
   AMateria* inven_mtrl_[MAX_INVEN_MTRL_SLOTS];
   std::string name_;
 
-  Character(void);
-
  public:
   Character(const std::string& name);
+  Character(void);
   Character(const Character& orig);
   Character& operator=(const Character& rhs);
   virtual ~Character(void);

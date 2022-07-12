@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 14:07:08 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/11 15:36:55 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/12 16:53:58 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ Character::Character(const std::string& name): name_(name) {
     inven_mtrl_[i] = NULL;
 }
 
-Character::Character(const Character& orig): name_(orig.name_) {
-  for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i) {
-    if (orig.inven_mtrl_[i]) {
-      inven_mtrl_[i] = orig.inven_mtrl_[i]->clone();
-    } else {
-      inven_mtrl_[i] = NULL;
-    }
-  }
+Character::Character(void): name_(CHARAC_DFLT_NAME) {
+  for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+    inven_mtrl_[i] = NULL;
+}
+
+Character::Character(const Character& orig): name_(CHARAC_DFLT_NAME) {
+  for (int i = 0; i < MAX_INVEN_MTRL_SLOTS; ++i)
+    inven_mtrl_[i] = NULL;
+  *this = orig;
 }
 
 Character& Character::operator=(const Character& rhs) {
