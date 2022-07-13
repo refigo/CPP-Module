@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 16:21:30 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/13 16:55:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ class Bureaucrat {
   int grade_;
 
   Bureaucrat(void);
-  Bureaucrat(const Bureaucrat& orig);
-  Bureaucrat& operator=(const Bureaucrat& rhs);
+  Bureaucrat(const Bureaucrat&);
+  Bureaucrat& operator=(const Bureaucrat&);
 };
 
 std::ostream& operator<<(std::ostream& ostrm, const Bureaucrat& brcrt);
