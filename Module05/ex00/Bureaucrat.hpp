@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/12 19:05:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/13 10:11:48 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <exception>
 #include <iostream>
 
-#define BRCRT_DFLT_NAME "Bureaucrat"
 #define BRCRT_HIGHEST_GRADE 1
 #define BRCRT_LOWEST_GRADE 150
 
@@ -24,17 +23,14 @@ class Bureaucrat {
  public:
   class GradeTooHighException : public std::exception {
    public:
-    const char* what(void) const throw(); // todo: learn
+    const char* what(void) const throw();
   };
   class GradeTooLowException : public std::exception {
    public:
-    const char* what(void) const throw(); // todo: learn
+    const char* what(void) const throw();
   };
 
   Bureaucrat(const std::string& name, const int grade);
-  Bureaucrat(void);
-  Bureaucrat(const Bureaucrat& orig);
-  Bureaucrat& operator=(const Bureaucrat& rhs);
   ~Bureaucrat(void);
 
   void incrementGrade(void);
@@ -46,6 +42,10 @@ class Bureaucrat {
  private:
   const std::string name_;
   int grade_;
+
+  Bureaucrat(void);
+  Bureaucrat(const Bureaucrat& orig);
+  Bureaucrat& operator=(const Bureaucrat& rhs);
 };
 
 std::ostream& operator<<(std::ostream& ostrm, const Bureaucrat& brcrt);
