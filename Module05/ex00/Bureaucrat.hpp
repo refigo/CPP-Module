@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 10:11:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/13 16:21:30 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ class Bureaucrat {
   Bureaucrat(const std::string& name, const int grade);
   ~Bureaucrat(void);
 
-  void incrementGrade(void);
-  void decrementGrade(void);
-
   const std::string& getName(void) const;
   int getGrade(void) const;
+
+  void incrementGrade(void);
+  void decrementGrade(void);
 
  private:
   const std::string name_;
