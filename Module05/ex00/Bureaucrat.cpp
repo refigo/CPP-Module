@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:24 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 16:55:04 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/13 16:56:52 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void Bureaucrat::decrementGrade(void) {
 
 Bureaucrat::Bureaucrat(void) {}
 
-Bureaucrat::Bureaucrat(const Bureaucrat& orig) {}
+Bureaucrat::Bureaucrat(const Bureaucrat&) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat&) {
   return *this;

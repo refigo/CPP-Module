@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 10:11:48 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/13 16:59:02 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 
 #define BRCRT_HIGHEST_GRADE 1
 #define BRCRT_LOWEST_GRADE 150
+
+class Form;
 
 class Bureaucrat {
  public:
@@ -33,19 +35,21 @@ class Bureaucrat {
   Bureaucrat(const std::string& name, const int grade);
   ~Bureaucrat(void);
 
+  const std::string& getName(void) const;
+  int getGrade(void) const;
+
   void incrementGrade(void);
   void decrementGrade(void);
 
-  const std::string& getName(void) const;
-  int getGrade(void) const;
+  void signForm(Form& form) const;
 
  private:
   const std::string name_;
   int grade_;
 
   Bureaucrat(void);
-  Bureaucrat(const Bureaucrat& orig);
-  Bureaucrat& operator=(const Bureaucrat& rhs);
+  Bureaucrat(const Bureaucrat&);
+  Bureaucrat& operator=(const Bureaucrat&);
 };
 
 std::ostream& operator<<(std::ostream& ostrm, const Bureaucrat& brcrt);
