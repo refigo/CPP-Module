@@ -13,11 +13,11 @@
 #include "Form.hpp"
 
 const char* Form::GradeTooHighException::what(void) const throw() {
-  return "The grade is too high!";
+  return "the grade is too high!";
 }
 
 const char* Form::GradeTooLowException::what(void) const throw() {
-  return "The grade is too low!";
+  return "the grade is too low!";
 }
 
 Form::Form(const std::string& name, int grade_sign, int grade_exec)
@@ -52,7 +52,7 @@ int Form::getGradeExec(void) const {
   return grade_exec_;
 }
 
-void Form::beSigned(Bureaucrat& brcrt) {
+void Form::beSigned(const Bureaucrat& brcrt) {
   if (brcrt.getGrade() > grade_sign_) {
     throw GradeTooLowException();
   } else {
@@ -65,6 +65,12 @@ Form& Form::operator=(const Form&) {
 }
 
 std::ostream& operator<<(std::ostream& ostrm, const Form& form) {
-  ostrm << form.getName();
+  ostrm << "Form's informations \n\tname: [" << form.getName() \
+    << std::boolalpha 
+    << "], \n\tis signed: [" << form.getSigned() \
+    << std::noboolalpha 
+    << "], \n\tgrade required to sign it: ["<< form.getGradeSign() \
+    << "], \n\tgrade required to execute it: ["<< form.getGradeExec() \
+    << "].\n";
   return ostrm;
 }

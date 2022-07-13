@@ -71,6 +71,5 @@ static void testPlace(void) {
 
 int main(void) {
   testPlace();
-  //system("leaks bureaucrat");
   return 0;
 }

@@ -36,7 +36,7 @@ class Form {
   int getGradeSign(void) const;
   int getGradeExec(void) const;
 
-  void beSigned(Bureaucrat& brcrt);
+  void beSigned(const Bureaucrat& brcrt);
 
  private:
   const std::string name_;
