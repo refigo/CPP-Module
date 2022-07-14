@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:46:43 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 16:52:26 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/14 17:11:57 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ class Form {
   int getGradeExec(void) const;
 
   void beSigned(const Bureaucrat& brcrt);
+  virtual void execute(const Bureaucrat& brcrt) const = 0; // added!
 
  private:
   const std::string name_;
