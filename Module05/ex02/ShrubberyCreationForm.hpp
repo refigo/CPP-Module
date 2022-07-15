@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:44:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/14 17:20:59 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 14:29:33 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SHRUBBERY_CREATION_FORM_HPP
 
 #include "Form.hpp"
-#include "fstream.hpp"
+#include <fstream>
 
 #define SCF_NAME "ShrubberyCreationForm"
 #define SCF_GRADE_SIGN 145
