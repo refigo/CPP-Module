@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:44:08 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/14 10:45:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 12:25:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,16 @@
 class RobotomyRequestForm : public Form {
  public:
   RobotomyRequestForm(const std::string& target);
-  ~RobotomyRequestForm(void);
+  virtual ~RobotomyRequestForm(void);
+
+  void execute(const Bureaucrat& brcrt) const;
 
  private:
- 
+  const std::string target_;
+
+  RobotomyRequestForm(void);
+  RobotomyRequestForm(const RobotomyRequestForm&);
+  RobotomyRequestForm& operator=(const RobotomyRequestForm&);
 };
 
 #endif
