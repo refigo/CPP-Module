@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 14:55:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 15:22:44 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 15:58:50 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void RobotomyRequestForm::execute(const Bureaucrat& brcrt) const {
   if (std::rand() % 2) {
     std::cout << target_ << " has been robotomized successfully!\n";
   } else {
-    std::cout << "failed to robotomize " << target_ << "...\n";
+    std::cout << target_ << " failed to be robotomized...\n";
   }
 }
 

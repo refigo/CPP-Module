@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 15:24:54 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 15:26:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 16:02:14 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void) {}
 
 void PresidentialPardonForm::execute(const Bureaucrat& brcrt) const {
   checkExecutable(brcrt);
-  std::cout << target_ << " has been pardoned by Zaphod Beeblebrox\n";
+  std::cout << target_ << " has been pardoned by Zaphod Beeblebrox.\n";
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(\
