@@ -15,8 +15,17 @@
 
 #include "Form.hpp"
 
-class RobotomyRequestForm : public Form {
+#define RRF_NAME "RobotomyRequestForm"
+#define RRF_GRADE_SIGN 72
+#define RRF_GRADE_EXEC 45
 
+class RobotomyRequestForm : public Form {
+ public:
+  RobotomyRequestForm(const std::string& target);
+  ~RobotomyRequestForm(void);
+
+ private:
+ 
 };
 
 #endif
