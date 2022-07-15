@@ -6,80 +6,50 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:17:31 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 16:03:56 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 17:28:55 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
+
+static void printAndCleanPform(Form** ppform) {
+  Form* pform;
+
+  pform = *ppform;
+  if (pform) {
+    std::cout << *pform << '\n';
+    delete pform;
+    *ppform = NULL;
+  }
+}
 
 static void testPlace(void) {
   std::cout << std::endl;
 
-  // testing ShrubberyCreationForm
-  std::cout << "<Start testing ShrubberyCreationForm>\n";
+  // testing Intern
+  std::cout << "<Start testing Intern>\n";
   {
-    ShrubberyCreationForm scf("garden");
-    Bureaucrat snr("senior", 1);
-    Bureaucrat jnr("junior", 150);
-
-    std::cout << scf;
-    jnr.executeForm(scf);
-    snr.executeForm(scf);
-    snr.signForm(scf);
-    jnr.executeForm(scf);
-    snr.executeForm(scf);
+    Form* pform;
+    Intern someone;
+    
+    pform = someone.makeForm("shruberry creation", "garden");
+    printAndCleanPform(&pform);
+    pform = someone.makeForm("robotomy request", "factory");
+    printAndCleanPform(&pform);
+    pform = someone.makeForm("presidential pardon", "mgo");
+    printAndCleanPform(&pform);
+    pform = someone.makeForm("outer teleporting", "mgo");
+    printAndCleanPform(&pform);
   }
-  std::cout << "<Done testing ShrubberyCreationForm>\n";
-
-  std::cout << std::endl;
-
-  // testing RobotomyRequestForm
-  std::cout << "<Start testing RobotomyRequestForm>\n";
-  {
-    RobotomyRequestForm rrf("factory");
-    Bureaucrat snr("senior", 1);
-    Bureaucrat jnr("junior", 150);
-
-    std::cout << rrf;
-    jnr.executeForm(rrf);
-    snr.executeForm(rrf);
-    snr.signForm(rrf);
-    jnr.executeForm(rrf);
-    snr.executeForm(rrf);
-    std::cout << '\n';
-    for (int i = 0; i < 10; ++i) {
-      snr.executeForm(rrf);
-      std::cout << '\n';
-    }
-  }
-  std::cout << "<Done testing RobotomyRequestForm>\n";
-
-  std::cout << std::endl;
-
-  // testing PresidentialPardonForm
-  std::cout << "<Start testing PresidentialPardonForm>\n";
-  {
-    PresidentialPardonForm ppf("mgo");
-    Bureaucrat snr("senior", 1);
-    Bureaucrat jnr("junior", 150);
-
-    std::cout << ppf;
-    jnr.executeForm(ppf);
-    snr.executeForm(ppf);
-    snr.signForm(ppf);
-    jnr.executeForm(ppf);
-    snr.executeForm(ppf);
-  }
-  std::cout << "<Done testing PresidentialPardonForm>\n";
+  std::cout << "<Done testing Intern>\n";
 
   std::cout << std::endl;
 }
 
 int main(void) {
   testPlace();
+  system("leaks a.out");
   return 0;
 }

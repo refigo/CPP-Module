@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 09:23:07 by mgo               #+#    #+#              #
-#    Updated: 2022/07/15 15:28:32 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/15 17:03:37 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRC			=	main.cpp \
 				Form.cpp \
 				ShrubberyCreationForm.cpp \
 				RobotomyRequestForm.cpp \
-				PresidentialPardonForm.cpp
+				PresidentialPardonForm.cpp \
+				Intern.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp
