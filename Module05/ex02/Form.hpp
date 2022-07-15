@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:46:43 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 13:46:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 14:31:46 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ class Form {
   class NotSignedException : public std::exception {
    public:
     const char* what(void) const throw();
-  }
+  };
 
   Form(const std::string& name, int grade_sign, int grade_exec);
-  ~Form();
+  virtual ~Form();
 
   const std::string& getName(void) const;
   bool getSigned(void) const;
@@ -42,7 +42,7 @@ class Form {
 
   void beSigned(const Bureaucrat& brcrt);
 
-  void isExecutable(const Bureaucrat& brcrt) const;
+  void checkExecutable(const Bureaucrat& brcrt) const;
   virtual void execute(const Bureaucrat& brcrt) const = 0;
 
  private:

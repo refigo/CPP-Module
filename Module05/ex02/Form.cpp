@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:28:45 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 13:46:26 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 14:32:02 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ const char* Form::GradeTooLowException::what(void) const throw() {
   return "the grade is too low!";
 }
 
-const char* Form::FormNotSignedException::what(void) const throw() {
+const char* Form::NotSignedException::what(void) const throw() {
   return "the form is not signed!";
 }
 
@@ -64,7 +64,7 @@ void Form::beSigned(const Bureaucrat& brcrt) {
   }
 }
 
-void Form::isExecutable(const Bureaucrat& brcrt) {
+void Form::checkExecutable(const Bureaucrat& brcrt) const {
   if (signed_ == false) {
     throw NotSignedException();
   }
