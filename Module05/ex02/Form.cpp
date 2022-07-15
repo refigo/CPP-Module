@@ -6,22 +6,22 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:28:45 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 14:32:02 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 15:46:08 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 const char* Form::GradeTooHighException::what(void) const throw() {
-  return "the grade is too high!";
+  return "the grade is too high";
 }
 
 const char* Form::GradeTooLowException::what(void) const throw() {
-  return "the grade is too low!";
+  return "the grade is too low";
 }
 
 const char* Form::NotSignedException::what(void) const throw() {
-  return "the form is not signed!";
+  return "the form is not signed";
 }
 
 Form::Form(const std::string& name, int grade_sign, int grade_exec)
@@ -65,11 +65,11 @@ void Form::beSigned(const Bureaucrat& brcrt) {
 }
 
 void Form::checkExecutable(const Bureaucrat& brcrt) const {
-  if (signed_ == false) {
-    throw NotSignedException();
-  }
   if (brcrt.getGrade() > grade_exec_) {
     throw GradeTooLowException();
+  }
+  if (signed_ == false) {
+    throw NotSignedException();
   }
 }
 

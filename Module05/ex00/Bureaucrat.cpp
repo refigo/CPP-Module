@@ -6,18 +6,18 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:24 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 16:56:52 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 15:22:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 const char* Bureaucrat::GradeTooHighException::what(void) const throw() {
-  return "The bureaucrat grade is too high!";
+  return "the bureaucrat grade is too high";
 }
 
 const char* Bureaucrat::GradeTooLowException::what(void) const throw() {
-  return "The bureaucrat grade is too low!";
+  return "the bureaucrat grade is too low";
 }
 
 Bureaucrat::Bureaucrat(const std::string& name, const int grade)

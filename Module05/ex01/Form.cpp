@@ -6,18 +6,18 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 16:28:45 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 16:54:15 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 15:21:40 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 const char* Form::GradeTooHighException::what(void) const throw() {
-  return "the grade is too high!";
+  return "the grade is too high";
 }
 
 const char* Form::GradeTooLowException::what(void) const throw() {
-  return "the grade is too low!";
+  return "the grade is too low";
 }
 
 Form::Form(const std::string& name, int grade_sign, int grade_exec)
