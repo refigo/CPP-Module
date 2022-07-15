@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 12:46:43 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 14:31:46 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 17:50:16 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@ class Form {
   };
 
   Form(const std::string& name, int grade_sign, int grade_exec);
+  Form(const std::string& name, int grade_sign, int grade_exec, \
+        const std::string& target);
   virtual ~Form();
 
   const std::string& getName(void) const;
   bool getSigned(void) const;
   int getGradeSign(void) const;
   int getGradeExec(void) const;
+  const std::string& getTarget(void) const;
 
   void beSigned(const Bureaucrat& brcrt);
 
@@ -50,6 +53,7 @@ class Form {
   bool signed_;
   const int grade_sign_;
   const int grade_exec_;
+  const std::string target_;
 
   Form(void);
   Form(const Form&);
