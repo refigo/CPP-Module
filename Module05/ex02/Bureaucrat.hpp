@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:23 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 16:59:02 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 14:50:53 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ class Bureaucrat {
   void decrementGrade(void);
 
   void signForm(Form& form) const;
+  void executeForm(const Form& form) const;
 
  private:
   const std::string name_;

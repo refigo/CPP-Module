@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/12 18:05:24 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/13 17:08:17 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 14:36:44 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,16 @@ void Bureaucrat::signForm(Form& form) const {
     std::cout << name_ << " signed " << form.getName() << ".\n";
   } catch (std::exception& e) {
     std::cerr << name_ << " couldn't sign " << form.getName() \
+      << " because " << e.what() << ".\n";
+  }
+}
+
+void Bureaucrat::executeForm(const Form& form) const {
+  try {
+    form.execute(*this);
+    std::cout << name_ << " executed " << form.getName() << ".\n";
+  } catch (std::exception& e) {
+    std::cerr << name_ << " couldn't execute " << form.getName() \
       << " because " << e.what() << ".\n";
   }
 }
