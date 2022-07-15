@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:42:35 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/14 10:45:14 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 13:52:38 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,23 @@
 
 #include "Form.hpp"
 
-class PresidentialPardonForm : public Form {
+#define PPF_NAME "PresidentialPardonForm"
+#define PPF_GRADE_SIGN 25
+#define PPF_GRADE_EXEC 5
 
+class PresidentialPardonForm : public Form {
+  public:
+  PresidentialPardonForm(const std::string& target);
+  virtual ~PresidentialPardonForm(void);
+
+  void execute(const Bureaucrat& brcrt) const;
+
+ private:
+  const std::string target_;
+
+  PresidentialPardonForm(void);
+  PresidentialPardonForm(const PresidentialPardonForm&);
+  PresidentialPardonForm& operator=(const PresidentialPardonForm&);
 };
 
 #endif
