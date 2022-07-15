@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:50:31 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 14:40:30 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 14:55:54 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ void ShrubberyCreationForm::execute(const Bureaucrat& brcrt) const {
   } else {
     std::cerr << "failed to create " << target_ << "_shrubbery" << "...\n";
   }
+}
+
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(\
+  const ShrubberyCreationForm&) {
+  return *this;
 }
