@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 16:36:20 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 17:08:10 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 17:33:31 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ Intern::~Intern(void) {};
 Form* Intern::makeForm(const std::string& form_name, 
                       const std::string& form_target) {
   std::string form_names[INTRN_FORM_NUM] = { 
-                                        INTRN_SCF_NAME,
-                                        INTRN_RRF_NAME,
-                                        INTRN_PPF_NAME 
-                                      };
+                                            INTRN_SCF_NAME,
+                                            INTRN_RRF_NAME,
+                                            INTRN_PPF_NAME 
+                                           };
   for (int i = 0; i < INTRN_FORM_NUM; ++i) {
     if (form_names[i] == form_name) {
       std::cout << "Intern creates " << form_name << '\n';

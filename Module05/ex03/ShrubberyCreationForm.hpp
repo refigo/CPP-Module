@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 10:44:55 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/15 14:29:33 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/15 17:48:47 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ class ShrubberyCreationForm : public Form {
   void execute(const Bureaucrat& brcrt) const;
 
  private:
-  const std::string target_;
-
   ShrubberyCreationForm(void);
   ShrubberyCreationForm(const ShrubberyCreationForm&);
   ShrubberyCreationForm& operator=(const ShrubberyCreationForm&);
