@@ -6,7 +6,7 @@
 #    By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/07 09:23:07 by mgo               #+#    #+#              #
-#    Updated: 2022/07/18 09:15:31 by mgo              ###   ########.fr        #
+#    Updated: 2022/07/19 18:02:13 by mgo              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ rm			=	rm -f
 INC			=	-I./
 
 SRC			=	main.cpp \
-				Bureaucrat.cpp
+				Scalar.cpp
 OBJ			=	$(SRC:.cpp=.o)
 
 %.o		:	%.cpp
