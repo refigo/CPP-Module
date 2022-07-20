@@ -6,14 +6,15 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 10:52:26 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 13:14:07 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Scalar.hpp"
 
-#include <cctype> // isspace()
-#include <cmath>  // isnan(), isinf()
+#include <cctype>   // isspace()
+#include <cmath>    // isnan(), isinf()
+#include <iomanip>  // setprecision()
 
 Scalar::Scalar(const std::string& rawstr)
   : rawstr_(rawstr), 
@@ -35,17 +36,18 @@ Scalar::Scalar(const std::string& rawstr)
   
 }
 
+// todo
 Scalar::Scalar(const Scalar& orig) {
   (void)orig;
 }
 
+// todo
 Scalar& Scalar::operator=(const Scalar& rhs) {
   (void)rhs;
   return *this;
 }
 
 Scalar::~Scalar(void) {}
-
 
 const std::string& Scalar::getRawstr(void) const {
   return rawstr_;
@@ -111,10 +113,14 @@ void Scalar::printValueAsFloat(void) const {
   } else if (std::isinf(asfloat)) {
     std::cout << std::showpos << asfloat << std::noshowpos;
   } else {
+    std::cout << std::fixed;
+    if (asfloat == static_cast<int64_t>(asfloat)) {
+      std::cout << std::setprecision(1);
+    }
     std::cout << asfloat;
+    std::cout << std::setprecision(6);
   }
-  std::cout << 'f';
-  std::cout << '\n';
+  std::cout << "f\n";
 }
 
 void Scalar::printValueAsDouble(void) const {
