@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 17:02:41 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 17:20:32 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Scalar::Scalar(const std::string& rawstr)
     err_ = true;
   }
   if ((rawstr_[0] == '-' || rawstr_[0] == '+') 
-    && (std::isdigit(rawstr_[1]) == false)) {
+  && (std::isdigit(rawstr_[1]) == false)) {
     err_ = true;
   }
 }
@@ -80,7 +80,7 @@ void Scalar::printValueAsChar(void) const {
   
   std::cout << "char: ";
   if (err_ == true || std::isnan(value_) 
-    || (value_ < CHAR_MIN) || (CHAR_MAX < value_)) {
+  || (value_ < CHAR_MIN) || (CHAR_MAX < value_)) {
     std::cout << SCLR_IMPSSBL << '\n';
   } else if (std::isprint(aschar)) {
     std::cout << '\'' << aschar << '\'' << '\n';
@@ -100,7 +100,7 @@ void Scalar::printValueAsInt(void) const {
   if (std::isnan(value_) || std::isinf(getValueAsFloat())) {
     std::cout << SCLR_IMPSSBL << '\n';
   } else if ((asint == INT_MIN) 
-          && (roundf(getValueAsFloat()) != static_cast<float>(asint))) {
+  && (roundf(getValueAsFloat()) != static_cast<float>(asint))) {
     std::cout << SCLR_IMPSSBL << '\n';
   } else {
     std::cout << asint << '\n';
@@ -157,7 +157,7 @@ void Scalar::printAll(void) const {
 Scalar::Scalar(void) {}
 
 std::ostream& operator<<(std::ostream& ostrm, const Scalar& sclr) {
-  ostrm << "<Sclar>\n"
+  ostrm << "<Scalar>\n"
         << "\trawstr_: [" << sclr.getRawstr() << "]\n"
         << "\tvalue_: [" << sclr.getValue() << "]\n"
         << "\tis_error_: [" << sclr.getErrorIs() << "]\n";
