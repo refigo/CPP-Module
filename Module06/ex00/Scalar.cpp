@@ -6,15 +6,11 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 13:51:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 17:02:41 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Scalar.hpp"
-
-#include <cctype>   // isspace()
-#include <cmath>    // isnan(), isinf()
-#include <iomanip>  // setprecision()
 
 Scalar::Scalar(const std::string& rawstr)
   : rawstr_(rawstr), 
@@ -23,20 +19,29 @@ Scalar::Scalar(const std::string& rawstr)
   char* str_endp = NULL;
   value_ = std::strtod(rawstr_.c_str(), &str_endp);
   if ((value_ == 0.0) 
-    && (std::isdigit(rawstr_[0]) == false)
-    && (rawstr_[0] != '-') && (rawstr_[0] != '+')) { // consider..
+  && (std::isdigit(rawstr_[0]) == false)
+  && (rawstr_[0] != '-') && (rawstr_[0] != '+')) {
     err_ = true;
-  } 
+  }
+  if ((rawstr_[0] == '-' || rawstr_[0] == '+') 
+    && (std::isdigit(rawstr_[1]) == false)) {
+    err_ = true;
+  }
 }
 
-// todo
-Scalar::Scalar(const Scalar& orig) {
-  (void)orig;
+Scalar::Scalar(const Scalar& orig) 
+  : rawstr_(NULL), 
+    value_(0.0), 
+    err_(false) {
+  *this = orig;
 }
 
-// todo
 Scalar& Scalar::operator=(const Scalar& rhs) {
-  (void)rhs;
+  if (this != &rhs) {
+    const_cast<std::string&>(rawstr_) = rhs.rawstr_;
+    value_ = rhs.value_;
+    err_ = rhs.err_;
+  }
   return *this;
 }
 
@@ -118,8 +123,6 @@ void Scalar::printValueAsFloat(void) const {
       std::cout << std::setprecision(1);
     }
     std::cout << asfloat;
-    std::cout << std::scientific;
-    std::cout << std::setprecision(6);
   }
   std::cout << "f\n";
 }
@@ -140,8 +143,6 @@ void Scalar::printValueAsDouble(void) const {
       std::cout << std::setprecision(1);
     }
     std::cout << asdouble;
-    std::cout << std::scientific;
-    std::cout << std::setprecision(6);
   }
   std::cout << '\n';
 }
