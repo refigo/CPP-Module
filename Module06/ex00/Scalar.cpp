@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 17:20:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 18:45:17 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ void Scalar::printValueAsFloat(void) const {
       std::cout << std::setprecision(1);
     }
     std::cout << asfloat;
+    std::cout.unsetf(std::ios_base::floatfield);
+    std::cout << std::setprecision(6);
   }
   std::cout << "f\n";
 }
@@ -143,6 +145,8 @@ void Scalar::printValueAsDouble(void) const {
       std::cout << std::setprecision(1);
     }
     std::cout << asdouble;
+    std::cout.unsetf(std::ios_base::floatfield);
+    std::cout << std::setprecision(6);
   }
   std::cout << '\n';
 }
