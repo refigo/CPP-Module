@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 13:14:07 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 13:24:30 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,16 +108,15 @@ void Scalar::printValueAsFloat(void) const {
   float asfloat = getValueAsFloat();
 
   std::cout << "float: ";
-  if (std::isnan(value_)) {
-    std::cout << asfloat;
-  } else if (std::isinf(asfloat)) {
+  if (std::isinf(asfloat)) {
     std::cout << std::showpos << asfloat << std::noshowpos;
   } else {
-    std::cout << std::fixed;
     if (asfloat == static_cast<int64_t>(asfloat)) {
+      std::cout << std::fixed;
       std::cout << std::setprecision(1);
     }
     std::cout << asfloat;
+    std::cout << std::scientific;
     std::cout << std::setprecision(6);
   }
   std::cout << "f\n";
@@ -130,7 +129,13 @@ void Scalar::printValueAsDouble(void) const {
   if (std::isinf(asdouble)) {
     std::cout << std::showpos << asdouble << std::noshowpos;
   } else {
+    if (asdouble == static_cast<int64_t>(asdouble)) {
+      std::cout << std::fixed;
+      std::cout << std::setprecision(1);
+    }
     std::cout << asdouble;
+    std::cout << std::scientific;
+    std::cout << std::setprecision(6);
   }
   std::cout << '\n';
 }
