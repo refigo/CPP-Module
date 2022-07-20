@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 13:24:30 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 13:51:32 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,11 @@ Scalar::Scalar(const std::string& rawstr)
     err_(false) {
   char* str_endp = NULL;
   value_ = std::strtod(rawstr_.c_str(), &str_endp);
-  /*
-  if (value_ == 0.0 && rawstr_[0] != '-' && rawstr_[0] != '+' 
-    && !std::isdigit(rawstr_[0])) {
-    std::cout << "shit...\n";
+  if ((value_ == 0.0) 
+    && (std::isdigit(rawstr_[0]) == false)
+    && (rawstr_[0] != '-') && (rawstr_[0] != '+')) { // consider..
     err_ = true;
-  }
-  */
-  if (errno == ERANGE) {
-    std::cout << "ERANGE...\n";
-    err_ = true;
-  }
-  
+  } 
 }
 
 // todo
@@ -81,7 +74,8 @@ void Scalar::printValueAsChar(void) const {
   char aschar = getValueAsChar();
   
   std::cout << "char: ";
-  if (err_ == true || std::isnan(value_)) { // is err_ necessary?
+  if (err_ == true || std::isnan(value_) 
+    || (value_ < CHAR_MIN) || (CHAR_MAX < value_)) {
     std::cout << SCLR_IMPSSBL << '\n';
   } else if (std::isprint(aschar)) {
     std::cout << '\'' << aschar << '\'' << '\n';
@@ -94,6 +88,10 @@ void Scalar::printValueAsInt(void) const {
   int asint = getValueAsInt();
 
   std::cout << "int: ";
+  if (err_) {
+    std::cout << SCLR_IMPSSBL << '\n';
+    return ;
+  }
   if (std::isnan(value_) || std::isinf(getValueAsFloat())) {
     std::cout << SCLR_IMPSSBL << '\n';
   } else if ((asint == INT_MIN) 
@@ -108,6 +106,10 @@ void Scalar::printValueAsFloat(void) const {
   float asfloat = getValueAsFloat();
 
   std::cout << "float: ";
+  if (err_) {
+    std::cout << SCLR_IMPSSBL << '\n';
+    return ;
+  }
   if (std::isinf(asfloat)) {
     std::cout << std::showpos << asfloat << std::noshowpos;
   } else {
@@ -126,6 +128,10 @@ void Scalar::printValueAsDouble(void) const {
   double asdouble = getValueAsFloat();
 
   std::cout << "double: ";
+  if (err_) {
+    std::cout << SCLR_IMPSSBL << '\n';
+    return ;
+  }
   if (std::isinf(asdouble)) {
     std::cout << std::showpos << asdouble << std::noshowpos;
   } else {
