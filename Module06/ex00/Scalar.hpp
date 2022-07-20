@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:39:46 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/19 18:40:07 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 09:09:17 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class Scalar {
   void printValueAsInt(void) const;
   void printValueAsFloat(void) const;
   void printValueAsDouble(void) const;
+
+  void printAll(void) const;
 
  private:
   const std::string rawstr_;

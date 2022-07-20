@@ -6,13 +6,14 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/19 18:45:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/20 09:28:48 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Scalar.hpp"
 
 #include <cctype> // isspace()
+#include <cmath>  // isnan()
 
 Scalar::Scalar(const std::string& rawstr)
   : rawstr_(rawstr), 
@@ -26,11 +27,12 @@ Scalar::Scalar(const std::string& rawstr)
     std::cout << "shit...\n";
     err_ = true;
   }
+  */
   if (errno == ERANGE) {
     std::cout << "ERANGE...\n";
     err_ = true;
   }
-  */
+  
 }
 
 Scalar::Scalar(const Scalar& orig) {
@@ -77,23 +79,36 @@ void Scalar::printValueAsChar(void) const {
   char as_char = getValueAsChar();
   
   std::cout << "char: ";
-  if (err_ == true)
+  if (err_ == true || std::isnan(value_)) { // is err_ necessary?
     std::cout << SCLR_IMPSSBL << '\n';
-  else if (std::isprint(as_char))
+  } else if (std::isprint(as_char)) {
     std::cout << '\'' << as_char << '\'' << '\n';
-  else
+  } else {
     std::cout << SCLR_NON_DSPLYBL << '\n';
+  }
 }
 
 void Scalar::printValueAsInt(void) const {
+  int as_int = getValueAsInt();
 
+  std::cout << "int: ";
+  if (std::isnan(value_)) {
+    std::cout << SCLR_IMPSSBL << '\n';
+  } else {
+    std::cout << as_int << '\n';
+  }
+  // non displ?
 }
 
 void Scalar::printValueAsFloat(void) const {
-
+  
 }
 
 void Scalar::printValueAsDouble(void) const {
+
+}
+
+void Scalar::printAll(void) const {
 
 }
 
@@ -105,10 +120,13 @@ std::ostream& operator<<(std::ostream& ostrm, const Scalar& sclr) {
         << "\tvalue_: [" << sclr.getValue() << "]\n"
         << "\tis_error_: [" << sclr.getErrorIs() << "]\n";
   ostrm << std::endl;
+  /* 
   ostrm << "\tchar: [" << sclr.getValueAsChar() << "]\n"
         << "\tint: [" << sclr.getValueAsInt() << "]\n"
         << "\tfloat: [" << sclr.getValueAsFloat() << "]\n"
         << "\tdouble: [" << sclr.getValueAsDouble() << "]\n";
+  */
   sclr.printValueAsChar();
+  sclr.printValueAsInt();
   return ostrm;
 }
