@@ -6,14 +6,13 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:08:08 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/25 16:30:09 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/25 16:51:30 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 #define EASYFIND_HPP
 
-#include <exception> // coonsider
 #include <algorithm>
 
 template <typename T>
