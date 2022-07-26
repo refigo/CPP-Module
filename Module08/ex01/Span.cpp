@@ -6,13 +6,12 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 10:46:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/26 17:20:32 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/26 19:13:14 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
-#include <climits> // UINT_MAX
-
+#include <climits>
 #include <iostream>
 
 Span::Span(void) 
@@ -48,7 +47,7 @@ unsigned int Span::shortestSpan(void) const {
     throw NotEnoughSizeException();
   }
   unsigned int ret(UINT_MAX);
-  std::multiset<int>::const_iterator it(data_.begin());
+  std::multiset<int>::iterator it(data_.begin());
 
   while (std::next(it, 1) != data_.end()) {
     unsigned int curr_span(0);
