@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:08:08 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/25 16:51:30 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/26 12:56:44 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 template <typename T>
 typename T::iterator easyfind(T& container, int value) {
-  return (std::find(container.begin(), container.end(), value));
+  return std::find(container.begin(), container.end(), value);
 }
 
 #endif
