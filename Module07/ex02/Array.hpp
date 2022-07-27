@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:49:30 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/27 18:19:35 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/27 18:29:10 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Array {
     if (this != &rhs) {
       length_ = rhs.length_;
       delete[] data_;
+      data_ = NULL;
       data_ = new T[length_];
       for (unsigned int i = 0; i < length_; ++i) {
         data_[i] = rhs.data_[i];
