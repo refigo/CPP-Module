@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 18:09:04 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/26 19:28:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/27 12:18:20 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,8 @@ class MutantStack : public std::stack<T> {
  public:
   typedef typename std::stack<T>::container_type::iterator 
     iterator;
-  typedef typename std::stack<T>::container_type::const_iterator 
-    const_iterator;
   typedef typename std::stack<T>::container_type::reverse_iterator 
     reverse_iterator;
-  typedef typename std::stack<T>::container_type::const_reverse_iterator 
-    const_reverse_iterator;
   
   MutantStack(void) : std::stack<T>() {};
   MutantStack(const MutantStack& orig) : std::stack<T>(orig) {};
