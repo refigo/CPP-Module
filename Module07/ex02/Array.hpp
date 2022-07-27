@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:49:30 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/25 14:02:09 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/27 18:19:35 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ class Array {
   }
 
   T& operator[](unsigned int index) {
+    if (index >= length_) {
+      throw std::out_of_range("Index is out of range!");
+    }
+    return data_[index];
+  }
+
+  const T& operator[](unsigned int index) const {
     if (index >= length_) {
       throw std::out_of_range("Index is out of range!");
     }

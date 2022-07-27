@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 11:50:26 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/25 14:40:39 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/27 18:26:41 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 void testPlace(void) {
   std::cout << std::endl;
-
-  // testing various type
-  // testing default constructor
-  // testing constructor with an unsigned int
-  // testing copy constructor and deep copy
 
   // testing Array<int>
   std::cout << "----- Start testing Array<int> -----\n";
@@ -47,12 +42,14 @@ void testPlace(void) {
 
     std::cout << std::endl;
 
-    Array<int> testing_cpy(testing_ui);
+    const Array<int> testing_cpy(testing_ui);
     testing_ui.printElems();
     testing_cpy.printElems();
-    testing_cpy[testing_cpy.size() - 1] = 8;
+    testing_ui[testing_ui.size() - 1] = 8;
     testing_ui.printElems();
     testing_cpy.printElems();
+    std::cout << "const operator[last_index] -> " 
+              << testing_cpy[testing_cpy.size() - 1] << '\n';
     
     try {
       testing_ui[testing_ui.size()] = 1;
@@ -91,12 +88,14 @@ void testPlace(void) {
 
     std::cout << std::endl;
 
-    Array<double> testing_cpy(testing_ui);
+    const Array<double> testing_cpy(testing_ui);
     testing_ui.printElems();
     testing_cpy.printElems();
-    testing_cpy[testing_cpy.size() - 1] = 8.9;
+    testing_ui[testing_ui.size() - 1] = 8.9;
     testing_ui.printElems();
     testing_cpy.printElems();
+    std::cout << "const operator[last_index] -> " 
+              << testing_cpy[testing_cpy.size() - 1] << '\n';
     
     try {
       testing_ui[testing_ui.size()] = 1.2;
@@ -135,12 +134,14 @@ void testPlace(void) {
 
     std::cout << std::endl;
 
-    Array<std::string> testing_cpy(testing_ui);
+    const Array<std::string> testing_cpy(testing_ui);
     testing_ui.printElems();
     testing_cpy.printElems();
-    testing_cpy[testing_cpy.size() - 1] = "Module08";
+    testing_ui[testing_ui.size() - 1] = "Module08";
     testing_ui.printElems();
     testing_cpy.printElems();
+    std::cout << "const operator[last_index] -> " 
+              << testing_cpy[testing_cpy.size() - 1] << '\n';
     
     try {
       testing_ui[testing_ui.size()] = "ft_containers";
