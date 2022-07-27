@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 10:46:48 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/26 19:13:14 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/27 18:15:09 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,11 @@ unsigned int Span::longestSpan(void) const {
 
 unsigned int Span::getMaxsize(void) const {
   return maxsize_;
+}
+
+const char* Span::NotEnoughSpaceException::what(void) const throw() {
+  return "Not enough space";
+}
+const char* Span::NotEnoughSizeException::what(void) const throw() {
+  return "Not enough size";
 }

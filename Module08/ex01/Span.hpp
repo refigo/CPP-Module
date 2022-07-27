@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 10:35:05 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/26 17:24:00 by mgo              ###   ########.fr       */
+/*   Updated: 2022/07/27 18:15:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,11 @@ class Span {
 
   class NotEnoughSpaceException : public std::exception {
    public:
-    const char* what(void) const throw() {
-      return "Not enough space";
-    }
+    const char* what(void) const throw();
   };
   class NotEnoughSizeException : public std::exception {
    public:
-    const char* what(void) const throw() {
-      return "Not enough size";
-    }
+    const char* what(void) const throw();
   };
 };
 
