@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:18:02 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 17:05:15 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/01 13:14:33 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void convertToScalar(char *arg) {
 
 int main(int argc, char **argv) {
   if (argc != 2) {
-    std::cout << "./convert [ string to convert ]\n";
+    std::cerr << "./convert [ string to convert ]\n";
     return 1;
   }
   convertToScalar(argv[1]);
