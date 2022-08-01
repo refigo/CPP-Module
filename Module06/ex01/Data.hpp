@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 14:42:12 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/19 15:32:06 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/01 10:19:23 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,9 @@
 #include <string>
 #include <iostream>
 
-#define DATA_DFLT_NAME "data"
-
-class Data {
- public:
-  Data(const std::string& name);
-  Data(void);
-  Data(const Data& orig);
-  Data& operator=(const Data& rhs);
-  ~Data(void);
-
-  const std::string& getName(void) const;
-  const Data* getThisPtr(void) const;
-
- private:
-  std::string name_;
-};
+typedef struct s_data {
+  std::string name;
+}              Data;
 
 std::ostream& operator<<(std::ostream& ostrm, const Data& data);
 
