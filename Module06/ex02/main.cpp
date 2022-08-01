@@ -6,15 +6,15 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:42:09 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/19 16:35:12 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/01 10:37:16 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BaseABC.hpp"
-#include <cstdlib>  // srand()
-#include <ctime>    // time()
+#include <cstdlib>
+#include <ctime>
 
-int	main(void) {
+void testPlace(void) {
   std::srand(std::time(NULL));
   for (int i = 0; i < 10; ++i) {
     Base *what = generate();
@@ -25,5 +25,10 @@ int	main(void) {
     std::cout << std::endl;
     delete what;
   }
+}
+
+int	main(void) {
+  testPlace();
+  system("leaks a.out");
   return (0);
 }
