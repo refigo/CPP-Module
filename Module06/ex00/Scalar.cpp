@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/08/01 14:30:08 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/01 14:41:27 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,13 @@ Scalar::Scalar(const std::string& rawstr)
   value_ = std::strtod(rawstr_.c_str(), &str_endp);
   if (value_ == 0.0) {
     if ((rawstr_[0] != '-') && (rawstr_[0] != '+')
-    && std::isdigit(rawstr_[0]) == false) {
+    && (std::isdigit(rawstr_[0]) == false)) {
       err_ = true;
     } else if ((rawstr_[0] == '-' || rawstr_[0] == '+') 
     && (std::isdigit(rawstr_[1]) == false)) {
       err_ = true;
     }
   }
-  /*
-  if ((value_ == 0.0)  && (str_endp == rawstr.c_str()))
-    err_ = true; // -inf nan +inf // 000dfsjfdk
-  */
 }
 
 Scalar::Scalar(const Scalar& orig) 
