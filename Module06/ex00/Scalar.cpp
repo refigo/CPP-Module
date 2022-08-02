@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 17:18:01 by mgo               #+#    #+#             */
-/*   Updated: 2022/08/02 11:07:50 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/02 11:15:15 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,6 @@ void Scalar::printValueAsFloat(void) const {
     std::cout << std::showpos << asfloat << std::noshowpos;
   } else {
     if (asfloat == static_cast<int64_t>(asfloat)) {
-    //if (asfloat == roundf(asfloat)) {
       std::cout << std::fixed;
       std::cout << std::setprecision(1);
     } else {
@@ -144,7 +143,6 @@ void Scalar::printValueAsDouble(void) const {
     std::cout << std::showpos << asdouble << std::noshowpos;
   } else {
     if (asdouble == static_cast<int64_t>(asdouble)) {
-    //if (asdouble == round(asdouble)) {
       std::cout << std::fixed;
       std::cout << std::setprecision(1);
     } else {
