@@ -6,17 +6,17 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:39:46 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/20 17:02:26 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/02 10:52:13 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALAR_HPP
 # define SCALAR_HPP
 
-#include <iostream>
 #include <cctype>
 #include <cmath>
 #include <iomanip>
+#include <iostream>
 
 #define SCLR_IMPSSBL "impossible"
 #define SCLR_NON_DSPLYBL "Non displayable"
