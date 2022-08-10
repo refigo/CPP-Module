@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 09:49:15 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/25 10:42:49 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/10 17:27:06 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 
 template <typename T>
-void iter(T* arr, std::size_t len, void (*func)(T&)) {
+void iter(T* arr, std::size_t len, void (*func)(const T&)) {
   for (std::size_t i = 0; i < len; ++i) {
     func(arr[i]);
   }
