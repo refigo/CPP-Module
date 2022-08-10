@@ -6,7 +6,7 @@
 /*   By: mgo <mgo@student.42seoul.kr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 18:09:26 by mgo               #+#    #+#             */
-/*   Updated: 2022/07/27 14:09:14 by mgo              ###   ########.fr       */
+/*   Updated: 2022/08/10 19:28:31 by mgo              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,6 @@ void testPlace(void) {
     std::cout << "mstackc top: [" << mstackc.top() << "]\n";
     mstackc.pop();
     std::cout << "mstackc top after pop: [" << mstackc.top() << "]\n";
-    MutantStack<char> toswap;
-    mstackc.swap(toswap);
-    std::cout << "mstackc size after swap: [" << mstackc.size() << "]\n";
-    std::cout << "toswap size after swap: [" << toswap.size() << "]\n";
   }
   std::cout << "<Done basic stack member fucntions>\n";
 
